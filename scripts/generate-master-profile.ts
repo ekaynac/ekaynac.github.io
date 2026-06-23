@@ -18,12 +18,14 @@ export function renderMasterProfile(data: ProfileData): string {
   lines.push("");
 
   lines.push("## Summary");
+  lines.push("");
   lines.push(profile.summary);
   lines.push("");
   lines.push(`**Languages:** ${profile.languages.map((l) => `${l.name} (${l.level})`).join(", ")}`);
   lines.push("");
 
   lines.push("## Experience");
+  lines.push("");
   for (const e of experience) {
     lines.push(`### ${e.role} — ${e.org}`);
     lines.push(`${fmt(e.start)} – ${fmt(e.end)} · ${e.location} · ${e.employmentType}`);
@@ -33,6 +35,7 @@ export function renderMasterProfile(data: ProfileData): string {
   }
 
   lines.push("## Projects");
+  lines.push("");
   for (const p of projects) {
     const tag = p.featured ? " ⭐" : p.private ? " (private)" : "";
     const link = p.links.repo ? ` — ${p.links.repo}` : "";
@@ -45,24 +48,29 @@ export function renderMasterProfile(data: ProfileData): string {
   }
 
   lines.push("## Education");
+  lines.push("");
   for (const ed of education) {
     lines.push(`- **${ed.credential}**, ${ed.org} (${fmt(ed.start)} – ${fmt(ed.end)})${ed.note ? ` — ${ed.note}` : ""}`);
   }
   lines.push("");
 
   lines.push("## Skills");
+  lines.push("");
   for (const s of skills) lines.push(`- **${s.category}:** ${s.items.join(", ")}`);
   lines.push("");
 
   lines.push("## Certifications");
+  lines.push("");
   for (const c of certifications) lines.push(`- **${c.title}** — ${c.issuer} (${fmt(c.date)})`);
   lines.push("");
 
   lines.push("## Publications");
+  lines.push("");
   for (const pub of publications) lines.push(`- ${pub.authors} (${pub.year}). **${pub.title}.** ${pub.venue}.${pub.details ? ` ${pub.details}` : ""}`);
   lines.push("");
 
   lines.push("## Leadership & Creative");
+  lines.push("");
   for (const l of leadership) {
     lines.push(`### ${l.role} — ${l.org} (${l.category})`);
     lines.push(`${fmt(l.start)} – ${fmt(l.end)}`);

@@ -13,6 +13,7 @@ describe("experience data", () => {
     expect(current[0].employmentType).toBe("full-time");
     expect(current[0].start).toBe("2026-05-18");
     expect(current[0].end).toBe("present");
+    expect(current[0].role).toBe("AI / Software Engineer");
   });
   it("includes the Mia internship with the 100/100 evaluation highlight", () => {
     const mia = experience.find((e) => e.org === "Mia Teknoloji");

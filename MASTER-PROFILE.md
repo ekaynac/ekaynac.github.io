@@ -5,11 +5,13 @@ tensorenes@gmail.com · https://github.com/ekaynac · https://www.linkedin.com/i
 > Generated from the content dataset. Do not edit by hand — edit `content/*.ts` and run `npm run generate:profile`.
 
 ## Summary
+
 AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and computer-vision systems backed by production microservices and modern web and mobile front-ends. Bilkent University Information Systems graduate (2026), currently building on-prem AI platforms and computer-vision systems at Mega Bilgisayar.
 
 **Languages:** Turkish (Native), English (C1), German (Beginner)
 
 ## Experience
+
 ### AI / Software Engineer — Mega Bilgisayar
 2026-05-18 – Present · Ankara, Türkiye · full-time
 - Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment (BukaUI) and MCP-based portal agents for internal workflows.
@@ -43,6 +45,7 @@ _Tech:_ YOLOv5, TensorRT, Jetson Xavier, OpenCV, Python
 _Tech:_ YOLOv5, TensorRT, Jetson Xavier, Python
 
 ## Projects
+
 ### SIMS — Smart Inventory Management System ⭐
 10-microservice inventory platform with an MCP-powered AI assistant (graduation project). — https://github.com/sims-1/sims
 Architected a 10-microservice platform (PHP/Laravel, Node.js/Fastify, Python/FastAPI, React/TypeScript) with per-service MySQL databases, a Redis event bus, and an Nginx API gateway. Added RS256 JWT auth with RBAC, auto-generated OpenAPI docs, correlation-ID tracing, and CI/CD with GitHub Actions, plus an AI chat assistant with tool execution via the Model Context Protocol (MCP) supporting OpenAI and Anthropic LLMs.
@@ -97,26 +100,31 @@ A mobile app that streamlines fanzine submission and editorial review and builds
 _Tech:_ Kotlin, Android, Firebase, Firestore
 
 ## Education
+
 - **B.Sc. in Information Systems and Technologies**, Bilkent University (2022-08 – 2026-06) — Graduated June 2026, CGPA 3.08/4.00; Honour standing in multiple semesters.
 - **Erasmus Exchange Student**, FH Upper Austria, Hagenberg Campus (2024-10 – 2025-02)
 - **B.Sc. in Electrical-Electronics Engineering (transferred)**, Middle East Technical University (METU) (2018-09 – 2021-06) — Transferred to Bilkent University.
 
 ## Skills
+
 - **Languages:** Python, TypeScript, JavaScript, PHP, Java, C, Dart, Kotlin
 - **AI & ML:** LLM Pipelines, RAG, Function Calling, Agents, MCP, Transformers, Embeddings, DSPy, TensorFlow, PyTorch, OpenCV, TensorRT, YOLOv5
 - **Web & Mobile:** React, Next.js, React Native (Expo), Node.js, Express, Fastify, FastAPI, Laravel, Socket.io, Tailwind CSS, Vite
 - **Infrastructure & Tools:** Docker, Kubernetes (EKS), Nginx, MySQL, MongoDB, Redis, RabbitMQ, GitHub Actions, Git, Supabase, Vercel, LDAP/OIDC, Casbin
 
 ## Certifications
+
 - **Deep Learning Specialization** — DeepLearning.AI (2020-05)
 - **Machine Learning** — Stanford University (Online) (2023-08)
 - **CCNA: Introduction to Networks** — Cisco (2024-01)
 - **SolidWorks (Basic Level)** — ABKTEKNİK (2018-11)
 
 ## Publications
+
 - Alp, E., Kaynakcı, E., et al. (2022). **Automatic Calculation of Hallux Valgus Angle.** ICAT — International Conference on Advanced Technologies. Vol. 10, pp. 222–225. In partnership with SBÜ Gülhane Training & Research Hospital and Gazi University.
 
 ## Leadership & Creative
+
 ### Founder — Bilkent Game Development & Animation Society (leadership)
 2023-01 – Present
 - Founded the university's first game development society; organized the inaugural Bilkent Game Jam (50+ participants).
