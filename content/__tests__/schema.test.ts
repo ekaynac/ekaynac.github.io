@@ -11,6 +11,7 @@ describe("schema", () => {
     expect(dateRef.safeParse("2026-05").success).toBe(true);
     expect(dateRef.safeParse("2026-05-18").success).toBe(true);
     expect(dateRef.safeParse("present").success).toBe(true);
+    expect(dateRef.safeParse("2026").success).toBe(true);
     expect(dateRef.safeParse("May 2026").success).toBe(false);
   });
 
