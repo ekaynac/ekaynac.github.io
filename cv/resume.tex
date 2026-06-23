@@ -1,0 +1,127 @@
+\documentclass[letterpaper,10pt]{article}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{fontspec}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeSubheading}[4]{\vspace{-2pt}\item
+  \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\small #2} \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-7pt}}
+\newcommand{\resumeProjectHeading}[2]{\item
+  \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \small#1 & \textbf{\small #2}\\
+  \end{tabular*}\vspace{-7pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Enes Kaynakcı} \\ \vspace{2pt}
+    \small AI / Software Engineer \\ \vspace{2pt}
+    \small Ankara, Türkiye ~\textbar~ \href{mailto:tensorenes@gmail.com}{\underline{tensorenes@gmail.com}} ~\textbar~
+    \href{https://www.linkedin.com/in/enes-kaynakci/}{\underline{linkedin.com/in/enes-kaynakci}} ~\textbar~
+    \href{https://github.com/ekaynac}{\underline{github.com/ekaynac}}
+\end{center}
+
+\section{Summary}
+\small{AI-leaning full-stack engineer building LLM and agent pipelines and computer-vision systems on production microservices and modern web and mobile stacks. Bilkent University Information Systems graduate (2026).}
+\vspace{-4pt}
+
+\section{Experience}
+\resumeSubHeadingListStart
+\resumeSubheading{Mega Bilgisayar}{May 2026 -- Present}{AI / Software Engineer}{Ankara, Türkiye}
+\resumeItemListStart
+\resumeItem{Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment (BukaUI) and MCP-based portal agents for internal workflows.}
+\resumeItem{Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.}
+\resumeItem{Developed computer-vision industrial-safety systems (PPE/vest detection) on Advantech edge hardware using YOLO.}
+\resumeItemListEnd
+\resumeSubheading{Mia Teknoloji}{Feb 2025 -- Jul 2025}{AI Intern, AI R\&D}{Ankara, Türkiye}
+\resumeItemListStart
+\resumeItem{Engineered end-to-end LLM agent pipelines using RAG, function calling, transformers, and embedding models.}
+\resumeItem{Delivered a production SQL-generation pipeline with a 3-tier fallback mechanism using OpenWebUI and local LLMs.}
+\resumeItem{Built a Turkish translation pipeline integrating Zemberek morphology for improved contextual accuracy.}
+\resumeItemListEnd
+\resumeSubheading{Mega Bilgisayar}{Jun 2024 -- Aug 2024}{AI Solutions Team}{Ankara, Türkiye}
+\resumeItemListStart
+\resumeItem{Developed and deployed an industrial safety system using YOLOv5 and OpenCV on NVIDIA Jetson with TensorRT optimization.}
+\resumeItemListEnd
+\resumeSubheading{Meturone (Fixed-wing UAV Team)}{Sep 2021 -- Sep 2023}{Computer Vision Team Member}{Ankara, Türkiye}
+\resumeItemListStart
+\resumeItem{Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception.}
+\resumeItem{Curated and published an \textasciitilde{}11,500-image (8,815 train / 2,650 validation) UAV detection dataset for open-source use.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-8pt}
+
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeProjectHeading{\textbf{SIMS — Smart Inventory Management System} $|$ \emph{PHP, Laravel, Node.js, Fastify, Python, FastAPI}}{\href{https://github.com/sims-1/sims}{\underline{Code}}}
+\resumeItemListStart
+\resumeItem{10-microservice inventory platform with an MCP-powered AI assistant (graduation project).}
+\resumeItem{10 microservices across 4 languages with per-service databases and a Redis event bus.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{LLMDAP — LLM Directory-bound Access Protection} $|$ \emph{TypeScript, Node.js, Casbin, LDAP/Active Directory, OIDC, AES-256-GCM}}{\href{https://github.com/ekaynac/LLMDAP}{\underline{Code}}}
+\resumeItemListStart
+\resumeItem{Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.}
+\resumeItem{On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Etch-A-Chat} $|$ \emph{React Native, Expo, Skia, Socket.io, MongoDB, Redis}}{\href{https://github.com/ekaynac/EtchaMessage}{\underline{Code}}}
+\resumeItemListStart
+\resumeItem{Privacy-focused real-time vector-drawing messenger.}
+\resumeItem{Live collaborative vector canvas over Socket.io.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-8pt}
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=-2pt]
+\small{\item{\textbf{Languages:} Python, TypeScript, JavaScript, PHP, Java, C, Dart, Kotlin}}
+\small{\item{\textbf{AI \& ML:} LLM Pipelines, RAG, Function Calling, Agents, MCP, Transformers, Embeddings, DSPy, TensorFlow, PyTorch, OpenCV, TensorRT, YOLOv5}}
+\small{\item{\textbf{Web \& Mobile:} React, Next.js, React Native (Expo), Node.js, Express, Fastify, FastAPI, Laravel, Socket.io, Tailwind CSS, Vite}}
+\small{\item{\textbf{Infrastructure \& Tools:} Docker, Kubernetes (EKS), Nginx, MySQL, MongoDB, Redis, RabbitMQ, GitHub Actions, Git, Supabase, Vercel, LDAP/OIDC, Casbin}}
+\end{itemize}
+\vspace{-10pt}
+
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading{Bilkent University}{Aug 2022 -- Jun 2026}{B.Sc. in Information Systems and Technologies}{Ankara, Türkiye}
+\resumeSubheading{FH Upper Austria, Hagenberg Campus}{Oct 2024 -- Feb 2025}{Erasmus Exchange Student}{Hagenberg, Austria}
+\resumeSubheading{Middle East Technical University (METU)}{Sep 2018 -- Jun 2021}{B.Sc. in Electrical-Electronics Engineering (transferred)}{Ankara, Türkiye}
+\resumeSubHeadingListEnd
+\vspace{-8pt}
+
+\section{Certifications \& Awards}
+\small{Deep Learning Specialization (DeepLearning.AI), Stanford Machine Learning; 2nd Place — 18th METU Robotics Days (Autonomous UAV CV, 2022); Teknofest UAV Finalist (2021 \& 2022).}
+\vspace{-4pt}
+
+\section{Leadership \& Interests}
+\small{Founder, Bilkent Game Development \& Animation Society; President, Bilkent Literature Society; founding poetry editor at Polemik Yayınları; published poet (Uyandı Uyudu, 2024).}
+\vspace{-4pt}
+
+\end{document}
