@@ -1,0 +1,38 @@
+name: Build CV
+
+on:
+  push:
+    paths:
+      - "content/**"
+      - "cv/**"
+      - "scripts/**"
+      - "package.json"
+      - ".github/workflows/cv.yml"
+  workflow_dispatch:
+
+jobs:
+  build-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - run: npm test
+      - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build CV
+        run: npm run build:cv
+      - name: Verify single page
+        run: |
+          sudo apt-get update && sudo apt-get install -y poppler-utils
+          pages=$(pdfinfo public/cv.pdf | awk '/Pages/ {print $2}')
+          echo "pages=$pages"
+          test "$pages" = "1"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cv-pdf
+          path: public/cv.pdf
