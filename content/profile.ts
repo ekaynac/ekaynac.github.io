@@ -13,7 +13,7 @@ export const profile: Profile = {
     website: "https://ekaynac.github.io",
   },
   summary:
-    "AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and computer-vision systems backed by production microservices and modern web and mobile front-ends. Bilkent University Information Systems graduate (2026), currently building on-prem AI platforms and computer-vision systems at Mega Bilgisayar.",
+    "AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and computer-vision systems backed by production microservices and modern web and mobile front-ends. Bilkent University Information Systems graduate (2026), currently building on-prem AI platforms, computer-vision and LLM systems at Mega Bilgisayar.",
   languages: [
     { name: "Turkish", level: "Native" },
     { name: "English", level: "C1" },

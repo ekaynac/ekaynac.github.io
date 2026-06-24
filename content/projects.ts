@@ -14,11 +14,11 @@ export const projects: Project[] = [
       "React", "TypeScript", "MySQL", "Redis", "Nginx", "MCP",
       "Docker", "GitHub Actions",
     ],
-    links: { repo: "https://github.com/sims-1/sims" },
+    links: {},
     start: "2025-09",
     end: "2026-06",
     featured: true,
-    private: false,
+    private: true,
     highlights: [
       "10 microservices across 4 languages with per-service databases and a Redis event bus.",
       "MCP-based AI assistant executing tools against the live system.",
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     name: "Teknofest SİHA Dataset",
     oneLiner: "Open-source ~11,500-image UAV detection dataset (Teknofest 2022).",
     description:
-      "An open-source aerial-vehicle detection dataset (8,815 training / 2,650 validation images) curated from flight footage and published in YOLOv5 format for the Teknofest 2022 Combat UAV competition.",
+      "An open-source aerial-vehicle detection dataset (8,815 training / 2,650 validation images) curated from flight footage and published in YOLOv5 format for the Teknofest 2022 Combat UAV competition, by Meturone's OTUS UCAV subteam.",
     role: "Curator",
     tech: ["YOLOv5", "Computer Vision", "Dataset"],
     links: { repo: "https://github.com/ekaynac/Teknofest-SIHA-dataset" },

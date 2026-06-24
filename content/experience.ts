@@ -10,9 +10,9 @@ export const experience: Experience[] = [
     current: true,
     employmentType: "full-time",
     highlights: [
-      "Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment (BukaUI) and MCP-based portal agents for internal workflows.",
+      "Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.",
       "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
-      "Developed computer-vision industrial-safety systems (PPE/vest detection) on Advantech edge hardware using YOLO.",
+      "R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.",
       "Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard.",
     ],
     tech: [
@@ -41,12 +41,12 @@ export const experience: Experience[] = [
   },
   {
     org: "Mega Bilgisayar",
-    role: "AI Solutions Team",
+    role: "AI Solutions Team Intern",
     location: "Ankara, Türkiye",
     start: "2024-06",
     end: "2024-08",
     current: false,
-    employmentType: "part-time",
+    employmentType: "internship",
     highlights: [
       "Developed and deployed an industrial safety system using YOLOv5 and OpenCV on NVIDIA Jetson with TensorRT optimization.",
     ],

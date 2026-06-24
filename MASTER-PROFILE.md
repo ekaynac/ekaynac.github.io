@@ -6,7 +6,7 @@ tensorenes@gmail.com · https://github.com/ekaynac · https://www.linkedin.com/i
 
 ## Summary
 
-AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and computer-vision systems backed by production microservices and modern web and mobile front-ends. Bilkent University Information Systems graduate (2026), currently building on-prem AI platforms and computer-vision systems at Mega Bilgisayar.
+AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and computer-vision systems backed by production microservices and modern web and mobile front-ends. Bilkent University Information Systems graduate (2026), currently building on-prem AI platforms, computer-vision and LLM systems at Mega Bilgisayar.
 
 **Languages:** Turkish (Native), English (C1), German (Beginner)
 
@@ -14,9 +14,9 @@ AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and
 
 ### AI / Software Engineer — Mega Bilgisayar
 2026-05-18 – Present · Ankara, Türkiye · full-time
-- Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment (BukaUI) and MCP-based portal agents for internal workflows.
+- Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.
 - Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
-- Developed computer-vision industrial-safety systems (PPE/vest detection) on Advantech edge hardware using YOLO.
+- R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.
 - Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard.
 _Tech:_ TypeScript, Python, LLMs, RAG, MCP, Casbin, LDAP/OIDC, YOLO, Docker, GitHub Actions
 
@@ -28,8 +28,8 @@ _Tech:_ TypeScript, Python, LLMs, RAG, MCP, Casbin, LDAP/OIDC, YOLO, Docker, Git
 - Received a 100/100 internship evaluation (all competencies rated Excellent) and was nominated for the company's Best Internship award.
 _Tech:_ Python, RAG, Function Calling, Transformers, Embeddings, OpenWebUI, Zemberek, Local LLMs
 
-### AI Solutions Team — Mega Bilgisayar
-2024-06 – 2024-08 · Ankara, Türkiye · part-time
+### AI Solutions Team Intern — Mega Bilgisayar
+2024-06 – 2024-08 · Ankara, Türkiye · internship
 - Developed and deployed an industrial safety system using YOLOv5 and OpenCV on NVIDIA Jetson with TensorRT optimization.
 _Tech:_ YOLOv5, OpenCV, NVIDIA Jetson, TensorRT, Python
 
@@ -47,7 +47,7 @@ _Tech:_ YOLOv5, TensorRT, Jetson Xavier, Python
 ## Projects
 
 ### SIMS — Smart Inventory Management System ⭐
-10-microservice inventory platform with an MCP-powered AI assistant (graduation project). — https://github.com/sims-1/sims
+10-microservice inventory platform with an MCP-powered AI assistant (graduation project).
 Architected a 10-microservice platform (PHP/Laravel, Node.js/Fastify, Python/FastAPI, React/TypeScript) with per-service MySQL databases, a Redis event bus, and an Nginx API gateway. Added RS256 JWT auth with RBAC, auto-generated OpenAPI docs, correlation-ID tracing, and CI/CD with GitHub Actions, plus an AI chat assistant with tool execution via the Model Context Protocol (MCP) supporting OpenAI and Anthropic LLMs.
 - 10 microservices across 4 languages with per-service databases and a Redis event bus.
 - MCP-based AI assistant executing tools against the live system.
@@ -91,7 +91,7 @@ _Tech:_ Python, YOLOv5, OpenCV, Jupyter
 
 ### Teknofest SİHA Dataset
 Open-source ~11,500-image UAV detection dataset (Teknofest 2022). — https://github.com/ekaynac/Teknofest-SIHA-dataset
-An open-source aerial-vehicle detection dataset (8,815 training / 2,650 validation images) curated from flight footage and published in YOLOv5 format for the Teknofest 2022 Combat UAV competition.
+An open-source aerial-vehicle detection dataset (8,815 training / 2,650 validation images) curated from flight footage and published in YOLOv5 format for the Teknofest 2022 Combat UAV competition, by Meturone's OTUS UCAV subteam.
 _Tech:_ YOLOv5, Computer Vision, Dataset
 
 ### FanzinApp (private)
