@@ -31,4 +31,15 @@ describe("renderReadme", () => {
   it("throws on an unknown project slug", () => {
     expect(() => renderReadme(profileData, { ...readmeConfig, projects: ["nope"] })).toThrow(/project not found/);
   });
+  it("never links a private project, even if it has a repo URL", () => {
+    const data = {
+      ...profileData,
+      projects: profileData.projects.map((p) =>
+        p.slug === "sims" ? { ...p, private: true, links: { repo: "https://github.com/fake/private-sims" } } : p,
+      ),
+    };
+    const out = renderReadme(data, readmeConfig);
+    expect(out).toContain("_(private)_");
+    expect(out).not.toContain("github.com/fake/private-sims");
+  });
 });

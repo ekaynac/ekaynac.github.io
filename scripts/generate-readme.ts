@@ -32,7 +32,7 @@ export function renderReadme(data: ProfileData, config: ReadmeConfig): string {
   lines.push("## What I'm working on", "");
   for (const slug of config.projects) {
     const pr = findProject(data, slug);
-    const name = pr.links.repo ? `[${pr.name}](${pr.links.repo})` : pr.name;
+    const name = !pr.private && pr.links.repo ? `[${pr.name}](${pr.links.repo})` : pr.name;
     const priv = pr.private ? " _(private)_" : "";
     lines.push(`- **${name}**${priv} — ${pr.oneLiner}`);
   }
