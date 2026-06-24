@@ -109,7 +109,7 @@ function sectionProjects(data: ProfileData, config: CvConfig): string {
   const out = [`\\section{Projects}`, `\\resumeSubHeadingListStart`];
   for (const slug of config.projects) {
     const p = findProject(data, slug);
-    const heading = `\\textbf{${esc(p.name)}} $|$ \\emph{${esc(p.tech.slice(0, 6).join(", "))}}`;
+    const heading = `\\textbf{${esc(p.name)}} $|$ \\emph{${esc(p.tech.slice(0, 4).join(", "))}}`;
     const right = p.links.repo ? `\\href{${p.links.repo}}{\\underline{Code}}` : ``;
     out.push(`\\resumeProjectHeading{${heading}}{${right}}`);
     out.push(`\\resumeItemListStart`, `\\resumeItem{${esc(p.oneLiner)}}`);
