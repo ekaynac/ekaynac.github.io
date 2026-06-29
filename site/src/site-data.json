@@ -1,0 +1,230 @@
+{
+  "profile": {
+    "name": "Enes Kaynakcı",
+    "title": "AI / Software Engineer",
+    "location": "Ankara, Türkiye",
+    "email": "tensorenes@gmail.com",
+    "links": {
+      "github": "https://github.com/ekaynac",
+      "linkedin": "https://www.linkedin.com/in/enes-kaynakci/",
+      "website": "https://ekaynac.github.io"
+    }
+  },
+  "heroPairs": [
+    {
+      "engineer": "I build systems.",
+      "poet": "I write lines."
+    },
+    {
+      "engineer": "Pipelines, models, services.",
+      "poet": "Images, rhythm, voice."
+    }
+  ],
+  "work": [
+    {
+      "slug": "llmdap",
+      "name": "LLMDAP — LLM Directory-bound Access Protection",
+      "oneLiner": "Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.",
+      "tech": [
+        "TypeScript",
+        "Node.js",
+        "Casbin",
+        "LDAP/Active Directory",
+        "OIDC",
+        "AES-256-GCM",
+        "PKCS#11",
+        "jose"
+      ],
+      "url": "https://github.com/ekaynac/LLMDAP",
+      "isPrivate": false
+    },
+    {
+      "slug": "onprem-ai-adoption-radar",
+      "name": "On-Prem AI Adoption Radar",
+      "oneLiner": "A deterministic, self-hosted radar that decides which AI/agent tools to adopt, pilot, watch, or avoid.",
+      "tech": [
+        "Python",
+        "MCP",
+        "GitHub Actions",
+        "OSV.dev",
+        "Static Site (GitHub Pages)"
+      ],
+      "url": "https://github.com/ekaynac/onprem-ai-adoption-radar",
+      "isPrivate": false
+    },
+    {
+      "slug": "sims",
+      "name": "SIMS — Smart Inventory Management System",
+      "oneLiner": "10-microservice inventory platform with an MCP-powered AI assistant (graduation project).",
+      "tech": [
+        "PHP",
+        "Laravel",
+        "Node.js",
+        "Fastify",
+        "Python",
+        "FastAPI",
+        "React",
+        "TypeScript",
+        "MySQL",
+        "Redis",
+        "Nginx",
+        "MCP",
+        "Docker",
+        "GitHub Actions"
+      ],
+      "isPrivate": true
+    },
+    {
+      "slug": "etch-a-chat",
+      "name": "Etch-A-Chat",
+      "oneLiner": "Privacy-focused real-time vector-drawing messenger.",
+      "tech": [
+        "React Native",
+        "Expo",
+        "Skia",
+        "Socket.io",
+        "MongoDB",
+        "Redis",
+        "RabbitMQ",
+        "Kubernetes",
+        "AWS EKS",
+        "pnpm",
+        "Turborepo"
+      ],
+      "url": "https://github.com/ekaynac/EtchaMessage",
+      "isPrivate": false
+    }
+  ],
+  "experience": [
+    {
+      "org": "Mega Bilgisayar",
+      "role": "AI / Software Engineer",
+      "period": "May 2026 – Present",
+      "current": true,
+      "highlights": [
+        "Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.",
+        "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
+        "R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.",
+        "Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard."
+      ]
+    },
+    {
+      "org": "Mia Teknoloji",
+      "role": "AI Intern, AI R&D",
+      "period": "Feb 2025 – Jul 2025",
+      "current": false,
+      "highlights": [
+        "Engineered end-to-end LLM agent pipelines using RAG, function calling, transformers, and embedding models.",
+        "Delivered a production SQL-generation pipeline with a 3-tier fallback mechanism using OpenWebUI and local LLMs.",
+        "Built a Turkish translation pipeline integrating Zemberek morphology for improved contextual accuracy.",
+        "Received a 100/100 internship evaluation (all competencies rated Excellent) and was nominated for the company's Best Internship award."
+      ]
+    },
+    {
+      "org": "Meturone (Fixed-wing UAV Team)",
+      "role": "Computer Vision Team Member",
+      "period": "Sep 2021 – Sep 2023",
+      "current": false,
+      "highlights": [
+        "Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception.",
+        "Curated and published an ~11,500-image (8,815 train / 2,650 validation) UAV detection dataset for open-source use."
+      ]
+    }
+  ],
+  "lines": {
+    "verse": [
+      "PLACEHOLDER: replace with 2-4 real lines of Enes's poetry."
+    ],
+    "note": "From Uyandı Uyudu (2024). Poetry editor at Polemik Yayınları."
+  },
+  "about": {
+    "paragraphs": [
+      "I'm an AI-leaning full-stack engineer who ships end to end — LLM and agent pipelines, computer-vision systems, and the production microservices and interfaces around them.",
+      "I'm also a poet: a published book, editor at an independent press, and a literature society I led. I think the two sides feed each other — both are about giving precise structure to something hard to pin down."
+    ],
+    "education": [
+      {
+        "org": "Bilkent University",
+        "credential": "B.Sc. in Information Systems and Technologies",
+        "period": "Aug 2022 – Jun 2026"
+      },
+      {
+        "org": "FH Upper Austria, Hagenberg Campus",
+        "credential": "Erasmus Exchange Student",
+        "period": "Oct 2024 – Feb 2025"
+      },
+      {
+        "org": "Middle East Technical University (METU)",
+        "credential": "B.Sc. in Electrical-Electronics Engineering (transferred)",
+        "period": "Sep 2018 – Jun 2021"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "category": "Languages",
+      "items": [
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "PHP",
+        "Java",
+        "C",
+        "Dart",
+        "Kotlin"
+      ]
+    },
+    {
+      "category": "AI & ML",
+      "items": [
+        "LLM Pipelines",
+        "RAG",
+        "Function Calling",
+        "Agents",
+        "MCP",
+        "Transformers",
+        "Embeddings",
+        "DSPy",
+        "TensorFlow",
+        "PyTorch",
+        "OpenCV",
+        "TensorRT",
+        "YOLOv5"
+      ]
+    },
+    {
+      "category": "Web & Mobile",
+      "items": [
+        "React",
+        "Next.js",
+        "React Native (Expo)",
+        "Node.js",
+        "Express",
+        "Fastify",
+        "FastAPI",
+        "Laravel",
+        "Socket.io",
+        "Tailwind CSS",
+        "Vite"
+      ]
+    },
+    {
+      "category": "Infrastructure & Tools",
+      "items": [
+        "Docker",
+        "Kubernetes (EKS)",
+        "Nginx",
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "RabbitMQ",
+        "GitHub Actions",
+        "Git",
+        "Supabase",
+        "Vercel",
+        "LDAP/OIDC",
+        "Casbin"
+      ]
+    }
+  ]
+}

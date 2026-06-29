@@ -10,6 +10,7 @@
     "generate:profile": "tsx scripts/generate-master-profile.ts",
     "generate:cv": "tsx scripts/generate-cv.ts",
     "generate:readme": "tsx scripts/generate-readme.ts",
+    "generate:site": "tsx scripts/generate-site-data.ts",
     "build:cv": "npm run generate:cv && mkdir -p public && tectonic cv/resume.tex --outdir public && mv -f public/resume.pdf public/cv.pdf"
   },
   "dependencies": {
