@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Enes Kaynakcı — AI / Software Engineer</title>
+<meta name="description" content="Enes Kaynakcı — AI / Software Engineer. LLM & agent pipelines, computer vision, and the platforms around them. Ankara, Türkiye.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06070A; --fg:#ECEEF2; --mut:#8A93A3; --line:rgba(255,255,255,.10);
+  --acc:#9AB4FF; --maxw:1120px; --pad:clamp(22px,5vw,64px);
+  --sans:"Inter",system-ui,sans-serif; --disp:"Space Grotesk",var(--sans);
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:17px; line-height:1.55;
+  -webkit-font-smoothing:antialiased; letter-spacing:-0.005em; }
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+h1,h2,h3,p,ul,figure{ margin:0; } ul{ list-style:none; padding:0; }
+a{ color:inherit; text-decoration:none; }
+::selection{ background:var(--acc); color:#06070A; }
+:focus-visible{ outline:2px solid var(--acc); outline-offset:3px; border-radius:3px; }
+
+/* the living ink — ambient, behind everything */
+#ink{ position:fixed; inset:0; z-index:0; display:block; width:100%; height:100%; }
+.scrim{ position:fixed; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(130% 80% at 50% 0%, transparent 40%, rgba(6,7,10,.55) 100%); }
+
+.wrap{ position:relative; z-index:2; max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad); }
+.skip{ position:absolute; left:14px; top:-54px; z-index:50; background:var(--fg); color:var(--bg); padding:10px 16px; border-radius:6px; transition:top .2s; }
+.skip:focus{ top:14px; }
+
+/* top bar */
+.bar{ position:sticky; top:0; z-index:10; backdrop-filter:blur(8px); background:linear-gradient(rgba(6,7,10,.72),rgba(6,7,10,0)); }
+.bar__in{ max-width:var(--maxw); margin:0 auto; padding:16px var(--pad); display:flex; justify-content:space-between; align-items:baseline; gap:18px; }
+.bar__name{ font-family:var(--disp); font-weight:600; font-size:15px; letter-spacing:.01em; }
+.bar nav{ display:flex; gap:clamp(14px,2.2vw,28px); }
+.bar nav a{ font-size:13px; color:var(--mut); } .bar nav a:hover{ color:var(--fg); }
+@media(max-width:680px){ .bar nav a:not(.cv){ display:none; } } .bar nav .cv{ color:var(--acc); }
+
+section{ padding-block:clamp(70px,12vh,140px); }
+.eyebrow{ font-family:var(--disp); font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--mut); margin-bottom:30px; }
+
+/* hero */
+.hero{ min-height:88vh; display:flex; flex-direction:column; justify-content:center; padding-block:clamp(60px,12vh,120px); }
+.hero h1{ font-family:var(--disp); font-weight:600; font-size:clamp(52px,10vw,128px); line-height:.96; letter-spacing:-0.035em; }
+.hero h1 .role{ display:block; color:var(--mut); font-weight:500; font-size:clamp(20px,3.4vw,42px); letter-spacing:-0.02em; margin-top:.25em; }
+.hero p.lead{ margin-top:clamp(26px,4vh,40px); max-width:54ch; font-size:clamp(16px,2vw,20px); color:#C4CAD6; }
+.hero .links{ margin-top:clamp(28px,4vh,42px); display:flex; gap:clamp(14px,2.6vw,28px); flex-wrap:wrap; }
+.hero .links a{ font-family:var(--disp); font-size:14px; color:var(--mut); position:relative; padding-bottom:4px; }
+.hero .links a::after{ content:""; position:absolute; left:0; bottom:0; height:1.5px; width:0; background:var(--acc); transition:width .25s; }
+.hero .links a:hover{ color:var(--fg); } .hero .links a:hover::after{ width:100%; }
+
+.h2{ font-family:var(--disp); font-weight:600; font-size:clamp(26px,4vw,44px); letter-spacing:-0.02em; margin-bottom:clamp(30px,5vh,56px); }
+
+/* work */
+.cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+@media(max-width:740px){ .cards{ grid-template-columns:1fr; } }
+.card{ background:rgba(20,23,30,.42); border:1px solid var(--line); border-radius:14px; padding:clamp(22px,3vw,32px);
+  display:flex; flex-direction:column; gap:14px; min-height:210px; transition:border-color .25s, transform .3s, background .25s; backdrop-filter:blur(3px); }
+.card:hover{ transform:translateY(-4px); border-color:rgba(154,180,255,.4); background:rgba(24,28,38,.5); }
+.card__top{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; }
+.card__t{ font-family:var(--disp); font-weight:600; font-size:clamp(20px,2.4vw,26px); letter-spacing:-0.01em; }
+.card__t small{ display:block; font-family:var(--sans); font-weight:400; font-size:13px; color:var(--mut); margin-top:6px; letter-spacing:0; }
+.card__link{ font-family:var(--disp); font-size:13px; color:var(--acc); white-space:nowrap; }
+.card__priv{ font-family:var(--disp); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--mut); border:1px solid var(--line); border-radius:999px; padding:4px 11px; white-space:nowrap; }
+.card__d{ color:#C4CAD6; font-size:15.5px; flex:1; }
+.card__tech{ display:flex; flex-wrap:wrap; gap:7px; } .card__tech li{ font-family:var(--disp); font-size:11.5px; color:var(--mut); padding:4px 10px; border:1px solid var(--line); border-radius:7px; }
+
+/* experience */
+.xp__row{ display:grid; grid-template-columns:170px 1fr; gap:clamp(16px,4vw,48px); padding-block:26px; border-top:1px solid var(--line); align-items:baseline; }
+.xp__row:last-child{ border-bottom:1px solid var(--line); }
+.xp__when{ font-family:var(--disp); font-size:13px; color:var(--mut); }
+.xp__org{ font-family:var(--disp); font-weight:600; font-size:clamp(19px,2.2vw,24px); }
+.xp__role{ color:var(--mut); font-size:15px; margin-top:4px; } .xp__role b{ color:var(--acc); font-weight:500; }
+@media(max-width:560px){ .xp__row{ grid-template-columns:1fr; gap:6px; } }
+
+/* skills */
+.skills{ display:grid; gap:18px; }
+.skills .row{ display:grid; grid-template-columns:170px 1fr; gap:clamp(16px,4vw,48px); padding-block:14px; border-top:1px solid var(--line); }
+.skills .row .k{ font-family:var(--disp); font-size:13px; color:var(--mut); letter-spacing:.04em; }
+.skills .row .v{ color:#C4CAD6; font-size:15px; }
+@media(max-width:560px){ .skills .row{ grid-template-columns:1fr; gap:4px; } }
+
+/* contact */
+.contact h2{ font-family:var(--disp); font-weight:600; font-size:clamp(32px,6.5vw,80px); letter-spacing:-0.03em; line-height:1; margin-bottom:clamp(30px,5vh,52px); }
+.clist a{ display:grid; grid-template-columns:110px 1fr auto; gap:18px; align-items:baseline; padding:18px 4px; border-top:1px solid var(--line); transition:padding-left .2s; }
+.clist a:last-child{ border-bottom:1px solid var(--line); } .clist a:hover{ padding-left:14px; }
+.clist .k{ font-family:var(--disp); font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--mut); }
+.clist .v{ font-family:var(--disp); font-size:clamp(17px,2.4vw,22px); } .clist .go{ font-family:var(--disp); color:var(--acc); opacity:0; } .clist a:hover .go{ opacity:1; }
+@media(max-width:560px){ .clist a{ grid-template-columns:1fr auto; } .clist .k{ display:none; } }
+.foot{ margin-top:48px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--disp); font-size:12px; color:var(--mut); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="ink" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="bar__in">
+    <a class="bar__name" href="#top">Enes Kaynakcı</a>
+    <nav aria-label="Sections"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a><a class="cv" href="cv.pdf">CV</a></nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" id="top">
+    <h1>Enes Kaynakcı<span class="role">AI / Software Engineer</span></h1>
+    <p class="lead">I build LLM &amp; agent pipelines, computer-vision systems, and the production platforms around them — from sovereign agent identity to ten-service architectures. Ankara, Türkiye.</p>
+    <nav class="links" aria-label="Profiles">
+      <a href="https://github.com/ekaynac" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/enes-kaynakci" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="cv.pdf">CV ↓</a>
+      <a href="mailto:tensorenes@gmail.com">Email</a>
+    </nav>
+  </section>
+
+  <section class="wrap" id="work">
+    <p class="eyebrow">Selected work</p>
+    <div class="cards">
+      <article class="card"><div class="card__top"><h3 class="card__t">LLMDAP</h3><a class="card__link" href="https://github.com/ekaynac/LLMDAP" target="_blank" rel="noopener">repo ↗</a></div>
+        <p class="card__d">Sovereign LLM-agent identity &amp; memory protection bound to AD/LDAP or OIDC — Casbin authorization, envelope encryption, tamper-evident audit.</p>
+        <ul class="card__tech"><li>TypeScript</li><li>Node.js</li><li>Casbin</li><li>LDAP</li></ul></article>
+      <article class="card"><div class="card__top"><h3 class="card__t">On-Prem AI Adoption Radar</h3><a class="card__link" href="https://github.com/ekaynac/onprem-ai-adoption-radar" target="_blank" rel="noopener">repo ↗</a></div>
+        <p class="card__d">A deterministic, self-hosted radar that scores AI/agent tooling — adopt, pilot, watch, or avoid — with an MCP server and an auto-publishing dashboard.</p>
+        <ul class="card__tech"><li>Python</li><li>MCP</li></ul></article>
+      <article class="card"><div class="card__top"><h3 class="card__t">SIMS<small>Smart Inventory Management System</small></h3><span class="card__priv">private</span></div>
+        <p class="card__d">A 10-microservice platform (PHP/Laravel, Node, Python, React) with an MCP-powered AI assistant. Graduation project.</p>
+        <ul class="card__tech"><li>PHP</li><li>Laravel</li><li>Node.js</li><li>React</li></ul></article>
+      <article class="card"><div class="card__top"><h3 class="card__t">Etch-A-Chat</h3><a class="card__link" href="https://github.com/ekaynac/EtchaMessage" target="_blank" rel="noopener">repo ↗</a></div>
+        <p class="card__d">A privacy-focused real-time vector-drawing messenger — React Native (Expo + Skia), microservices on Kubernetes.</p>
+        <ul class="card__tech"><li>React Native</li><li>Expo</li><li>Skia</li></ul></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="experience">
+    <p class="eyebrow">Experience</p>
+    <div class="xp">
+      <div class="xp__row"><div class="xp__when">May 2026 — Present</div><div><h3 class="xp__org">Mega Bilgisayar</h3><p class="xp__role">AI / Software Engineer</p></div></div>
+      <div class="xp__row"><div class="xp__when">Feb — Jul 2025</div><div><h3 class="xp__org">Mia Teknoloji</h3><p class="xp__role">AI Intern, AI R&amp;D — <b>100/100</b> internship evaluation</p></div></div>
+      <div class="xp__row"><div class="xp__when">2021 — 2023</div><div><h3 class="xp__org">Meturone</h3><p class="xp__role">Computer Vision Team — <b>Teknofest</b> UAV finalist</p></div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="skills">
+    <p class="eyebrow">Skills</p>
+    <div class="skills">
+      <div class="row"><div class="k">AI / ML</div><div class="v">LLM pipelines, RAG, function calling, agents, MCP, embeddings, OpenCV, TensorRT, YOLO</div></div>
+      <div class="row"><div class="k">Languages</div><div class="v">Python, TypeScript, PHP, Java, C, Dart, Kotlin</div></div>
+      <div class="row"><div class="k">Web / Mobile</div><div class="v">React, Next.js, React Native, Node, Fastify, FastAPI, Laravel</div></div>
+      <div class="row"><div class="k">Infrastructure</div><div class="v">Docker, Kubernetes, Redis, RabbitMQ, MySQL, MongoDB, GitHub Actions, LDAP/OIDC</div></div>
+    </div>
+  </section>
+
+  <section class="wrap contact" id="contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Let’s build something.</h2>
+    <div class="clist">
+      <a href="mailto:tensorenes@gmail.com"><span class="k">Email</span><span class="v">tensorenes@gmail.com</span><span class="go">↗</span></a>
+      <a href="https://github.com/ekaynac" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">github.com/ekaynac</span><span class="go">↗</span></a>
+      <a href="https://www.linkedin.com/in/enes-kaynakci" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/enes-kaynakci</span><span class="go">↗</span></a>
+    </div>
+    <div class="foot"><span>© 2026 Enes Kaynakcı — Ankara, Türkiye</span><span id="fps">·</span></div>
+  </section>
+</main>
+
+<script>
+/* ───────────────────────────────────────────────────────────────────────────
+   Living ink — a procedural flowing-ink field (WebGL fragment shader).
+   Ambient: slow drift; the cursor stirs and blooms the ink. Graceful fallback.
+   ─────────────────────────────────────────────────────────────────────────── */
+(function(){
+  var canvas = document.getElementById('ink');
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!gl){ document.body.style.background = '#06070A'; return; }   // no-WebGL fallback
+
+  var vsrc = 'attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }';
+  var fsrc = [
+'precision highp float;',
+'uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse; uniform float uAmt;',
+'float hash(vec2 p){ p=fract(p*vec2(123.34,345.45)); p+=dot(p,p+34.345); return fract(p.x*p.y); }',
+'float noise(vec2 p){ vec2 i=floor(p), f=fract(p); vec2 u=f*f*(3.-2.*f);',
+'  float a=hash(i), b=hash(i+vec2(1,0)), c=hash(i+vec2(0,1)), d=hash(i+vec2(1,1));',
+'  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y); }',
+'float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<6;i++){ v+=a*noise(p); p*=2.03; a*=.5; } return v; }',
+'void main(){',
+'  vec2 uv = gl_FragCoord.xy/uRes; vec2 p = uv; p.x *= uRes.x/uRes.y;',
+'  float t = uTime*0.035;',
+'  vec2 m = uMouse; m.x *= uRes.x/uRes.y;',
+'  vec2 toM = p - m; float md = dot(toM,toM);',
+'  vec2 stir = toM/(md+0.06) * uAmt * 0.10;',          // cursor swirls the field
+'  vec2 q = vec2(fbm(p*1.6 + t + stir), fbm(p*1.6 + vec2(5.2,1.3) - t + stir));',
+'  vec2 r = vec2(fbm(p*1.6 + 2.0*q + vec2(1.7,9.2) + 0.12*t), fbm(p*1.6 + 2.0*q + vec2(8.3,2.8) - 0.10*t));',
+'  float f = fbm(p*1.6 + 2.4*r);',
+'  float bloom = exp(-md*5.5) * uAmt;',
+'  float ink = smoothstep(0.28,0.92,f) + bloom*0.5;',
+'  vec3 bg = vec3(0.024,0.028,0.039);',
+'  vec3 inkc = mix(vec3(0.07,0.085,0.13), vec3(0.13,0.115,0.10), r.x);',  // cool↔warm ink
+'  vec3 col = mix(bg, inkc, clamp(ink,0.,1.)*0.92);',
+'  col += vec3(0.045,0.05,0.075)*pow(max(f-0.62,0.0),2.5);',              // faint highlights
+'  col += vec3(0.10,0.085,0.05)*bloom*0.5;',                              // warm bloom at cursor
+'  gl_FragColor = vec4(col,1.0);',
+'}'].join('\n');
+
+  function sh(type,src){ var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){ console.warn(gl.getShaderInfoLog(s)); return null; } return s; }
+  var prog=gl.createProgram(); var vs=sh(gl.VERTEX_SHADER,vsrc), fs=sh(gl.FRAGMENT_SHADER,fsrc);
+  if(!vs||!fs){ document.body.style.background='#06070A'; return; }
+  gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog); gl.useProgram(prog);
+  var buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1, 3,-1, -1,3]),gl.STATIC_DRAW);
+  var loc=gl.getAttribLocation(prog,'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  var uRes=gl.getUniformLocation(prog,'uRes'), uTime=gl.getUniformLocation(prog,'uTime'),
+      uMouse=gl.getUniformLocation(prog,'uMouse'), uAmt=gl.getUniformLocation(prog,'uAmt');
+
+  var DPR=Math.min(window.devicePixelRatio||1, 1.6);
+  function resize(){ var w=innerWidth, h=innerHeight; canvas.width=w*DPR|0; canvas.height=h*DPR|0;
+    canvas.style.width=w+'px'; canvas.style.height=h+'px'; gl.viewport(0,0,canvas.width,canvas.height); gl.uniform2f(uRes,canvas.width,canvas.height); }
+  window.addEventListener('resize',resize); resize();
+
+  var mx=0.5, my=0.55, tmx=0.5, tmy=0.55, amt=0, tAmt=0, last=0;
+  function move(x,y){ tmx=x/innerWidth; tmy=1.0-y/innerHeight; tAmt=1.0; }
+  window.addEventListener('pointermove',function(e){ move(e.clientX,e.clientY); },{passive:true});
+  window.addEventListener('pointerdown',function(e){ move(e.clientX,e.clientY); tAmt=1.4; },{passive:true});
+
+  var start=performance.now(), running=true;
+  document.addEventListener('visibilitychange',function(){ running=!document.hidden; if(running&&!reduce) requestAnimationFrame(frame); });
+  function frame(now){
+    if(!running) return;
+    var time=(now-start)/1000;
+    mx+=(tmx-mx)*0.06; my+=(tmy-my)*0.06;          // smooth follow
+    tAmt*=0.96; amt+=(tAmt-amt)*0.08;               // activity decays toward idle
+    var idle=0.16;                                   // ambient base motion even at rest
+    gl.uniform1f(uTime,time);
+    gl.uniform2f(uMouse,mx,my);
+    gl.uniform1f(uAmt, Math.max(idle, amt));
+    gl.drawArrays(gl.TRIANGLES,0,3);
+    requestAnimationFrame(frame);
+  }
+  if(reduce){ gl.uniform1f(uTime,8.0); gl.uniform2f(uMouse,0.5,0.55); gl.uniform1f(uAmt,0.16); gl.drawArrays(gl.TRIANGLES,0,3); }
+  else requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
