@@ -1,0 +1,11 @@
+:root {
+  --t: 0;
+  /* density / radius interpolate with --t */
+  --radius: calc(var(--t) * 10px);
+  --grid-line: calc(1 - var(--t));            /* engineer: visible grid, poet: faded */
+  --measure: calc(60ch + var(--t) * 12ch);
+  /* type + color tokens are layered in Task 5 (engineer vs poet faces, cool↔warm) */
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
