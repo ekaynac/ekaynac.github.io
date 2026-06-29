@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<!--
+  ===========================================================================
+  ENES KAYNAKCI — "The Duality Morph" · v2 (modern)
+  The WHOLE PAGE is a slider. Drag anywhere horizontally (or grab the seam,
+  or use the keyboard on it) to drive --t ∈ [0,1]; the entire design morphs
+  from an ENGINEER pole (Space Grotesk, cool, electric azure, structured grid)
+  to a POET pole (Fraunces, warm, amber, airy & italic). Light + dark.
+
+  TYPE      engineer  "Space Grotesk"  (var wght 300–700)
+            poet      "Fraunces"       (var opsz/wght/SOFT/WONK, real italic)
+  PALETTE   cool→warm duotone, morphed in OKLab via color-mix.
+  ACCENT    azure  oklch(58% .19 260) ≈ #2E55F2   (engineer)
+            amber  oklch(67% .15 55)  ≈ #D9722E   (poet)
+  ===========================================================================
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Enes Kaynakcı — AI / Software Engineer & Poet</title>
+<meta name="description" content="Enes Kaynakcı — AI / Software Engineer and published poet, Ankara. One page, two voices: drag to morph.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&display=swap" rel="stylesheet">
+<style>
+@property --t { syntax: "<number>"; inherits: true; initial-value: 0; }
+
+:root{
+  --t: 0;
+
+  /* ── duotone token pairs (a = engineer / b = poet) — LIGHT ── */
+  --bg-a: oklch(97.5% 0.004 250); --bg-b: oklch(96.5% 0.028 74);
+  --sf-a: oklch(94.5% 0.005 250); --sf-b: oklch(94% 0.03 70);
+  --ink-a: oklch(21% 0.02 260);   --ink-b: oklch(23% 0.03 48);
+  --mut-a: oklch(50% 0.02 260);   --mut-b: oklch(47% 0.035 52);
+  --ln-a: oklch(89% 0.008 260);   --ln-b: oklch(87% 0.03 64);
+  --acc-a: oklch(56% 0.19 262);   --acc-b: oklch(64% 0.15 52);
+  --acc-ink: oklch(99% 0 0);
+
+  /* ── working tokens (key everything off these) ── */
+  --bg:  color-mix(in oklab, var(--bg-a),  var(--bg-b)  calc(var(--t) * 100%));
+  --sf:  color-mix(in oklab, var(--sf-a),  var(--sf-b)  calc(var(--t) * 100%));
+  --ink: color-mix(in oklab, var(--ink-a), var(--ink-b) calc(var(--t) * 100%));
+  --mut: color-mix(in oklab, var(--mut-a), var(--mut-b) calc(var(--t) * 100%));
+  --ln:  color-mix(in oklab, var(--ln-a),  var(--ln-b)  calc(var(--t) * 100%));
+  --acc: color-mix(in oklab, var(--acc-a), var(--acc-b) calc(var(--t) * 100%));
+
+  /* ── morphing metrics ── */
+  --wght:    calc(450 - 55 * var(--t));
+  --track:   calc(-0.012em - 0.012em * var(--t));
+  --leading: calc(1.42 + 0.34 * var(--t));
+  --radius:  calc(2px + 16px * var(--t));
+  --grid:    calc(1 - var(--t));
+  --soft:    calc(var(--t) * 100);          /* Fraunces SOFT axis */
+  --wonk:    var(--t);                        /* Fraunces WONK axis */
+
+  --font-eng: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-poet:"Fraunces", Georgia, serif;
+  --font: var(--font-eng);
+
+  --maxw: 1180px;
+  --pad: clamp(20px, 5.5vw, 76px);
+
+  color-scheme: light dark;
+  transition: --t .34s cubic-bezier(.45,.02,.2,1);
+}
+:root.poet{ --font: var(--font-poet); }
+:root.dragging{ transition: none; }
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg-a: oklch(14.5% 0.018 262); --bg-b: oklch(13.5% 0.022 46);
+    --sf-a: oklch(19% 0.02 262);    --sf-b: oklch(18% 0.024 48);
+    --ink-a: oklch(93% 0.012 262);  --ink-b: oklch(93% 0.025 76);
+    --mut-a: oklch(66% 0.02 262);   --mut-b: oklch(64% 0.03 58);
+    --ln-a: oklch(27% 0.02 262);    --ln-b: oklch(26% 0.024 50);
+    --acc-a: oklch(68% 0.18 264);   --acc-b: oklch(73% 0.15 56);
+    --acc-ink: oklch(14% 0.02 50);
+  }
+}
+@media (prefers-reduced-motion: reduce){ :root{ transition: none; } html{ scroll-behavior: auto; } }
+
+/* ── base ── */
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font); font-weight: 400;
+  font-variation-settings: "wght" var(--wght), "opsz" 28, "SOFT" var(--soft), "WONK" var(--wonk);
+  letter-spacing: var(--track); line-height: var(--leading);
+  font-size: 17px; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+h1,h2,h3,p,ul,figure,blockquote{ margin: 0; }
+ul{ list-style: none; padding: 0; }
+a{ color: inherit; text-decoration: none; }
+::selection{ background: var(--acc); color: var(--acc-ink); }
+:focus-visible{ outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 3px; }
+
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+.serif{ font-family: var(--font-poet); }
+.mono-acc{ font-family: var(--font-eng); }
+
+/* faint engineer grid that dissolves toward poet */
+.bg-grid{
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: calc(var(--grid) * 0.5);
+  background-image:
+    linear-gradient(to right, var(--ln) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ln) 1px, transparent 1px);
+  background-size: clamp(64px, 8vw, 104px) clamp(64px, 8vw, 104px);
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 35%, transparent 100%);
+}
+
+/* ── THE FULL-PAGE SLIDER ─────────────────────────────────────────────── */
+/* invisible full-screen capture layer for "drag anywhere" */
+.dragfield{ position: fixed; inset: 0; z-index: 5; touch-action: pan-y; }
+
+/* the seam: a full-height luminous line at left:--t, with a handle */
+.seam{
+  position: fixed; top: 0; bottom: 0; left: calc(var(--t) * 100%);
+  width: 0; z-index: 40; pointer-events: none;
+  transform: translateX(-0.5px);
+}
+.seam__line{
+  position: absolute; top: 0; bottom: 0; left: 0; width: 1.5px;
+  background: linear-gradient(to bottom, transparent, var(--acc) 12%, var(--acc) 88%, transparent);
+  box-shadow: 0 0 14px color-mix(in oklab, var(--acc), transparent 55%);
+  opacity: .85;
+}
+.seam__handle{
+  position: absolute; top: 50%; left: 0; transform: translate(-50%,-50%);
+  width: 26px; height: 64px; border-radius: 999px;
+  background: color-mix(in oklab, var(--bg), transparent 8%);
+  border: 1.5px solid var(--acc); pointer-events: auto; cursor: ew-resize;
+  display: grid; place-items: center; gap: 3px; touch-action: none;
+  box-shadow: 0 6px 24px color-mix(in oklab, var(--ink), transparent 86%);
+  outline: none;
+}
+.seam__handle::before, .seam__handle::after{
+  content: ""; width: 2px; height: 16px; border-radius: 2px;
+  background: var(--acc); display: block;
+}
+.seam__handle::after{ position: absolute; transform: translateX(5px); opacity:.5; }
+.seam__handle::before{ transform: translateX(-2.5px); }
+.seam__handle:focus-visible{ box-shadow: 0 0 0 4px color-mix(in oklab, var(--acc), transparent 55%); }
+
+/* edge pole labels */
+.pole{
+  position: fixed; top: 50%; z-index: 30; pointer-events: none;
+  font-family: var(--font-eng); font-size: 12px; letter-spacing: .34em;
+  text-transform: uppercase; writing-mode: vertical-rl;
+  color: var(--mut); user-select: none;
+}
+.pole--eng{ left: clamp(8px, 1.6vw, 20px); transform: translateY(-50%) rotate(180deg); opacity: calc(.35 + .65 * var(--grid)); }
+.pole--poet{ right: clamp(8px, 1.6vw, 20px); transform: translateY(-50%); opacity: calc(.35 + .65 * var(--t)); font-family: var(--font-poet); font-style: italic; letter-spacing: .12em; text-transform: none; font-size: 15px; }
+
+/* readout */
+.readout{
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 30;
+  font-family: var(--font-eng); font-size: 11.5px; letter-spacing: .12em; color: var(--mut);
+  font-variant-numeric: tabular-nums; pointer-events: none;
+  background: color-mix(in oklab, var(--bg), transparent 25%);
+  padding: 5px 12px; border-radius: 999px; border: 1px solid color-mix(in oklab, var(--ln), transparent 30%);
+  opacity: calc(.55 + .45 * var(--grid));
+}
+
+.skip{ position: absolute; left: 12px; top: -50px; z-index: 60; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-family: var(--font-eng); font-size: 13px; transition: top .2s; }
+.skip:focus{ top: 12px; }
+
+/* ── top bar ── */
+.topbar{ position: sticky; top: 0; z-index: 20; backdrop-filter: blur(12px) saturate(1.15); background: color-mix(in oklab, var(--bg) 72%, transparent); border-bottom: 1px solid color-mix(in oklab, var(--ln), transparent calc(40% + 40% * var(--t))); }
+.topbar__in{ max-width: var(--maxw); margin: 0 auto; padding: 15px var(--pad); display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.brand{ font-family: var(--font-eng); font-size: 14px; font-weight: 600; letter-spacing: .01em; }
+.brand i{ color: var(--acc); font-style: normal; }
+.topnav{ display: flex; gap: clamp(14px, 2.4vw, 30px); }
+.topnav a{ font-family: var(--font-eng); font-size: 12px; color: var(--mut); letter-spacing: .04em; text-transform: uppercase; transition: color .2s; }
+.topnav a:hover, .topnav a:focus-visible{ color: var(--ink); }
+@media (max-width: 680px){ .topnav{ display: none; } }
+
+main{ position: relative; z-index: 10; }
+main > section{ padding-block: clamp(72px, 13vh, 150px); position: relative; }
+section + section{ border-top: 1px solid color-mix(in oklab, var(--ln), transparent calc(35% + 45% * var(--t))); }
+
+.eyebrow{ font-family: var(--font-eng); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--mut); display: flex; align-items: baseline; gap: .7em; margin-bottom: clamp(30px, 5vh, 56px); }
+.eyebrow .n{ color: var(--acc); font-weight: 600; }
+.eyebrow .n::after{ content: " ·"; color: var(--mut); }
+
+/* ── HERO ── */
+.hero{ min-height: min(92vh, 880px); display: flex; flex-direction: column; justify-content: center; padding-block: clamp(70px,14vh,130px); }
+.hero__name{ font-family: var(--font-eng); font-size: 13px; letter-spacing: .26em; text-transform: uppercase; color: var(--mut); margin-bottom: clamp(20px,4vh,38px); }
+.hero__name b{ color: var(--ink); font-weight: 600; }
+.hero__head{
+  display: grid; font-size: clamp(54px, 13.5vw, 184px); line-height: .9;
+  letter-spacing: calc(-0.03em - 0.012em * var(--t));
+  font-variation-settings: "wght" calc(560 - 200 * var(--t)), "opsz" 144, "SOFT" var(--soft), "WONK" var(--wonk);
+  margin-bottom: clamp(26px, 5vh, 50px); max-width: 14ch;
+}
+.phrase{ grid-area: 1/1; }
+.phrase--poet{ font-family: var(--font-poet); font-style: italic; }
+.no-js .phrase--poet{ display: none; }
+.js .phrase{ opacity: 0; pointer-events: none; }
+.js .phrase.on{ opacity: 1; pointer-events: auto; }
+.tok{ display: inline-block; }
+.js .phrase .tok{ opacity: 0; transform: translateY(.5em) rotate(2deg); clip-path: inset(0 0 100% 0); transition: opacity .55s cubic-bezier(.2,.7,.2,1), transform .55s cubic-bezier(.2,.7,.2,1), clip-path .55s cubic-bezier(.2,.7,.2,1); }
+.js .phrase.on .tok{ opacity: 1; transform: none; clip-path: inset(-10% 0 -10% 0); transition-delay: calc(var(--i) * 90ms); }
+.accent-word{ color: var(--acc); }
+@media (prefers-reduced-motion: reduce){ .js .phrase .tok{ transition: none; transform: none; clip-path: none; } .js .phrase:not(.on){ opacity: 0; } }
+
+.hero__sub{ font-size: clamp(15px, 1.9vw, 19px); color: var(--mut); max-width: 50ch; margin-bottom: clamp(28px,5vh,46px); }
+.hero__sub .drag-hint{ color: var(--ink); border-bottom: 1.5px solid var(--acc); padding-bottom: 1px; }
+.hero__links{ display: flex; gap: clamp(16px,3vw,34px); flex-wrap: wrap; }
+.hero__links a{ font-family: var(--font-eng); font-size: 13.5px; color: var(--mut); letter-spacing: .02em; position: relative; padding-bottom: 4px; transition: color .2s; }
+.hero__links a::after{ content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background: var(--acc); transition: width .25s ease; }
+.hero__links a:hover, .hero__links a:focus-visible{ color: var(--ink); }
+.hero__links a:hover::after, .hero__links a:focus-visible::after{ width: 100%; }
+
+/* ── WORK ── */
+.section-h{ font-size: clamp(30px, 5vw, 58px); line-height: 1.02; letter-spacing: calc(-0.02em - 0.01em*var(--t)); font-variation-settings: "wght" calc(540 - 150 * var(--t)), "opsz" 64, "SOFT" var(--soft), "WONK" var(--wonk); max-width: 20ch; margin-bottom: clamp(34px,6vh,64px); }
+.cards{ display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(10px, 1.4vw, 20px); }
+@media (max-width: 740px){ .cards{ grid-template-columns: 1fr; } }
+.card{ position: relative; background: color-mix(in oklab, var(--sf), transparent calc(20% + 30%*var(--t))); border: 1px solid var(--ln); border-radius: var(--radius); padding: clamp(24px,3vw,38px); display: flex; flex-direction: column; gap: 16px; min-height: 230px; transition: border-color .25s, transform .3s cubic-bezier(.4,.02,.2,1), background .25s; }
+.card:hover{ border-color: color-mix(in oklab, var(--ln), var(--acc) 55%); transform: translateY(-4px); }
+.card__top{ display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.card__title{ font-size: clamp(22px, 2.6vw, 30px); font-variation-settings: "wght" calc(560 - 130*var(--t)), "opsz" 36, "SOFT" var(--soft), "WONK" var(--wonk); letter-spacing: var(--track); line-height: 1.05; }
+.card__title small{ display: block; font-family: var(--font-eng); font-weight: 400; font-size: 12.5px; color: var(--mut); letter-spacing: .03em; margin-top: 7px; font-variation-settings: "wght" 400; }
+.card__link{ font-family: var(--font-eng); font-size: 12px; letter-spacing: .04em; color: var(--acc); white-space: nowrap; flex-shrink: 0; display: inline-flex; align-items: center; gap: 5px; }
+.card__link:hover{ gap: 9px; }
+.card__private{ font-family: var(--font-eng); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mut); border: 1px solid var(--ln); border-radius: 999px; padding: 4px 11px; white-space: nowrap; flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; }
+.card__private::before{ content:""; width:6px; height:6px; border-radius:50%; background: var(--acc); opacity:.7; }
+.card__desc{ color: var(--ink); font-size: 16px; max-width: 44ch; flex: 1; }
+.card__tech{ display: flex; flex-wrap: wrap; gap: 7px; }
+.card__tech li{ font-family: var(--font-eng); font-size: 11.5px; color: var(--mut); letter-spacing: .01em; padding: 4px 10px; border: 1px solid var(--ln); border-radius: calc(3px + 7px*var(--t)); }
+
+/* ── EXPERIENCE ── */
+.xp__row{ display: grid; grid-template-columns: 168px 1fr; gap: clamp(18px,4vw,52px); padding-block: clamp(24px,3.6vh,38px); border-top: 1px solid color-mix(in oklab, var(--ln), transparent calc(30% + 45%*var(--t))); align-items: baseline; }
+.xp__row:last-child{ border-bottom: 1px solid color-mix(in oklab, var(--ln), transparent calc(30% + 45%*var(--t))); }
+.xp__when{ font-family: var(--font-eng); font-size: 12.5px; color: var(--mut); letter-spacing: .03em; font-variant-numeric: tabular-nums; }
+.xp__org{ font-size: clamp(20px, 2.4vw, 28px); font-variation-settings: "wght" calc(540 - 130*var(--t)), "opsz" 30, "SOFT" var(--soft), "WONK" var(--wonk); letter-spacing: var(--track); }
+.xp__role{ color: var(--mut); font-size: 15px; margin-top: 5px; }
+.xp__note{ margin-top: 10px; font-size: 14.5px; }
+.xp__note mark{ background: none; color: var(--acc); font-family: var(--font-poet); font-style: italic; font-size: 1.05em; }
+@media (max-width: 580px){ .xp__row{ grid-template-columns: 1fr; gap: 7px; } }
+
+/* ── LINES ── */
+.poemwrap{ max-width: calc(36ch + 22ch * var(--t)); margin-left: calc(var(--t) * clamp(0px, 6vw, 90px)); transition: max-width .3s, margin .3s; }
+.poem{ display: grid; gap: calc(.15em + .5em * var(--t)); }
+.poem__line{ font-size: calc(1.2rem + 1.1rem * var(--t)); font-style: italic; font-variation-settings: "wght" calc(440 - 90*var(--t)), "opsz" 40, "SOFT" var(--soft), "WONK" var(--wonk); line-height: calc(1.45 + .3*var(--t)); color: color-mix(in oklab, var(--mut), var(--ink) calc(45% + 55% * var(--t))); }
+.poem__line .cm{ font-family: var(--font-eng); font-style: normal; color: var(--mut); opacity: var(--grid); margin-right: .5ch; font-size: .8em; }
+.poem__cite{ margin-top: clamp(26px,4vh,42px); font-family: var(--font-eng); font-size: 13px; color: var(--mut); }
+.poem__cite cite{ font-family: var(--font-poet); font-style: italic; color: var(--ink); font-size: 1.1em; }
+
+/* ── ABOUT ── */
+.about{ display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(30px,5vw,80px); align-items: start; }
+@media (max-width: 780px){ .about{ grid-template-columns: 1fr; } }
+.about__body p{ font-size: clamp(17px, 2vw, 21px); max-width: 58ch; margin-bottom: 1.05em; }
+.about__body b{ font-variation-settings: "wght" 640; color: var(--ink); }
+.about__body .em{ font-family: var(--font-poet); font-style: italic; color: var(--acc); }
+.edu{ border-left: 2px solid var(--ln); padding-left: clamp(20px,2.4vw,32px); }
+.edu h3{ font-family: var(--font-eng); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--mut); margin-bottom: 18px; }
+.edu li{ padding-block: 13px; border-bottom: 1px solid color-mix(in oklab, var(--ln), transparent 45%); }
+.edu li:last-child{ border-bottom: 0; }
+.edu b{ display: block; font-variation-settings: "wght" calc(540 - 70*var(--t)); }
+.edu span{ font-family: var(--font-eng); font-size: 12px; color: var(--mut); }
+
+/* ── CONTACT ── */
+.contact__head{ font-size: clamp(34px, 7.5vw, 96px); line-height: .98; letter-spacing: calc(-0.03em - 0.012em*var(--t)); font-variation-settings: "wght" calc(540 - 200*var(--t)), "opsz" 96, "SOFT" var(--soft), "WONK" var(--wonk); max-width: 16ch; margin-bottom: clamp(34px,6vh,62px); }
+.contact__head .em{ font-family: var(--font-poet); font-style: italic; color: var(--acc); }
+.clist a{ display: grid; grid-template-columns: 120px 1fr auto; gap: 20px; align-items: baseline; padding: clamp(16px,2.4vh,22px) 4px; border-top: 1px solid color-mix(in oklab, var(--ln), transparent calc(30% + 45%*var(--t))); transition: padding-left .22s; }
+.clist a:last-child{ border-bottom: 1px solid color-mix(in oklab, var(--ln), transparent calc(30% + 45%*var(--t))); }
+.clist a:hover{ padding-left: 18px; }
+.clist .k{ font-family: var(--font-eng); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--mut); }
+.clist .v{ font-size: clamp(17px,2.4vw,24px); font-variation-settings: "wght" calc(500 - 100*var(--t)), "opsz" 28; }
+.clist .go{ font-family: var(--font-eng); font-size: 12px; color: var(--acc); opacity: 0; transition: opacity .2s; }
+.clist a:hover .go, .clist a:focus-visible .go{ opacity: 1; }
+@media (max-width: 580px){ .clist a{ grid-template-columns: 1fr auto; } .clist .k{ display: none; } }
+.foot{ margin-top: clamp(40px,7vh,70px); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--font-eng); font-size: 12px; color: var(--mut); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- full-page drag surface + seam + pole labels -->
+<div class="dragfield" id="dragfield" aria-hidden="true"></div>
+<div class="pole pole--eng" aria-hidden="true">engineer</div>
+<div class="pole pole--poet" aria-hidden="true">poet</div>
+<div class="seam" aria-hidden="true">
+  <div class="seam__line"></div>
+  <div class="seam__handle" id="handle" role="slider" tabindex="0"
+       aria-label="Morph the whole page between engineer and poet"
+       aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Engineer"></div>
+</div>
+<div class="readout" id="readout" aria-hidden="true">t 0.00 — engineer</div>
+
+<header class="topbar">
+  <div class="topbar__in wrap" style="padding-inline:0;">
+    <a class="brand" href="#top">Enes Kaynakcı <i>—</i> <span id="brandPole">engineer</span></a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#work">Work</a><a href="#experience">Experience</a><a href="#lines">Lines</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap" id="top">
+    <p class="hero__name"><b>Enes Kaynakcı</b></p>
+    <h1 class="hero__head" aria-live="polite">
+      <span class="phrase phrase--eng on" data-pole="eng"><span class="tok" style="--i:0">I</span> <span class="tok" style="--i:1">build</span> <span class="tok accent-word" style="--i:2">systems.</span></span><span class="phrase phrase--poet" data-pole="poet" aria-hidden="true"><span class="tok" style="--i:0">I</span> <span class="tok" style="--i:1">write</span> <span class="tok accent-word" style="--i:2">lines.</span></span>
+    </h1>
+    <p class="hero__sub">AI / Software Engineer · Poet · Ankara, Türkiye. One person, two voices — <span class="drag-hint">drag anywhere</span> to morph the page between them.</p>
+    <nav class="hero__links" aria-label="Profiles">
+      <a href="https://github.com/ekaynac" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/enes-kaynakci" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="cv.pdf">CV ↓</a>
+      <a href="mailto:tensorenes@gmail.com">Email</a>
+    </nav>
+  </section>
+
+  <section class="wrap" id="work">
+    <h2 class="eyebrow"><span class="n">01</span> Selected work</h2>
+    <h3 class="section-h">Things I’ve built — agents, vision, platforms.</h3>
+    <div class="cards">
+      <article class="card">
+        <div class="card__top"><h4 class="card__title">LLMDAP</h4><a class="card__link" href="https://github.com/ekaynac/LLMDAP" target="_blank" rel="noopener">repo →</a></div>
+        <p class="card__desc">Sovereign LLM-agent identity &amp; memory protection bound to AD/LDAP or OIDC.</p>
+        <ul class="card__tech"><li>TypeScript</li><li>Node.js</li><li>Casbin</li><li>LDAP</li></ul>
+      </article>
+      <article class="card">
+        <div class="card__top"><h4 class="card__title">On-Prem AI Adoption Radar</h4><a class="card__link" href="https://github.com/ekaynac/onprem-ai-adoption-radar" target="_blank" rel="noopener">repo →</a></div>
+        <p class="card__desc">A deterministic, self-hosted radar that decides which AI/agent tools to adopt, pilot, watch, or avoid.</p>
+        <ul class="card__tech"><li>Python</li><li>MCP</li></ul>
+      </article>
+      <article class="card">
+        <div class="card__top"><h4 class="card__title">SIMS<small>Smart Inventory Management System</small></h4><span class="card__private" title="Private repository">private</span></div>
+        <p class="card__desc">10-microservice inventory platform with an MCP-powered AI assistant. Graduation project.</p>
+        <ul class="card__tech"><li>PHP</li><li>Laravel</li><li>Node.js</li></ul>
+      </article>
+      <article class="card">
+        <div class="card__top"><h4 class="card__title">Etch-A-Chat</h4><a class="card__link" href="https://github.com/ekaynac/EtchaMessage" target="_blank" rel="noopener">repo →</a></div>
+        <p class="card__desc">Privacy-focused real-time vector-drawing messenger.</p>
+        <ul class="card__tech"><li>React Native</li><li>Expo</li><li>Skia</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap" id="experience">
+    <h2 class="eyebrow"><span class="n">02</span> Experience</h2>
+    <div class="xp">
+      <div class="xp__row"><div class="xp__when">May 2026 — Present</div><div><h3 class="xp__org">Mega Bilgisayar</h3><p class="xp__role">AI / Software Engineer</p></div></div>
+      <div class="xp__row"><div class="xp__when">Feb — Jul 2025</div><div><h3 class="xp__org">Mia Teknoloji</h3><p class="xp__role">AI Intern · AI R&amp;D</p><p class="xp__note"><mark>100/100</mark> internship evaluation.</p></div></div>
+      <div class="xp__row"><div class="xp__when">2021 — 2023</div><div><h3 class="xp__org">Meturone</h3><p class="xp__role">Computer Vision Team</p><p class="xp__note"><mark>Teknofest</mark> UAV finalist.</p></div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="lines">
+    <h2 class="eyebrow"><span class="n">03</span> Lines</h2>
+    <div class="poemwrap">
+      <blockquote class="poem" aria-label="Placeholder verse">
+        <span class="poem__line"><span class="cm">//</span>a cursor waits where the morning used to be,</span>
+        <span class="poem__line"><span class="cm">//</span>each line a small machine for holding light,</span>
+        <span class="poem__line"><span class="cm">//</span>and somewhere a system learns to mean it.</span>
+      </blockquote>
+      <p class="poem__cite">From <cite>Uyandı Uyudu</cite> (2024) · Poetry editor at Polemik Yayınları. <span style="opacity:var(--grid)">— placeholder verse, real lines land later</span></p>
+    </div>
+  </section>
+
+  <section class="wrap" id="about">
+    <h2 class="eyebrow"><span class="n">04</span> About</h2>
+    <div class="about">
+      <div class="about__body">
+        <h3 class="section-h" style="margin-bottom:.5em">Two voices, one practice.</h3>
+        <p>By day I ship <b>end-to-end</b> — LDAP-bound agent identity, ten-service inventory platforms, computer vision on the edge. I like systems that hold their shape under load and say exactly what they mean.</p>
+        <p>The other voice writes <span class="em">poetry</span> — a published collection, an editor’s chair at a literary press, and a long suspicion that code and verse are the same craft: the fewest tokens that carry the most meaning.</p>
+      </div>
+      <aside class="edu">
+        <h3>Education</h3>
+        <ul>
+          <li><b>Bilkent University</b><span>B.Sc. Information Systems · 2022–2026</span></li>
+          <li><b>FH Hagenberg</b><span>Erasmus exchange</span></li>
+          <li><b>METU</b><span>EEE · transferred</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact">
+    <h2 class="eyebrow"><span class="n">05</span> Contact</h2>
+    <h3 class="contact__head">Let’s build something, or <span class="em">write</span> it.</h3>
+    <div class="clist">
+      <a href="mailto:tensorenes@gmail.com"><span class="k">Email</span><span class="v">tensorenes@gmail.com</span><span class="go">↗</span></a>
+      <a href="https://github.com/ekaynac" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">github.com/ekaynac</span><span class="go">↗</span></a>
+      <a href="https://www.linkedin.com/in/enes-kaynakci" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/enes-kaynakci</span><span class="go">↗</span></a>
+    </div>
+    <div class="foot"><span>© 2026 Enes Kaynakcı — Ankara, Türkiye</span><span>Built &amp; written in two voices.</span></div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  root.classList.remove('no-js'); root.classList.add('js');
+
+  var handle  = document.getElementById('handle');
+  var readout = document.getElementById('readout');
+  var brand   = document.getElementById('brandPole');
+  var field   = document.getElementById('dragfield');
+  var engP = document.querySelector('.phrase--eng');
+  var poetP= document.querySelector('.phrase--poet');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  var KEY='morph-t';
+  var t = 0, pole='eng';
+  try{ var s=parseFloat(localStorage.getItem(KEY)); if(!isNaN(s)) t=Math.min(1,Math.max(0,s)); }catch(e){}
+  if(reduce.matches) t = t<0.5?0:1;
+
+  function word(v){ return v<0.5?'engineer':'poet'; }
+  function swap(p){
+    if(p===pole) return; pole=p;
+    var on = p==='poet'?poetP:engP, off = p==='poet'?engP:poetP;
+    off.classList.remove('on'); off.setAttribute('aria-hidden','true');
+    void on.offsetWidth; on.classList.add('on'); on.setAttribute('aria-hidden','false');
+  }
+  function render(){
+    root.style.setProperty('--t', t);
+    root.classList.toggle('poet', t>=0.5);
+    var n = Math.round(t*100);
+    handle.setAttribute('aria-valuenow', n);
+    handle.setAttribute('aria-valuetext', t<=0.01?'Engineer':t>=0.99?'Poet':n+'% poet');
+    readout.textContent = 't '+t.toFixed(2)+' — '+word(t);
+    if(brand) brand.textContent = word(t);
+    swap(t<0.5?'eng':'poet');
+  }
+  function set(v, animate){
+    v = Math.min(1, Math.max(0, v));
+    if(reduce.matches) v = v<0.5?0:1;
+    root.classList.toggle('dragging', !animate);
+    t = v; render();
+    try{ localStorage.setItem(KEY, String(t)); }catch(e){}
+  }
+
+  function xToT(clientX){ return clientX / window.innerWidth; }
+
+  // ── seam handle: direct drag ──
+  var hDrag=false;
+  handle.addEventListener('pointerdown', function(e){ hDrag=true; handle.setPointerCapture(e.pointerId); handle.focus(); set(xToT(e.clientX), false); e.preventDefault(); });
+  handle.addEventListener('pointermove', function(e){ if(hDrag) set(xToT(e.clientX), false); });
+  function hEnd(){ if(!hDrag) return; hDrag=false; root.classList.remove('dragging'); }
+  handle.addEventListener('pointerup', hEnd); handle.addEventListener('pointercancel', hEnd);
+
+  // ── drag ANYWHERE (directional lock so vertical scroll still works) ──
+  var sx=0, sy=0, locked=null, fDrag=false, pid=null;
+  field.style.pointerEvents='auto';
+  function fieldDown(e){
+    if(e.target.closest('a,button,[role="slider"],input,textarea,select')) return;
+    fDrag=true; locked=null; sx=e.clientX; sy=e.clientY; pid=e.pointerId;
+  }
+  function fieldMove(e){
+    if(!fDrag) return;
+    var dx=e.clientX-sx, dy=e.clientY-sy;
+    if(locked===null){
+      if(Math.abs(dx)<6 && Math.abs(dy)<6) return;
+      locked = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+      if(locked==='x'){ try{ field.setPointerCapture(pid);}catch(e2){} }
+    }
+    if(locked==='x'){ set(xToT(e.clientX), false); e.preventDefault(); }
+    else { fDrag=false; } // vertical → release to native scroll
+  }
+  function fieldUp(){ if(!fDrag) return; fDrag=false; locked=null; root.classList.remove('dragging'); }
+  field.addEventListener('pointerdown', fieldDown);
+  field.addEventListener('pointermove', fieldMove);
+  field.addEventListener('pointerup', fieldUp);
+  field.addEventListener('pointercancel', fieldUp);
+
+  // ── keyboard on the seam ──
+  handle.addEventListener('keydown', function(e){
+    var step = reduce.matches?1:0.05, k=e.key, h=true;
+    if(k==='ArrowLeft'||k==='ArrowDown') set(t-step,true);
+    else if(k==='ArrowRight'||k==='ArrowUp') set(t+step,true);
+    else if(k==='PageDown') set(t-0.2,true);
+    else if(k==='PageUp') set(t+0.2,true);
+    else if(k==='Home') set(0,true);
+    else if(k==='End') set(1,true);
+    else h=false;
+    if(h) e.preventDefault();
+  });
+
+  engP.classList.add('on');
+  set(t, true);
+})();
+</script>
+</body>
+</html>
