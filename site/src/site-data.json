@@ -36,7 +36,15 @@
         "jose"
       ],
       "url": "https://github.com/ekaynac/LLMDAP",
-      "isPrivate": false
+      "isPrivate": false,
+      "trueName": "the Namebinder",
+      "sigil": "namebinder",
+      "floor": 1,
+      "summonWords": [
+        "namebinder",
+        "llmdap",
+        "bind"
+      ]
     },
     {
       "slug": "onprem-ai-adoption-radar",
@@ -50,7 +58,15 @@
         "Static Site (GitHub Pages)"
       ],
       "url": "https://github.com/ekaynac/onprem-ai-adoption-radar",
-      "isPrivate": false
+      "isPrivate": false,
+      "trueName": "the Augur",
+      "sigil": "augur",
+      "floor": 2,
+      "summonWords": [
+        "augur",
+        "radar",
+        "omen"
+      ]
     },
     {
       "slug": "sims",
@@ -72,7 +88,14 @@
         "Docker",
         "GitHub Actions"
       ],
-      "isPrivate": true
+      "isPrivate": true,
+      "trueName": "the Sealed One",
+      "sigil": "sealed",
+      "floor": 3,
+      "summonWords": [
+        "sealed",
+        "sims"
+      ]
     },
     {
       "slug": "etch-a-chat",
@@ -92,7 +115,14 @@
         "Turborepo"
       ],
       "url": "https://github.com/ekaynac/EtchaMessage",
-      "isPrivate": false
+      "isPrivate": false,
+      "trueName": "the Scribe of Vanishing Marks",
+      "sigil": "scribe",
+      "floor": 4,
+      "summonWords": [
+        "scribe",
+        "etch"
+      ]
     }
   ],
   "experience": [
@@ -226,5 +256,10 @@
         "Casbin"
       ]
     }
-  ]
+  ],
+  "myth": {
+    "threshold": "Bir sistem kurmak, bir cin doğurmaktır. — To build a system is to birth a djinn.",
+    "poleCode": "code",
+    "poleSpell": "incantation"
+  }
 }

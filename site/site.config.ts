@@ -1,3 +1,10 @@
+export interface DjinnMeta {
+  trueName: string;
+  sigil: string;
+  floor: number;
+  summonWords: string[];
+}
+
 export interface SiteConfig {
   heroPairs: { engineer: string; poet: string }[];
   projects: string[];
@@ -6,6 +13,8 @@ export interface SiteConfig {
   education: string[];
   aboutParagraphs: string[];
   lines: { verse: string[]; note: string };
+  myth: { threshold: string; poleCode: string; poleSpell: string };
+  djinn: Record<string, DjinnMeta>;
 }
 
 export const siteConfig: SiteConfig = {
@@ -28,5 +37,16 @@ export const siteConfig: SiteConfig = {
   lines: {
     verse: ["PLACEHOLDER: replace with 2-4 real lines of Enes's poetry."],
     note: "From Uyandı Uyudu (2024). Poetry editor at Polemik Yayınları.",
+  },
+  myth: {
+    threshold: "Bir sistem kurmak, bir cin doğurmaktır. — To build a system is to birth a djinn.",
+    poleCode: "code",
+    poleSpell: "incantation",
+  },
+  djinn: {
+    llmdap: { trueName: "the Namebinder", sigil: "namebinder", floor: 1, summonWords: ["namebinder", "llmdap", "bind"] },
+    "onprem-ai-adoption-radar": { trueName: "the Augur", sigil: "augur", floor: 2, summonWords: ["augur", "radar", "omen"] },
+    sims: { trueName: "the Sealed One", sigil: "sealed", floor: 3, summonWords: ["sealed", "sims"] },
+    "etch-a-chat": { trueName: "the Scribe of Vanishing Marks", sigil: "scribe", floor: 4, summonWords: ["scribe", "etch"] },
   },
 };

@@ -10,11 +10,15 @@ export interface SiteData {
   profile: { name: string; title: string; location: string; email: string;
              links: { github: string; linkedin: string; website: string } };
   heroPairs: { engineer: string; poet: string }[];
-  work: { slug: string; name: string; oneLiner: string; tech: string[]; url?: string; isPrivate: boolean }[];
+  work: {
+    slug: string; name: string; oneLiner: string; tech: string[]; url?: string; isPrivate: boolean;
+    trueName: string; sigil: string; floor: number; summonWords: string[];
+  }[];
   experience: { org: string; role: string; period: string; current: boolean; highlights: string[] }[];
   lines: { verse: string[]; note: string };
   about: { paragraphs: string[]; education: { org: string; credential: string; period: string }[] };
   skills: { category: string; items: string[] }[];
+  myth: { threshold: string; poleCode: string; poleSpell: string };
 }
 
 const period = (start: string, end: string) => `${formatDate(start)} – ${formatDate(end)}`;
@@ -23,10 +27,16 @@ export function renderSiteData(data: ProfileData, config: SiteConfig): SiteData 
   const work = config.projects.map((slug) => {
     const p = data.projects.find((x) => x.slug === slug);
     if (!p) throw new Error(`site.config: project not found: ${slug}`);
+    const djinn = config.djinn[slug];
+    if (!djinn) throw new Error(`djinn meta not found: ${slug}`);
     return {
       slug: p.slug, name: p.name, oneLiner: p.oneLiner, tech: p.tech,
       url: !p.private && p.links.repo ? p.links.repo : undefined,
       isPrivate: p.private,
+      trueName: djinn.trueName,
+      sigil: djinn.sigil,
+      floor: djinn.floor,
+      summonWords: djinn.summonWords,
     };
   });
 
@@ -59,6 +69,7 @@ export function renderSiteData(data: ProfileData, config: SiteConfig): SiteData 
     lines: config.lines,
     about: { paragraphs: config.aboutParagraphs, education },
     skills,
+    myth: config.myth,
   };
 }
 

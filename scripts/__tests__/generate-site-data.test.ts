@@ -26,4 +26,17 @@ describe("renderSiteData", () => {
   it("throws if a configured project slug is unknown", () => {
     expect(() => renderSiteData(profileData, { ...siteConfig, projects: ["nope"] })).toThrow(/project not found/);
   });
+  it("carries myth metadata and per-djinn true names", () => {
+    const d = renderSiteData(profileData, siteConfig);
+    expect(d.myth.threshold).toMatch(/cin|djinn|sistem|system/i);
+    expect(d.myth.poleCode).toBeTruthy();
+    expect(d.myth.poleSpell).toBeTruthy();
+    const llmdap = d.work.find((w) => w.slug === "llmdap")!;
+    expect(llmdap.trueName).toBeTruthy();
+    expect(llmdap.sigil).toBeTruthy();
+    expect(typeof llmdap.floor).toBe("number");
+    const sims = d.work.find((w) => w.slug === "sims")!;
+    expect(sims.trueName).toBeTruthy();
+    expect(sims.url).toBeUndefined(); // still sealed
+  });
 });
