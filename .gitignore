@@ -30,3 +30,8 @@ cv/*.fdb_latexmk
 # NEVER commit sensitive personal data exports
 *-private*
 secrets/
+
+# site/ app
+site/node_modules/
+site/dist/
+site/tsconfig.tsbuildinfo
