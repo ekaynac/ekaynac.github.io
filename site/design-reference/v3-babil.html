@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<!--
+  ===========================================================================
+  ENES KAYNAKCI — BÂBİL · The Summoning Tower (codex prototype v3)
+  "Bir sistem kurmak, bir cin doğurmaktır." — To build a system is to birth a djinn.
+  A manuscript codex. The whole page is the morph: drag anywhere (or the gold
+  seam / keyboard) to drive --t ∈ [0,1] from the CODE pole (cold ink, schematic,
+  Space Grotesk) to the INCANTATION pole (warm parchment, gold leaf, Fraunces).
+  Sections are floors of the tower; projects are bound djinn with true-names.
+  Dark-first (a codex by candlelight); light variant supported.
+
+  TYPE   code  "Space Grotesk"   ·  spell "Fraunces" (var opsz/wght/SOFT/WONK)
+  GOLD   oklch(80% .135 85) ≈ #C8A23A     LAPIS oklch(64% .12 248) ≈ #4E73C8
+  CINNABAR oklch(58% .17 32) ≈ #C2402B    (used sparingly, the red pen / seal)
+  ===========================================================================
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Enes Kaynakcı — BÂBİL · AI / Software Engineer & Poet</title>
+<meta name="description" content="Enes Kaynakcı — a codex. AI/Software Engineer and poet. To build a system is to birth a djinn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&display=swap" rel="stylesheet">
+<style>
+@property --t { syntax:"<number>"; inherits:true; initial-value:0; }
+:root{
+  --t:0;
+  /* dark codex — code(a) → spell(b) */
+  --bg-a: oklch(15% 0.012 250);  --bg-b: oklch(16.5% 0.024 52);
+  --pa-a: oklch(19% 0.013 250);  --pa-b: oklch(21% 0.026 55);
+  --ink-a: oklch(85% 0.015 242); --ink-b: oklch(91% 0.03 84);
+  --mut-a: oklch(58% 0.015 245); --mut-b: oklch(63% 0.03 72);
+  --ln-a: oklch(33% 0.015 245);  --ln-b: oklch(44% 0.05 78);
+  --acc-a: oklch(64% 0.12 248);  --acc-b: oklch(80% 0.135 85);   /* lapis → GOLD */
+  --cinnabar: oklch(60% 0.17 33);
+  --acc-ink: oklch(15% 0.02 60);
+
+  --bg:  color-mix(in oklab, var(--bg-a),  var(--bg-b)  calc(var(--t)*100%));
+  --pa:  color-mix(in oklab, var(--pa-a),  var(--pa-b)  calc(var(--t)*100%));
+  --ink: color-mix(in oklab, var(--ink-a), var(--ink-b) calc(var(--t)*100%));
+  --mut: color-mix(in oklab, var(--mut-a), var(--mut-b) calc(var(--t)*100%));
+  --ln:  color-mix(in oklab, var(--ln-a),  var(--ln-b)  calc(var(--t)*100%));
+  --acc: color-mix(in oklab, var(--acc-a), var(--acc-b) calc(var(--t)*100%));
+
+  --wght: calc(440 - 50*var(--t));
+  --track: calc(0.005em - 0.03em*var(--t));
+  --leading: calc(1.45 + 0.32*var(--t));
+  --radius: calc(1px + 3px*var(--t));
+  --grid: calc(1 - var(--t));
+  --soft: calc(var(--t)*100); --wonk: var(--t);
+  --font-eng:"Space Grotesk", ui-sans-serif, sans-serif;
+  --font-poet:"Fraunces", Georgia, serif;
+  --font: var(--font-eng);
+  --maxw: 1140px; --pad: clamp(22px,5.5vw,72px);
+  color-scheme: dark light;
+  transition:--t .36s cubic-bezier(.45,.02,.2,1);
+}
+:root.poet{ --font: var(--font-poet); }
+:root.dragging{ transition:none; }
+@media (prefers-color-scheme: light){
+  :root{ color-scheme: light dark;
+    --bg-a: oklch(95% 0.008 250); --bg-b: oklch(95% 0.03 78);
+    --pa-a: oklch(92% 0.01 250);  --pa-b: oklch(93% 0.035 75);
+    --ink-a: oklch(26% 0.02 250); --ink-b: oklch(28% 0.035 50);
+    --mut-a: oklch(46% 0.02 250); --mut-b: oklch(44% 0.04 55);
+    --ln-a: oklch(80% 0.015 250); --ln-b: oklch(74% 0.05 78);
+    --acc-a: oklch(48% 0.13 252); --acc-b: oklch(58% 0.12 80);
+    --acc-ink: oklch(98% 0 0);
+  }
+}
+@media (prefers-reduced-motion: reduce){ :root{ transition:none; } html{ scroll-behavior:auto; } }
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font); font-variation-settings:"wght" var(--wght),"opsz" 28,"SOFT" var(--soft),"WONK" var(--wonk);
+  letter-spacing:var(--track); line-height:var(--leading); font-size:17px; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+h1,h2,h3,h4,p,ul,figure,blockquote{ margin:0; } ul{ list-style:none; padding:0; }
+a{ color:inherit; text-decoration:none; }
+::selection{ background:var(--acc); color:var(--acc-ink); }
+:focus-visible{ outline:2px solid var(--acc); outline-offset:3px; }
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--pad); }
+
+/* manuscript paper grain + vignette */
+.paper{ position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(130% 100% at 50% -10%, transparent 55%, color-mix(in oklab,var(--bg),#000 32%) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/></svg>");
+}
+/* faint schematic grid that dissolves toward incantation */
+.grid{ position:fixed; inset:0; z-index:0; pointer-events:none; opacity:calc(var(--grid)*0.4);
+  background-image:linear-gradient(var(--ln) 1px,transparent 1px),linear-gradient(90deg,var(--ln) 1px,transparent 1px);
+  background-size:clamp(60px,8vw,96px) clamp(60px,8vw,96px);
+  mask-image:radial-gradient(120% 80% at 50% 0,#000 30%,transparent 100%); }
+/* ruled gold manuscript frame */
+.frame{ position:fixed; inset:clamp(8px,1.4vw,18px); z-index:35; pointer-events:none;
+  border:1px solid color-mix(in oklab,var(--acc),transparent 55%);
+  box-shadow:inset 0 0 0 3px color-mix(in oklab,var(--bg),transparent 0%), inset 0 0 0 4px color-mix(in oklab,var(--acc),transparent 80%); }
+.frame::before,.frame::after{ content:"✦"; position:absolute; color:var(--acc); font-size:13px; opacity:.7; }
+.frame::before{ top:-7px; left:-6px; } .frame::after{ bottom:-9px; right:-6px; }
+
+/* ── the full-page morph (binding thread) ── */
+.dragfield{ position:fixed; inset:0; z-index:5; touch-action:pan-y; }
+.seam{ position:fixed; top:0; bottom:0; left:calc(var(--t)*100%); width:0; z-index:40; pointer-events:none; }
+.seam__line{ position:absolute; top:0; bottom:0; left:0; width:1.5px;
+  background:linear-gradient(to bottom,transparent,var(--acc) 14%,var(--acc) 86%,transparent);
+  box-shadow:0 0 16px color-mix(in oklab,var(--acc),transparent 45%); opacity:.9; }
+.seam__handle{ position:absolute; top:50%; left:0; transform:translate(-50%,-50%);
+  width:30px; height:62px; border-radius:3px; pointer-events:auto; cursor:ew-resize; touch-action:none;
+  background:color-mix(in oklab,var(--bg),transparent 6%); border:1.5px solid var(--acc);
+  display:grid; place-items:center; box-shadow:0 8px 30px color-mix(in oklab,#000,transparent 55%); outline:none; }
+.seam__handle::before{ content:"⟡"; color:var(--acc); font-size:15px; }
+.seam__handle:focus-visible{ box-shadow:0 0 0 4px color-mix(in oklab,var(--acc),transparent 55%); }
+.pole{ position:fixed; top:50%; z-index:30; pointer-events:none; font-family:var(--font-eng);
+  font-size:11px; letter-spacing:.34em; text-transform:uppercase; writing-mode:vertical-rl; color:var(--mut); }
+.pole b{ display:block; font-size:9px; letter-spacing:.2em; opacity:.7; }
+.pole--a{ left:clamp(14px,2vw,26px); transform:translateY(-50%) rotate(180deg); opacity:calc(.4+.6*var(--grid)); }
+.pole--b{ right:clamp(14px,2vw,26px); transform:translateY(-50%); opacity:calc(.4+.6*var(--t)); font-family:var(--font-poet); font-style:italic; text-transform:none; letter-spacing:.08em; font-size:15px; }
+.readout{ position:fixed; left:50%; bottom:clamp(20px,3vh,34px); transform:translateX(-50%); z-index:30; pointer-events:none;
+  font-family:var(--font-eng); font-size:11px; letter-spacing:.14em; color:var(--mut); font-variant-numeric:tabular-nums;
+  background:color-mix(in oklab,var(--bg),transparent 20%); padding:5px 13px; border-radius:999px;
+  border:1px solid color-mix(in oklab,var(--acc),transparent 70%); opacity:calc(.5+.5*var(--grid)); }
+
+.skip{ position:absolute; left:14px; top:-54px; z-index:60; background:var(--ink); color:var(--bg); padding:10px 16px; border-radius:6px; font-family:var(--font-eng); font-size:13px; transition:top .2s; }
+.skip:focus{ top:14px; }
+
+/* ── threshold (cold open) ── */
+.threshold{ position:fixed; inset:0; z-index:80; background:var(--bg); display:grid; place-items:center; text-align:center;
+  padding:var(--pad); transition:opacity .8s ease, visibility .8s; }
+.threshold.gone{ opacity:0; visibility:hidden; pointer-events:none; }
+.threshold__seal{ font-family:var(--font-eng); font-size:12px; letter-spacing:.4em; text-transform:uppercase; color:var(--mut); margin-bottom:30px; }
+.threshold__line{ font-family:var(--font-poet); font-style:italic; font-size:clamp(22px,3.6vw,40px); line-height:1.3; max-width:20ch; margin:0 auto 14px; color:var(--ink); font-variation-settings:"opsz" 60,"SOFT" 70,"WONK" 1; }
+.threshold__line .en{ display:block; font-family:var(--font-eng); font-style:normal; font-size:.42em; letter-spacing:.04em; color:var(--mut); margin-top:14px; }
+.threshold__acts{ margin-top:44px; display:flex; gap:24px; justify-content:center; align-items:center; flex-wrap:wrap; }
+.btn-enter{ font-family:var(--font-eng); font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--acc-ink); background:var(--acc); border:0; padding:14px 28px; border-radius:3px; cursor:pointer; }
+.btn-plain{ font-family:var(--font-eng); font-size:12.5px; letter-spacing:.04em; color:var(--mut); border-bottom:1px solid var(--ln); padding-bottom:2px; }
+.btn-plain:hover{ color:var(--ink); }
+
+/* ── tower / topbar ── */
+.topbar{ position:sticky; top:0; z-index:20; backdrop-filter:blur(12px) saturate(1.15);
+  background:color-mix(in oklab,var(--bg) 70%,transparent); border-bottom:1px solid color-mix(in oklab,var(--ln),transparent calc(35%+45%*var(--t))); }
+.topbar__in{ max-width:var(--maxw); margin:0 auto; padding:14px var(--pad); display:flex; justify-content:space-between; align-items:baseline; gap:18px; }
+.brand{ font-family:var(--font-eng); font-size:13px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; }
+.brand i{ color:var(--acc); font-style:normal; }
+.topnav{ display:flex; gap:clamp(12px,2.2vw,26px); } .topnav a{ font-family:var(--font-eng); font-size:11.5px; color:var(--mut); letter-spacing:.06em; text-transform:uppercase; }
+.topnav a:hover{ color:var(--ink); } .topnav .plain{ color:var(--acc); }
+@media(max-width:720px){ .topnav a:not(.plain){ display:none; } }
+
+main{ position:relative; z-index:10; }
+.floor{ padding-block:clamp(78px,13vh,150px); position:relative; }
+.floor + .floor{ border-top:1px solid color-mix(in oklab,var(--ln),transparent calc(30%+50%*var(--t))); }
+.level{ font-family:var(--font-eng); font-size:11.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--mut); display:flex; align-items:baseline; gap:.8em; margin-bottom:clamp(28px,5vh,52px); }
+.level .rom{ color:var(--acc); } .level .rom::after{ content:" ·"; color:var(--mut); }
+.floor-h{ font-size:clamp(30px,5.4vw,62px); line-height:1.02; letter-spacing:calc(-0.01em - 0.012em*var(--t)); font-variation-settings:"wght" calc(540-160*var(--t)),"opsz" 64,"SOFT" var(--soft),"WONK" var(--wonk); max-width:18ch; margin-bottom:clamp(30px,6vh,58px); }
+
+/* hero */
+.hero{ min-height:min(90vh,860px); display:flex; flex-direction:column; justify-content:center; }
+.hero__name{ font-family:var(--font-eng); font-size:12.5px; letter-spacing:.3em; text-transform:uppercase; color:var(--mut); margin-bottom:clamp(20px,4vh,38px); }
+.hero__name b{ color:var(--ink); }
+.hero__head{ display:grid; font-size:clamp(50px,12.5vw,168px); line-height:.9; letter-spacing:calc(-0.03em - 0.01em*var(--t));
+  font-variation-settings:"wght" calc(560-200*var(--t)),"opsz" 144,"SOFT" var(--soft),"WONK" var(--wonk); margin-bottom:clamp(26px,5vh,48px); max-width:13ch; }
+.phrase{ grid-area:1/1; } .phrase--b{ font-family:var(--font-poet); font-style:italic; }
+.no-js .phrase--b{ display:none; }
+.js .phrase{ opacity:0; pointer-events:none; } .js .phrase.on{ opacity:1; pointer-events:auto; }
+.tok{ display:inline-block; }
+.js .phrase .tok{ opacity:0; transform:translateY(.45em); filter:blur(7px); transition:opacity .55s,transform .55s,filter .55s; }
+.js .phrase.on .tok{ opacity:1; transform:none; filter:blur(0); transition-delay:calc(var(--i)*90ms); }
+.accent{ color:var(--acc); }
+@media(prefers-reduced-motion:reduce){ .js .phrase .tok{ transition:none; transform:none; filter:none; } .js .phrase:not(.on){ opacity:0; } }
+.hero__sub{ font-size:clamp(15px,1.9vw,19px); color:var(--mut); max-width:52ch; margin-bottom:clamp(28px,5vh,46px); }
+.hero__sub .hint{ color:var(--ink); border-bottom:1.5px solid var(--acc); }
+.links{ display:flex; gap:clamp(16px,3vw,32px); flex-wrap:wrap; }
+.links a{ font-family:var(--font-eng); font-size:13px; color:var(--mut); position:relative; padding-bottom:3px; }
+.links a::after{ content:""; position:absolute; left:0; bottom:0; height:1.5px; width:0; background:var(--acc); transition:width .25s; }
+.links a:hover{ color:var(--ink); } .links a:hover::after{ width:100%; }
+
+/* djinn cards */
+.djinn{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(10px,1.4vw,18px); }
+@media(max-width:740px){ .djinn{ grid-template-columns:1fr; } }
+.card{ position:relative; background:color-mix(in oklab,var(--pa),transparent calc(15%+30%*var(--t))); border:1px solid var(--ln); border-radius:var(--radius);
+  padding:clamp(24px,3vw,36px); display:flex; flex-direction:column; gap:14px; min-height:240px; transition:border-color .25s,transform .3s; overflow:hidden; }
+.card:hover{ border-color:color-mix(in oklab,var(--ln),var(--acc) 60%); transform:translateY(-4px); }
+.card__sigil{ position:absolute; right:18px; top:16px; width:46px; height:46px; color:var(--acc); opacity:.55; }
+.card__true{ font-family:var(--font-poet); font-style:italic; font-size:14px; color:var(--acc); font-variation-settings:"SOFT" 60,"WONK" 1; }
+.card__name{ font-size:clamp(22px,2.6vw,30px); font-variation-settings:"wght" calc(560-130*var(--t)),"opsz" 36,"SOFT" var(--soft),"WONK" var(--wonk); letter-spacing:var(--track); line-height:1.05; max-width:14ch; }
+.card__name small{ display:block; font-family:var(--font-eng); font-weight:400; font-size:12px; color:var(--mut); margin-top:6px; }
+.card__desc{ color:var(--ink); font-size:15.5px; max-width:42ch; flex:1; }
+.card__foot{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.card__tech{ display:flex; flex-wrap:wrap; gap:6px; } .card__tech li{ font-family:var(--font-eng); font-size:11px; color:var(--mut); padding:3px 9px; border:1px solid var(--ln); border-radius:calc(2px+5px*var(--t)); }
+.card__link{ font-family:var(--font-eng); font-size:12px; color:var(--acc); white-space:nowrap; }
+.card__sealed{ font-family:var(--font-eng); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); border:1px solid var(--ln); border-radius:999px; padding:4px 11px; display:inline-flex; gap:6px; align-items:center; }
+.card__sealed::before{ content:"𓂀"; color:var(--cinnabar); }
+
+/* experience */
+.xp__row{ display:grid; grid-template-columns:170px 1fr; gap:clamp(18px,4vw,50px); padding-block:clamp(22px,3.4vh,34px); border-top:1px solid color-mix(in oklab,var(--ln),transparent calc(30%+45%*var(--t))); align-items:baseline; }
+.xp__row:last-child{ border-bottom:1px solid color-mix(in oklab,var(--ln),transparent calc(30%+45%*var(--t))); }
+.xp__when{ font-family:var(--font-eng); font-size:12px; color:var(--mut); font-variant-numeric:tabular-nums; }
+.xp__org{ font-size:clamp(20px,2.3vw,27px); font-variation-settings:"wght" calc(540-130*var(--t)),"opsz" 30,"SOFT" var(--soft),"WONK" var(--wonk); }
+.xp__role{ color:var(--mut); font-size:14.5px; margin-top:5px; }
+.xp__note{ margin-top:9px; font-size:14px; } .xp__note mark{ background:none; color:var(--acc); font-family:var(--font-poet); font-style:italic; }
+@media(max-width:580px){ .xp__row{ grid-template-columns:1fr; gap:6px; } }
+
+/* lines */
+.poemwrap{ max-width:calc(36ch+22ch*var(--t)); margin-left:calc(var(--t)*clamp(0px,6vw,90px)); transition:max-width .3s,margin .3s; }
+.poem{ display:grid; gap:calc(.15em+.5em*var(--t)); }
+.poem__l{ font-family:var(--font-poet); font-style:italic; font-size:calc(1.25rem+1.1rem*var(--t)); font-variation-settings:"wght" calc(440-90*var(--t)),"opsz" 40,"SOFT" var(--soft),"WONK" var(--wonk); line-height:calc(1.45+.3*var(--t)); color:color-mix(in oklab,var(--mut),var(--ink) calc(45%+55%*var(--t))); }
+.poem__l .cm{ font-family:var(--font-eng); font-style:normal; color:var(--mut); opacity:var(--grid); margin-right:.5ch; font-size:.78em; }
+.poem__cite{ margin-top:clamp(26px,4vh,42px); font-family:var(--font-eng); font-size:12.5px; color:var(--mut); } .poem__cite cite{ font-family:var(--font-poet); font-style:italic; color:var(--ink); }
+
+/* about / contact */
+.about{ display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(30px,5vw,76px); align-items:start; } @media(max-width:780px){ .about{ grid-template-columns:1fr; } }
+.about__body p{ font-size:clamp(17px,2vw,20px); max-width:58ch; margin-bottom:1.05em; } .about__body b{ font-variation-settings:"wght" 640; } .about__body .em{ font-family:var(--font-poet); font-style:italic; color:var(--acc); }
+.edu{ border-left:2px solid var(--ln); padding-left:clamp(20px,2.4vw,30px); } .edu h3{ font-family:var(--font-eng); font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--mut); margin-bottom:16px; }
+.edu li{ padding-block:12px; border-bottom:1px solid color-mix(in oklab,var(--ln),transparent 45%); } .edu li:last-child{ border-bottom:0; } .edu b{ display:block; } .edu span{ font-family:var(--font-eng); font-size:12px; color:var(--mut); }
+.seal-h{ font-size:clamp(34px,7vw,90px); line-height:.98; letter-spacing:calc(-0.02em - 0.012em*var(--t)); font-variation-settings:"wght" calc(540-200*var(--t)),"opsz" 90,"SOFT" var(--soft),"WONK" var(--wonk); max-width:15ch; margin-bottom:clamp(34px,6vh,60px); }
+.seal-h .em{ font-family:var(--font-poet); font-style:italic; color:var(--acc); }
+.clist a{ display:grid; grid-template-columns:120px 1fr auto; gap:18px; align-items:baseline; padding:clamp(15px,2.2vh,21px) 4px; border-top:1px solid color-mix(in oklab,var(--ln),transparent calc(30%+45%*var(--t))); transition:padding-left .2s; }
+.clist a:last-child{ border-bottom:1px solid color-mix(in oklab,var(--ln),transparent calc(30%+45%*var(--t))); } .clist a:hover{ padding-left:16px; }
+.clist .k{ font-family:var(--font-eng); font-size:11.5px; text-transform:uppercase; letter-spacing:.12em; color:var(--mut); } .clist .v{ font-size:clamp(16px,2.2vw,22px); } .clist .go{ font-family:var(--font-eng); font-size:12px; color:var(--acc); opacity:0; } .clist a:hover .go{ opacity:1; }
+@media(max-width:580px){ .clist a{ grid-template-columns:1fr auto; } .clist .k{ display:none; } }
+.foot{ margin-top:clamp(40px,7vh,68px); display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--font-eng); font-size:11.5px; color:var(--mut); }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="paper" aria-hidden="true"></div>
+<div class="grid" aria-hidden="true"></div>
+<div class="frame" aria-hidden="true"></div>
+
+<div class="dragfield" id="dragfield" aria-hidden="true"></div>
+<div class="pole pole--a" aria-hidden="true">code<b>kod</b></div>
+<div class="pole pole--b" aria-hidden="true">incantation<b>tılsım</b></div>
+<div class="seam" aria-hidden="true"><div class="seam__line"></div>
+  <div class="seam__handle" id="handle" role="slider" tabindex="0" aria-label="Morph the codex between code and incantation" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Code"></div></div>
+<div class="readout" id="readout" aria-hidden="true">t 0.00 — code</div>
+
+<!-- THRESHOLD -->
+<div class="threshold" id="threshold">
+  <div>
+    <p class="threshold__seal">⟡ Enes Kaynakcı · Bâbil ⟡</p>
+    <p class="threshold__line">Bir sistem kurmak, bir cin doğurmaktır.<span class="en">To build a system is to birth a djinn.</span></p>
+    <div class="threshold__acts">
+      <button class="btn-enter" id="enter">Enter the codex</button>
+      <a class="btn-plain" href="#main" id="plain">Read the plain CV →</a>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="#top">Enes Kaynakcı <i>·</i> <span id="brandPole">code</span></a>
+    <nav class="topnav" aria-label="Floors">
+      <a href="#work">The Bound</a><a href="#xp">The Raising</a><a href="#lines">Lines</a><a href="#about">Architect</a><a href="#contact">Seal</a><a class="plain" href="#main">Plain CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="floor hero wrap" id="top">
+    <p class="hero__name"><b>Enes Kaynakcı</b> — the summoner-architect</p>
+    <h1 class="hero__head" aria-live="polite">
+      <span class="phrase phrase--a on" data-p="a"><span class="tok" style="--i:0">I</span> <span class="tok" style="--i:1">build</span> <span class="tok accent" style="--i:2">systems.</span></span><span class="phrase phrase--b" data-p="b" aria-hidden="true"><span class="tok" style="--i:0">I</span> <span class="tok" style="--i:1">summon</span> <span class="tok accent" style="--i:2">djinn.</span></span>
+    </h1>
+    <p class="hero__sub">AI / Software Engineer · Poet · Ankara. Code and verse are the same craft — incantation. <span class="hint">Drag anywhere</span> to morph the codex from system to spell.</p>
+    <nav class="links" aria-label="Profiles">
+      <a href="https://github.com/ekaynac" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/enes-kaynakci" target="_blank" rel="noopener">LinkedIn ↗</a><a href="cv.pdf">CV ↓</a><a href="mailto:tensorenes@gmail.com">Email</a>
+    </nav>
+  </section>
+
+  <section class="floor wrap" id="work">
+    <p class="level"><span class="rom">i</span> The Bound — djinn given form</p>
+    <h2 class="floor-h">Four spirits, bound by true names.</h2>
+    <div class="djinn">
+      <article class="card">
+        <svg class="card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><path d="M24 6v36M6 24h36"/></svg>
+        <p class="card__true">the Namebinder</p>
+        <h3 class="card__name">LLMDAP</h3>
+        <p class="card__desc">Sovereign LLM-agent identity &amp; memory protection — bound to AD/LDAP or OIDC by their true names.</p>
+        <div class="card__foot"><ul class="card__tech"><li>TypeScript</li><li>Casbin</li><li>LDAP</li></ul><a class="card__link" href="https://github.com/ekaynac/LLMDAP" target="_blank" rel="noopener">repo ↗</a></div>
+      </article>
+      <article class="card">
+        <svg class="card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M4 24c8-12 32-12 40 0-8 12-32 12-40 0Z"/><circle cx="24" cy="24" r="6"/></svg>
+        <p class="card__true">the Augur</p>
+        <h3 class="card__name">On-Prem AI Adoption Radar</h3>
+        <p class="card__desc">A deterministic, self-hosted radar that reads the omens — adopt, pilot, watch, or avoid.</p>
+        <div class="card__foot"><ul class="card__tech"><li>Python</li><li>MCP</li></ul><a class="card__link" href="https://github.com/ekaynac/onprem-ai-adoption-radar" target="_blank" rel="noopener">repo ↗</a></div>
+      </article>
+      <article class="card">
+        <svg class="card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="10" y="20" width="28" height="20" rx="2"/><path d="M16 20v-5a8 8 0 0 1 16 0v5"/></svg>
+        <p class="card__true">the Sealed One</p>
+        <h3 class="card__name">SIMS<small>Smart Inventory Management System</small></h3>
+        <p class="card__desc">A 10-microservice platform with an MCP-powered assistant. Graduation project — bound, but veiled.</p>
+        <div class="card__foot"><ul class="card__tech"><li>PHP</li><li>Laravel</li><li>Node</li></ul><span class="card__sealed">sealed</span></div>
+      </article>
+      <article class="card">
+        <svg class="card__sigil" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 36c10-2 8-22 20-26"/><path d="M30 8c4 8-2 16-10 18"/></svg>
+        <p class="card__true">the Scribe of Vanishing Marks</p>
+        <h3 class="card__name">Etch-A-Chat</h3>
+        <p class="card__desc">A privacy-focused real-time vector-drawing messenger — marks that vanish.</p>
+        <div class="card__foot"><ul class="card__tech"><li>React Native</li><li>Skia</li></ul><a class="card__link" href="https://github.com/ekaynac/EtchaMessage" target="_blank" rel="noopener">repo ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="floor wrap" id="xp">
+    <p class="level"><span class="rom">ii</span> The Raising — labor that built the tower</p>
+    <div class="xp">
+      <div class="xp__row"><div class="xp__when">May 2026 — Present</div><div><h3 class="xp__org">Mega Bilgisayar</h3><p class="xp__role">AI / Software Engineer</p></div></div>
+      <div class="xp__row"><div class="xp__when">Feb — Jul 2025</div><div><h3 class="xp__org">Mia Teknoloji</h3><p class="xp__role">AI Intern · AI R&amp;D</p><p class="xp__note"><mark>100/100</mark> internship evaluation.</p></div></div>
+      <div class="xp__row"><div class="xp__when">2021 — 2023</div><div><h3 class="xp__org">Meturone</h3><p class="xp__role">Computer Vision Team</p><p class="xp__note"><mark>Teknofest</mark> UAV finalist.</p></div></div>
+    </div>
+  </section>
+
+  <section class="floor wrap" id="lines">
+    <p class="level"><span class="rom">iii</span> Lines — the incantations</p>
+    <div class="poemwrap">
+      <blockquote class="poem">
+        <span class="poem__l"><span class="cm">//</span>a cursor waits where the morning used to be,</span>
+        <span class="poem__l"><span class="cm">//</span>each line a small machine for holding light,</span>
+        <span class="poem__l"><span class="cm">//</span>and somewhere a system learns to mean it.</span>
+      </blockquote>
+      <p class="poem__cite">From <cite>Uyandı Uyudu</cite> (2024) · Poetry editor at Polemik Yayınları. <span style="opacity:var(--grid)">— placeholder verse, real lines land later</span></p>
+    </div>
+  </section>
+
+  <section class="floor wrap" id="about">
+    <p class="level"><span class="rom">iv</span> The Architect</p>
+    <div class="about">
+      <div class="about__body">
+        <h2 class="floor-h" style="margin-bottom:.4em">Two voices, one practice.</h2>
+        <p>By day I ship <b>end-to-end</b> — LDAP-bound agent identity, ten-service platforms, computer vision on the edge. I like systems that hold their shape under load and say exactly what they mean.</p>
+        <p>The other voice writes <span class="em">poetry</span> — a published collection, an editor's chair at a literary press, and a long suspicion that code and verse are the same craft: the fewest tokens that carry the most meaning.</p>
+      </div>
+      <aside class="edu"><h3>Lineage</h3><ul>
+        <li><b>Bilkent University</b><span>B.Sc. Information Systems · 2022–2026</span></li>
+        <li><b>FH Hagenberg</b><span>Erasmus exchange</span></li>
+        <li><b>METU</b><span>EEE · transferred</span></li>
+      </ul></aside>
+    </div>
+  </section>
+
+  <section class="floor wrap" id="contact">
+    <p class="level"><span class="rom">v</span> The Seal</p>
+    <h2 class="seal-h">Let's build something, or <span class="em">write</span> it.</h2>
+    <div class="clist">
+      <a href="mailto:tensorenes@gmail.com"><span class="k">Email</span><span class="v">tensorenes@gmail.com</span><span class="go">↗</span></a>
+      <a href="https://github.com/ekaynac" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">github.com/ekaynac</span><span class="go">↗</span></a>
+      <a href="https://www.linkedin.com/in/enes-kaynakci" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">linkedin.com/in/enes-kaynakci</span><span class="go">↗</span></a>
+    </div>
+    <div class="foot"><span>© 2026 Enes Kaynakcı — Ankara, Türkiye</span><span>⟡ Built &amp; written in two voices ⟡</span></div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.remove('no-js'); root.classList.add('js');
+  var handle=document.getElementById('handle'), readout=document.getElementById('readout'), brand=document.getElementById('brandPole'),
+      field=document.getElementById('dragfield'), aP=document.querySelector('.phrase--a'), bP=document.querySelector('.phrase--b'),
+      reduce=window.matchMedia('(prefers-reduced-motion: reduce)'), KEY='morph-t', t=0, pole='a';
+  try{ var s=parseFloat(localStorage.getItem(KEY)); if(!isNaN(s)) t=Math.min(1,Math.max(0,s)); }catch(e){}
+  if(reduce.matches) t=t<0.5?0:1;
+  function word(v){ return v<0.5?'code':'incantation'; }
+  function swap(p){ if(p===pole) return; pole=p; var on=p==='b'?bP:aP, off=p==='b'?aP:bP; off.classList.remove('on'); off.setAttribute('aria-hidden','true'); void on.offsetWidth; on.classList.add('on'); on.setAttribute('aria-hidden','false'); }
+  function render(){ root.style.setProperty('--t',t); root.classList.toggle('poet',t>=0.5); var n=Math.round(t*100);
+    handle.setAttribute('aria-valuenow',n); handle.setAttribute('aria-valuetext', t<=0.01?'Code':t>=0.99?'Incantation':n+'% incantation');
+    readout.textContent='t '+t.toFixed(2)+' — '+word(t); if(brand) brand.textContent=word(t); swap(t<0.5?'a':'b'); }
+  function set(v,a){ v=Math.min(1,Math.max(0,v)); if(reduce.matches) v=v<0.5?0:1; root.classList.toggle('dragging',!a); t=v; render(); try{ localStorage.setItem(KEY,String(t)); }catch(e){} }
+  function xToT(x){ return x/window.innerWidth; }
+  var hD=false;
+  handle.addEventListener('pointerdown',function(e){ hD=true; handle.setPointerCapture(e.pointerId); handle.focus(); set(xToT(e.clientX),false); e.preventDefault(); });
+  handle.addEventListener('pointermove',function(e){ if(hD) set(xToT(e.clientX),false); });
+  function hE(){ if(!hD) return; hD=false; root.classList.remove('dragging'); } handle.addEventListener('pointerup',hE); handle.addEventListener('pointercancel',hE);
+  var sx=0,sy=0,lock=null,fD=false,pid=null; field.style.pointerEvents='auto';
+  field.addEventListener('pointerdown',function(e){ if(e.target.closest('a,button,[role="slider"]')) return; fD=true; lock=null; sx=e.clientX; sy=e.clientY; pid=e.pointerId; });
+  field.addEventListener('pointermove',function(e){ if(!fD) return; var dx=e.clientX-sx, dy=e.clientY-sy;
+    if(lock===null){ if(Math.abs(dx)<6&&Math.abs(dy)<6) return; lock=Math.abs(dx)>Math.abs(dy)?'x':'y'; if(lock==='x'){ try{ field.setPointerCapture(pid);}catch(e2){} } }
+    if(lock==='x'){ set(xToT(e.clientX),false); e.preventDefault(); } else { fD=false; } });
+  function fE(){ if(!fD) return; fD=false; lock=null; root.classList.remove('dragging'); } field.addEventListener('pointerup',fE); field.addEventListener('pointercancel',fE);
+  handle.addEventListener('keydown',function(e){ var st=reduce.matches?1:0.05,k=e.key,h=true;
+    if(k==='ArrowLeft'||k==='ArrowDown') set(t-st,true); else if(k==='ArrowRight'||k==='ArrowUp') set(t+st,true);
+    else if(k==='Home') set(0,true); else if(k==='End') set(1,true); else if(k==='PageUp') set(t+0.2,true); else if(k==='PageDown') set(t-0.2,true); else h=false; if(h) e.preventDefault(); });
+  // threshold
+  var thr=document.getElementById('threshold');
+  function enter(){ thr.classList.add('gone'); try{ sessionStorage.setItem('entered','1'); }catch(e){} }
+  document.getElementById('enter').addEventListener('click',enter);
+  document.getElementById('plain').addEventListener('click',enter);
+  try{ if(sessionStorage.getItem('entered')) thr.classList.add('gone'); }catch(e){}
+  aP.classList.add('on'); set(t,true);
+})();
+</script>
+</body>
+</html>
