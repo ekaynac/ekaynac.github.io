@@ -46,7 +46,7 @@ const PREAMBLE = String.raw`\documentclass[letterpaper,10pt]{article}
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{1pt}}
 `;
 
 function findExperience(data: ProfileData, org: string, start: string): Experience {
@@ -84,7 +84,7 @@ function header(data: ProfileData): string {
 }
 
 function sectionSummary(config: CvConfig): string {
-  return [`\\vspace{2pt}`, `\\small{${esc(config.summary)}}`, `\\vspace{3pt}`].join("\n");
+  return [`\\vspace{2pt}`, `\\small{${esc(config.summary)}}`, `\\vspace{-6pt}`].join("\n");
 }
 
 function sectionExperience(data: ProfileData, config: CvConfig): string {
