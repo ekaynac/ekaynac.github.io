@@ -31,22 +31,22 @@ const PREAMBLE = String.raw`\documentclass[letterpaper,10pt]{article}
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
 
 \newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
 \newcommand{\resumeSubheading}[4]{\vspace{-2pt}\item
   \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & \textbf{\small #2} \\
     \textit{\small#3} & \textit{\small #4} \\
-  \end{tabular*}\vspace{-7pt}}
+  \end{tabular*}\vspace{-6pt}}
 \newcommand{\resumeProjectHeading}[2]{\item
   \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
     \small#1 & \textbf{\small #2}\\
-  \end{tabular*}\vspace{-7pt}}
+  \end{tabular*}\vspace{-6pt}}
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
 `;
 
 function findExperience(data: ProfileData, org: string, start: string): Experience {
@@ -84,7 +84,7 @@ function header(data: ProfileData): string {
 }
 
 function sectionSummary(config: CvConfig): string {
-  return [`\\section{Summary}`, `\\small{${esc(config.summary)}}`, `\\vspace{-4pt}`].join("\n");
+  return [`\\vspace{2pt}`, `\\small{${esc(config.summary)}}`, `\\vspace{3pt}`].join("\n");
 }
 
 function sectionExperience(data: ProfileData, config: CvConfig): string {
@@ -101,7 +101,7 @@ function sectionExperience(data: ProfileData, config: CvConfig): string {
       out.push(`\\resumeItemListEnd`);
     }
   }
-  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-8pt}`);
+  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-7pt}`);
   return out.join("\n");
 }
 
@@ -116,7 +116,7 @@ function sectionProjects(data: ProfileData, config: CvConfig): string {
     for (const h of p.highlights.slice(0, config.maxProjectHighlights)) out.push(`\\resumeItem{${esc(h)}}`);
     out.push(`\\resumeItemListEnd`);
   }
-  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-8pt}`);
+  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-7pt}`);
   return out.join("\n");
 }
 
@@ -126,7 +126,7 @@ function sectionSkills(data: ProfileData, config: CvConfig): string {
     const s = findSkill(data, cat);
     out.push(`\\small{\\item{\\textbf{${esc(s.category)}:} ${esc(s.items.join(", "))}}}`);
   }
-  out.push(`\\end{itemize}`, `\\vspace{-10pt}`);
+  out.push(`\\end{itemize}`, `\\vspace{-8pt}`);
   return out.join("\n");
 }
 
@@ -138,12 +138,12 @@ function sectionEducation(data: ProfileData, config: CvConfig): string {
       `\\resumeSubheading{${esc(ed.org)}}{${esc(formatDate(ed.start))} -- ${esc(formatDate(ed.end))}}{${esc(ed.credential)}}{${esc(ed.location)}}`,
     );
   }
-  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-8pt}`);
+  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-7pt}`);
   return out.join("\n");
 }
 
 function sectionLine(title: string, body: string): string {
-  return [`\\section{${esc(title)}}`, `\\small{${esc(body)}}`, `\\vspace{-4pt}`].join("\n");
+  return [`\\section{${esc(title)}}`, `\\small{${esc(body)}}`, `\\vspace{-3pt}`].join("\n");
 }
 
 export function renderResume(data: ProfileData, config: CvConfig): string {
