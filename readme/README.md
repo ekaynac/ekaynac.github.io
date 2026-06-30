@@ -31,4 +31,4 @@ Founder of Bilkent Game Development & Animation Society; President of Bilkent Li
 
 ## Connect
 
-[LinkedIn](https://www.linkedin.com/in/enes-kaynakci/) · [Email](mailto:tensorenes@gmail.com)
+[Website](https://ekaynac.github.io) · [LinkedIn](https://www.linkedin.com/in/enes-kaynakci/) · [Email](mailto:tensorenes@gmail.com)

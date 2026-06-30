@@ -25,5 +25,5 @@ export const readmeConfig: ReadmeConfig = {
   skillGroups: ["Languages", "AI & ML", "Web & Mobile", "Infrastructure & Tools"],
   beyondCode:
     "Founder of Bilkent Game Development & Animation Society; President of Bilkent Literature Society; founding poetry editor at Polemik Yayınları; published poet.",
-  connect: ["linkedin", "email"],
+  connect: ["website", "linkedin", "email"],
 };

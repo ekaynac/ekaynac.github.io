@@ -23,10 +23,10 @@ describe("renderReadme", () => {
     expect(md).toContain("Mega Bilgisayar");
     expect(md).toContain("Hallux Valgus");
   });
-  it("connect line has LinkedIn + Email but no website link", () => {
+  it("connect line has the live website, LinkedIn, and Email", () => {
+    expect(md).toContain("https://ekaynac.github.io");
     expect(md).toContain("https://www.linkedin.com/in/enes-kaynakci/");
     expect(md).toContain("mailto:tensorenes@gmail.com");
-    expect(md).not.toContain("https://ekaynac.github.io");
   });
   it("throws on an unknown project slug", () => {
     expect(() => renderReadme(profileData, { ...readmeConfig, projects: ["nope"] })).toThrow(/project not found/);
