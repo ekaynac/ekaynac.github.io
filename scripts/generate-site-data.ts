@@ -7,7 +7,7 @@ import { siteConfig, type SiteConfig } from "../site/site.config";
 import { formatDate } from "./format-date";
 
 export interface SiteData {
-  profile: { name: string; title: string; location: string; email: string;
+  profile: { name: string; title: string; location: string; email: string; summary: string;
              links: { github: string; linkedin: string; website: string } };
   heroPairs: { engineer: string; poet: string }[];
   work: {
@@ -61,7 +61,7 @@ export function renderSiteData(data: ProfileData, config: SiteConfig): SiteData 
   return {
     profile: {
       name: data.profile.name, title: data.profile.title, location: data.profile.location,
-      email: data.profile.email, links: data.profile.links,
+      email: data.profile.email, summary: data.profile.summary, links: data.profile.links,
     },
     heroPairs: config.heroPairs,
     work,
