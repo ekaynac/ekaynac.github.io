@@ -46,7 +46,7 @@ const PREAMBLE = String.raw`\documentclass[letterpaper,10pt]{article}
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-6pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
 `;
 
 function findExperience(data: ProfileData, org: string, start: string): Experience {
@@ -121,7 +121,7 @@ function sectionProjects(data: ProfileData, config: CvConfig): string {
 }
 
 function sectionSkills(data: ProfileData, config: CvConfig): string {
-  const out = [`\\section{Technical Skills}`, `\\begin{itemize}[leftmargin=0in, label={}, itemsep=3pt]`];
+  const out = [`\\section{Technical Skills}`, `\\begin{itemize}[leftmargin=0in, label={}, itemsep=0pt]`];
   for (const cat of config.skills) {
     const s = findSkill(data, cat);
     out.push(`\\small{\\item{\\textbf{${esc(s.category)}:} ${esc(s.items.join(", "))}}}`);
