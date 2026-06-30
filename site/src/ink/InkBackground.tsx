@@ -1,37 +1,42 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Living ink — an ambient WebGL flowing-ink field rendered behind all content.
- * Drifts on its own; the cursor stirs and blooms it. Graceful fallbacks:
- * no-WebGL → static dark background; prefers-reduced-motion → one static frame;
- * pauses when the tab is hidden; cleans up on unmount.
+ * Living ink — a playful, multi-color field that is mostly dark at rest and
+ * REVEALS shifting colors along a smooth trail as the cursor moves. The trail
+ * is a fading ribbon of recent positions, so motion feels fluid, not jittery.
+ * Fallbacks: no-WebGL → static dark background; prefers-reduced-motion → one
+ * faint static frame; pauses when hidden; cleans up on unmount.
  */
+const TRAIL = 24; // ring buffer length of the reveal trail
+
 const VERT = "attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }";
 
 const FRAG = [
   "precision highp float;",
-  "uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse; uniform float uAmt;",
+  "uniform vec2 uRes; uniform float uTime; uniform vec3 uTrail[" + TRAIL + "];",
   "float hash(vec2 p){ p=fract(p*vec2(123.34,345.45)); p+=dot(p,p+34.345); return fract(p.x*p.y); }",
   "float noise(vec2 p){ vec2 i=floor(p), f=fract(p); vec2 u=f*f*(3.-2.*f);",
   "  float a=hash(i), b=hash(i+vec2(1,0)), c=hash(i+vec2(0,1)), d=hash(i+vec2(1,1));",
   "  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y); }",
-  "float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<6;i++){ v+=a*noise(p); p*=2.03; a*=.5; } return v; }",
+  "float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<5;i++){ v+=a*noise(p); p*=2.03; a*=.5; } return v; }",
+  // playful, gold-free palette (cyans, blues, violets, magentas, lime, pink)
+  "vec3 pal(float t){ vec3 a=vec3(0.52,0.50,0.58), b=vec3(0.48,0.46,0.50),",
+  "  c=vec3(1.0,1.0,1.0), d=vec3(0.30,0.55,0.85); return a + b*cos(6.28318*(c*t + d)); }",
   "void main(){",
   "  vec2 uv = gl_FragCoord.xy/uRes; vec2 p = uv; p.x *= uRes.x/uRes.y;",
-  "  float t = uTime*0.058;",
-  "  vec2 m = uMouse; m.x *= uRes.x/uRes.y;",
-  "  vec2 toM = p - m; float md = dot(toM,toM);",
-  "  vec2 stir = toM/(md+0.045) * uAmt * 0.22;",
-  "  vec2 q = vec2(fbm(p*1.6 + t + stir), fbm(p*1.6 + vec2(5.2,1.3) - t + stir));",
-  "  vec2 r = vec2(fbm(p*1.6 + 2.0*q + vec2(1.7,9.2) + 0.12*t), fbm(p*1.6 + 2.0*q + vec2(8.3,2.8) - 0.10*t));",
-  "  float f = fbm(p*1.6 + 2.4*r);",
-  "  float bloom = exp(-md*3.6) * uAmt * 1.6;",
-  "  float ink = smoothstep(0.33,0.76,f) + bloom*0.9;",
-  "  vec3 bg = vec3(0.024,0.028,0.039);",
-  "  vec3 inkc = mix(vec3(0.12,0.155,0.24), vec3(0.25,0.20,0.15), r.x);",
-  "  vec3 col = mix(bg, inkc, clamp(ink,0.,1.)*1.08);",
-  "  col += vec3(0.11,0.12,0.17)*pow(max(f-0.56,0.0),2.0);",
-  "  col += vec3(0.18,0.14,0.07)*bloom*1.2;",
+  "  float t = uTime;",
+  "  float reveal = 0.05;", // faint ambient so it is alive, not dead
+  "  for(int i=0;i<" + TRAIL + ";i++){",
+  "    vec2 d = p - uTrail[i].xy; reveal += uTrail[i].z * exp(-dot(d,d)*52.0);",
+  "  }",
+  "  reveal = clamp(reveal,0.0,1.0);",
+  "  float n = fbm(p*2.2 + 0.09*t);",
+  "  float hue = fract(0.55*n + 0.045*t + 0.22*p.x + 0.14*p.y);",
+  "  vec3 colorBase = pal(hue) * (0.55 + 0.70*n);",
+  "  vec3 dark = vec3(0.016,0.020,0.030);",
+  "  float m = smoothstep(0.02,0.62,reveal);",
+  "  vec3 col = mix(dark, colorBase, m);",
+  "  col *= 1.0 - 0.22*dot(uv-0.5,uv-0.5);", // soft vignette
   "  gl_FragColor = vec4(col,1.0);",
   "}",
 ].join("\n");
@@ -56,7 +61,7 @@ export function InkBackground() {
     if (!canvas) return;
     const gl = (canvas.getContext("webgl") ||
       canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
-    if (!gl) return; // CSS background remains as the fallback
+    if (!gl) return;
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -78,9 +83,9 @@ export function InkBackground() {
 
     const uRes = gl.getUniformLocation(prog, "uRes");
     const uTime = gl.getUniformLocation(prog, "uTime");
-    const uMouse = gl.getUniformLocation(prog, "uMouse");
-    const uAmt = gl.getUniformLocation(prog, "uAmt");
+    const uTrail = gl.getUniformLocation(prog, "uTrail");
 
+    let aspect = 1;
     const DPR = Math.min(window.devicePixelRatio || 1, 1.6);
     const resize = () => {
       const w = window.innerWidth, h = window.innerHeight;
@@ -90,35 +95,50 @@ export function InkBackground() {
       canvas.style.height = h + "px";
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform2f(uRes, canvas.width, canvas.height);
+      aspect = canvas.width / canvas.height;
     };
     window.addEventListener("resize", resize);
     resize();
 
-    let mx = 0.5, my = 0.55, tmx = 0.5, tmy = 0.55, amt = 0, tAmt = 0;
-    const move = (x: number, y: number, kick = 1.0) => {
-      tmx = x / window.innerWidth;
-      tmy = 1.0 - y / window.innerHeight;
-      tAmt = kick;
+    // smoothed pointer (eased) + a fading ring-buffer trail of recent positions
+    const trail = new Float32Array(TRAIL * 3); // x (aspect-corrected), y, strength
+    let head = 0;
+    let sx = 0.5, sy = 0.55, tx = 0.5, ty = 0.55;
+    let lastWx = 0.5 * aspect, lastWy = 0.55;
+    const onMove = (e: PointerEvent) => {
+      tx = e.clientX / window.innerWidth;
+      ty = 1.0 - e.clientY / window.innerHeight;
     };
-    const onMove = (e: PointerEvent) => move(e.clientX, e.clientY, 1.0);
-    const onDown = (e: PointerEvent) => move(e.clientX, e.clientY, 1.4);
     window.addEventListener("pointermove", onMove, { passive: true });
-    window.addEventListener("pointerdown", onDown, { passive: true });
+    window.addEventListener("pointerdown", onMove, { passive: true });
 
     let raf = 0;
     let running = true;
     const start = performance.now();
+
+    const step = (time: number) => {
+      // ease the pointer (smooth movement)
+      sx += (tx - sx) * 0.14;
+      sy += (ty - sy) * 0.14;
+      const wx = sx * aspect, wy = sy;
+      // strength from how far it moved this frame → strong trail when moving, faint at rest
+      const moved = Math.hypot(wx - lastWx, wy - lastWy);
+      const strength = Math.min(1.0, 0.18 + moved * 9.0);
+      lastWx = wx; lastWy = wy;
+      // decay the whole trail, then write the new head
+      for (let i = 0; i < TRAIL; i++) trail[i * 3 + 2] *= 0.93;
+      trail[head * 3] = wx;
+      trail[head * 3 + 1] = wy;
+      trail[head * 3 + 2] = strength;
+      head = (head + 1) % TRAIL;
+      gl.uniform1f(uTime, time);
+      gl.uniform3fv(uTrail, trail);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+
     const frame = (now: number) => {
       if (!running) return;
-      const time = (now - start) / 1000;
-      mx += (tmx - mx) * 0.06;
-      my += (tmy - my) * 0.06;
-      tAmt *= 0.975;
-      amt += (tAmt - amt) * 0.12;
-      gl.uniform1f(uTime, time);
-      gl.uniform2f(uMouse, mx, my);
-      gl.uniform1f(uAmt, Math.max(0.32, amt));
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      step((now - start) / 1000);
       raf = requestAnimationFrame(frame);
     };
     const onVis = () => {
@@ -128,9 +148,8 @@ export function InkBackground() {
     document.addEventListener("visibilitychange", onVis);
 
     if (reduce) {
-      gl.uniform1f(uTime, 8.0);
-      gl.uniform2f(uMouse, 0.5, 0.55);
-      gl.uniform1f(uAmt, 0.32);
+      gl.uniform1f(uTime, 6.0);
+      gl.uniform3fv(uTrail, trail); // empty trail → faint ambient color only
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     } else {
       raf = requestAnimationFrame(frame);
@@ -141,7 +160,7 @@ export function InkBackground() {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointerdown", onMove);
       document.removeEventListener("visibilitychange", onVis);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
