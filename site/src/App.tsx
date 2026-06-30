@@ -18,7 +18,7 @@ export default function App() {
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
-            <a className="cv" href="/cv.pdf">CV</a>
+            <a className="cv" href="/cv.pdf" target="_blank" rel="noopener">CV</a>
           </nav>
         </div>
       </header>
@@ -30,7 +30,7 @@ export default function App() {
           <nav className="links" aria-label="Profiles">
             <a href={p.links.github} target="_blank" rel="noopener">GitHub ↗</a>
             <a href={p.links.linkedin} target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="/cv.pdf">CV ↓</a>
+            <a href="/cv.pdf" target="_blank" rel="noopener">CV ↓</a>
             <a href={`mailto:${p.email}`}>Email</a>
           </nav>
         </section>
