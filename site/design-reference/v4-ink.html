@@ -191,20 +191,20 @@ section{ padding-block:clamp(70px,12vh,140px); }
 'float fbm(vec2 p){ float v=0., a=.5; for(int i=0;i<6;i++){ v+=a*noise(p); p*=2.03; a*=.5; } return v; }',
 'void main(){',
 '  vec2 uv = gl_FragCoord.xy/uRes; vec2 p = uv; p.x *= uRes.x/uRes.y;',
-'  float t = uTime*0.035;',
+'  float t = uTime*0.058;',
 '  vec2 m = uMouse; m.x *= uRes.x/uRes.y;',
 '  vec2 toM = p - m; float md = dot(toM,toM);',
-'  vec2 stir = toM/(md+0.06) * uAmt * 0.10;',          // cursor swirls the field
+'  vec2 stir = toM/(md+0.045) * uAmt * 0.22;',          // cursor swirls the field
 '  vec2 q = vec2(fbm(p*1.6 + t + stir), fbm(p*1.6 + vec2(5.2,1.3) - t + stir));',
 '  vec2 r = vec2(fbm(p*1.6 + 2.0*q + vec2(1.7,9.2) + 0.12*t), fbm(p*1.6 + 2.0*q + vec2(8.3,2.8) - 0.10*t));',
 '  float f = fbm(p*1.6 + 2.4*r);',
-'  float bloom = exp(-md*5.5) * uAmt;',
-'  float ink = smoothstep(0.28,0.92,f) + bloom*0.5;',
+'  float bloom = exp(-md*3.6) * uAmt * 1.6;',
+'  float ink = smoothstep(0.33,0.76,f) + bloom*0.9;',
 '  vec3 bg = vec3(0.024,0.028,0.039);',
-'  vec3 inkc = mix(vec3(0.07,0.085,0.13), vec3(0.13,0.115,0.10), r.x);',  // cool↔warm ink
-'  vec3 col = mix(bg, inkc, clamp(ink,0.,1.)*0.92);',
-'  col += vec3(0.045,0.05,0.075)*pow(max(f-0.62,0.0),2.5);',              // faint highlights
-'  col += vec3(0.10,0.085,0.05)*bloom*0.5;',                              // warm bloom at cursor
+'  vec3 inkc = mix(vec3(0.12,0.155,0.24), vec3(0.25,0.20,0.15), r.x);',  // cool↔warm ink
+'  vec3 col = mix(bg, inkc, clamp(ink,0.,1.)*1.08);',
+'  col += vec3(0.11,0.12,0.17)*pow(max(f-0.56,0.0),2.0);',              // faint highlights
+'  col += vec3(0.18,0.14,0.07)*bloom*1.2;',                              // warm bloom at cursor
 '  gl_FragColor = vec4(col,1.0);',
 '}'].join('\n');
 
@@ -235,15 +235,15 @@ section{ padding-block:clamp(70px,12vh,140px); }
     if(!running) return;
     var time=(now-start)/1000;
     mx+=(tmx-mx)*0.06; my+=(tmy-my)*0.06;          // smooth follow
-    tAmt*=0.96; amt+=(tAmt-amt)*0.08;               // activity decays toward idle
-    var idle=0.16;                                   // ambient base motion even at rest
+    tAmt*=0.975; amt+=(tAmt-amt)*0.12;              // activity decays toward idle
+    var idle=0.32;                                   // ambient base motion even at rest
     gl.uniform1f(uTime,time);
     gl.uniform2f(uMouse,mx,my);
     gl.uniform1f(uAmt, Math.max(idle, amt));
     gl.drawArrays(gl.TRIANGLES,0,3);
     requestAnimationFrame(frame);
   }
-  if(reduce){ gl.uniform1f(uTime,8.0); gl.uniform2f(uMouse,0.5,0.55); gl.uniform1f(uAmt,0.16); gl.drawArrays(gl.TRIANGLES,0,3); }
+  if(reduce){ gl.uniform1f(uTime,8.0); gl.uniform2f(uMouse,0.5,0.55); gl.uniform1f(uAmt,0.32); gl.drawArrays(gl.TRIANGLES,0,3); }
   else requestAnimationFrame(frame);
 })();
 </script>
