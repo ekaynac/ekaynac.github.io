@@ -74,11 +74,11 @@ function header(data: ProfileData): string {
   const p = data.profile;
   return [
     `\\begin{center}`,
-    `    {\\Huge \\scshape ${esc(p.name)}} \\\\ \\vspace{2pt}`,
-    `    \\small ${esc(p.title)} \\\\ \\vspace{2pt}`,
+    `    {\\Huge \\scshape ${esc(p.name)}}\\;{\\large\\textbar}\\;{\\large ${esc(p.title)}} \\\\ \\vspace{4pt}`,
     `    \\small ${esc(p.location)} ~\\textbar~ \\href{mailto:${p.email}}{\\underline{${esc(p.email)}}} ~\\textbar~`,
     `    \\href{${p.links.linkedin}}{\\underline{linkedin.com/in/enes-kaynakci}} ~\\textbar~`,
-    `    \\href{${p.links.github}}{\\underline{github.com/ekaynac}}`,
+    `    \\href{${p.links.github}}{\\underline{github.com/ekaynac}} ~\\textbar~`,
+    `    \\href{${p.links.website}}{\\underline{ekaynac.github.io}}`,
     `\\end{center}`,
   ].join("\n");
 }
@@ -121,7 +121,7 @@ function sectionProjects(data: ProfileData, config: CvConfig): string {
 }
 
 function sectionSkills(data: ProfileData, config: CvConfig): string {
-  const out = [`\\section{Technical Skills}`, `\\begin{itemize}[leftmargin=0.15in, label={}, itemsep=-2pt]`];
+  const out = [`\\section{Technical Skills}`, `\\begin{itemize}[leftmargin=0in, label={}, itemsep=3pt]`];
   for (const cat of config.skills) {
     const s = findSkill(data, cat);
     out.push(`\\small{\\item{\\textbf{${esc(s.category)}:} ${esc(s.items.join(", "))}}}`);
