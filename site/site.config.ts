@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = {
     { engineer: "I build systems.", poet: "I write lines." },
     { engineer: "Pipelines, models, services.", poet: "Images, rhythm, voice." },
   ],
-  projects: ["llmdap", "onprem-ai-adoption-radar", "sims", "etch-a-chat"],
+  projects: ["llmdap", "inframedic", "onprem-ai-adoption-radar", "sims", "etch-a-chat"],
   experience: [
     { org: "Mega Bilgisayar", start: "2026-05-18" },
     { org: "Mia Teknoloji", start: "2025-02" },
@@ -45,6 +45,7 @@ export const siteConfig: SiteConfig = {
   },
   djinn: {
     llmdap: { trueName: "the Namebinder", sigil: "namebinder", floor: 1, summonWords: ["namebinder", "llmdap", "bind"] },
+    inframedic: { trueName: "the Mender of Iron", sigil: "mender", floor: 5, summonWords: ["mender", "inframedic", "heal"] },
     "onprem-ai-adoption-radar": { trueName: "the Augur", sigil: "augur", floor: 2, summonWords: ["augur", "radar", "omen"] },
     sims: { trueName: "the Sealed One", sigil: "sealed", floor: 3, summonWords: ["sealed", "sims"] },
     "etch-a-chat": { trueName: "the Scribe of Vanishing Marks", sigil: "scribe", floor: 4, summonWords: ["scribe", "etch"] },

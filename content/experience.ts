@@ -10,13 +10,13 @@ export const experience: Experience[] = [
     current: true,
     employmentType: "full-time",
     highlights: [
-      "Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.",
+      "Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.",
       "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
       "R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.",
       "Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard.",
     ],
     tech: [
-      "TypeScript", "Python", "LLMs", "RAG", "MCP", "Casbin",
+      "TypeScript", "Python", "LLMs", "vLLM", "RAG", "MCP", "Casbin",
       "LDAP/OIDC", "YOLO", "Docker", "GitHub Actions",
     ],
   },
@@ -61,8 +61,7 @@ export const experience: Experience[] = [
     current: false,
     employmentType: "volunteer",
     highlights: [
-      "Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception.",
-      "Curated and published an ~11,500-image (8,815 train / 2,650 validation) UAV detection dataset for open-source use.",
+      "Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception and published an ~11,500-image UAV detection dataset for open-source use.",
     ],
     tech: ["YOLOv5", "TensorRT", "Jetson Xavier", "OpenCV", "Python"],
   },

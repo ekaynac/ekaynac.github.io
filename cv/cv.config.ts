@@ -22,9 +22,9 @@ export const cvConfig: CvConfig = {
     { org: "Mega Bilgisayar", start: "2026-05-18", maxHighlights: 3 },
     { org: "Mia Teknoloji", start: "2025-02", maxHighlights: 3 },
     { org: "Mega Bilgisayar", start: "2024-06", maxHighlights: 1 },
-    { org: "Meturone (Fixed-wing UAV Team)", start: "2021-09", maxHighlights: 2 },
+    { org: "Meturone (Fixed-wing UAV Team)", start: "2021-09", maxHighlights: 1 },
   ],
-  projects: ["sims", "llmdap", "etch-a-chat"],
+  projects: ["sims", "llmdap", "inframedic", "etch-a-chat"],
   maxProjectHighlights: 1,
   skills: ["Languages", "AI & ML", "Web & Mobile", "Infrastructure & Tools"],
   education: [

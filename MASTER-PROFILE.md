@@ -14,11 +14,11 @@ AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and
 
 ### AI / Software Engineer — Mega Bilgisayar
 2026-05-18 – Present · Ankara, Türkiye · full-time
-- Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.
+- Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.
 - Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
 - R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.
 - Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard.
-_Tech:_ TypeScript, Python, LLMs, RAG, MCP, Casbin, LDAP/OIDC, YOLO, Docker, GitHub Actions
+_Tech:_ TypeScript, Python, LLMs, vLLM, RAG, MCP, Casbin, LDAP/OIDC, YOLO, Docker, GitHub Actions
 
 ### AI Intern, AI R&D — Mia Teknoloji
 2025-02 – 2025-07 · Ankara, Türkiye · internship
@@ -35,8 +35,7 @@ _Tech:_ YOLOv5, OpenCV, NVIDIA Jetson, TensorRT, Python
 
 ### Computer Vision Team Member — Meturone (Fixed-wing UAV Team)
 2021-09 – 2023-09 · Ankara, Türkiye · volunteer
-- Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception.
-- Curated and published an ~11,500-image (8,815 train / 2,650 validation) UAV detection dataset for open-source use.
+- Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception and published an ~11,500-image UAV detection dataset for open-source use.
 _Tech:_ YOLOv5, TensorRT, Jetson Xavier, OpenCV, Python
 
 ### Perception Team Member — METU Formula Racing — Driverless
@@ -54,14 +53,14 @@ Architected a 10-microservice platform (PHP/Laravel, Node.js/Fastify, Python/Fas
 _Tech:_ PHP, Laravel, Node.js, Fastify, Python, FastAPI, React, TypeScript, MySQL, Redis, Nginx, MCP, Docker, GitHub Actions
 
 ### LLMDAP — LLM Directory-bound Access Protection ⭐
-Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC. — https://github.com/ekaynac/LLMDAP
+Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.
 A TypeScript/Node library that binds LLM-agent memory, configuration, and tool access to Active Directory (LDAP) or OIDC identities. Provides fine-grained Casbin authorization, AES-256-GCM envelope-encrypted memory, key rotation, a tamper-evident hash-chained audit trail, and optional HSM/PKCS#11 — running entirely on-premise with no mandatory external service.
 - On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.
 - Optional adapters (HSM/PKCS#11, OIDC) loaded lazily so the lean profile stays dependency-light.
 _Tech:_ TypeScript, Node.js, Casbin, LDAP/Active Directory, OIDC, AES-256-GCM, PKCS#11, jose
 
 ### Etch-A-Chat ⭐
-Privacy-focused real-time vector-drawing messenger. — https://github.com/ekaynac/EtchaMessage
+Privacy-focused real-time vector-drawing messenger.
 Co-developed a privacy-focused messaging app where users exchange hand-drawn vector messages on a live collaborative canvas. Built with React Native (Expo + Skia), Socket.io, MongoDB, Redis, and RabbitMQ; 5 microservices with an API gateway on Kubernetes (AWS EKS), SHA-256 contact sync, phone-OTP auth, and push notifications. Monorepo managed with pnpm + Turborepo.
 - Live collaborative vector canvas over Socket.io.
 - 5 microservices on AWS EKS with phone-OTP auth and SHA-256 contact sync.
@@ -73,6 +72,13 @@ A self-hosted Python system that collects real signals (GitHub releases, registr
 - Deterministic, reproducible scoring — decisions come from a rubric, not a prompt.
 - Evidence-based: star growth, release cadence, and OSV security advisories drive ring changes.
 _Tech:_ Python, MCP, GitHub Actions, OSV.dev, Static Site (GitHub Pages)
+
+### InfraMedic ⭐
+Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.
+A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs.
+- Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.
+- Adapters report partial failures instead of raising — the pipeline enforces that nothing is dropped silently.
+_Tech:_ Python, SQLite, Fernet encryption, pytest
 
 ### Vest Detection System (private)
 Industrial PPE/safety-vest detection on edge hardware (Mega / Advantech).

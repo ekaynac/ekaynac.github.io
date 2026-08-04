@@ -6,10 +6,11 @@ AI-leaning full-stack engineer. I build LLM and agent pipelines, computer-vision
 
 ## What I'm working on
 
-- **[LLMDAP — LLM Directory-bound Access Protection](https://github.com/ekaynac/LLMDAP)** — Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.
+- **LLMDAP — LLM Directory-bound Access Protection** _(private)_ — Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.
+- **InfraMedic** _(private)_ — Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.
 - **[On-Prem AI Adoption Radar](https://github.com/ekaynac/onprem-ai-adoption-radar)** — A deterministic, self-hosted radar that decides which AI/agent tools to adopt, pilot, watch, or avoid.
 - **SIMS — Smart Inventory Management System** _(private)_ — 10-microservice inventory platform with an MCP-powered AI assistant (graduation project).
-- **[Etch-A-Chat](https://github.com/ekaynac/EtchaMessage)** — Privacy-focused real-time vector-drawing messenger.
+- **Etch-A-Chat** _(private)_ — Privacy-focused real-time vector-drawing messenger.
 
 ## Tech
 

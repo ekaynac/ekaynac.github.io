@@ -36,8 +36,7 @@
         "PKCS#11",
         "jose"
       ],
-      "url": "https://github.com/ekaynac/LLMDAP",
-      "isPrivate": false,
+      "isPrivate": true,
       "trueName": "the Namebinder",
       "sigil": "namebinder",
       "floor": 1,
@@ -45,6 +44,26 @@
         "namebinder",
         "llmdap",
         "bind"
+      ]
+    },
+    {
+      "slug": "inframedic",
+      "name": "InfraMedic",
+      "oneLiner": "Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.",
+      "tech": [
+        "Python",
+        "SQLite",
+        "Fernet encryption",
+        "pytest"
+      ],
+      "isPrivate": true,
+      "trueName": "the Mender of Iron",
+      "sigil": "mender",
+      "floor": 5,
+      "summonWords": [
+        "mender",
+        "inframedic",
+        "heal"
       ]
     },
     {
@@ -115,8 +134,7 @@
         "pnpm",
         "Turborepo"
       ],
-      "url": "https://github.com/ekaynac/EtchaMessage",
-      "isPrivate": false,
+      "isPrivate": true,
       "trueName": "the Scribe of Vanishing Marks",
       "sigil": "scribe",
       "floor": 4,
@@ -133,7 +151,7 @@
       "period": "May 2026 – Present",
       "current": true,
       "highlights": [
-        "Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.",
+        "Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.",
         "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
         "R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.",
         "Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard."
@@ -157,8 +175,7 @@
       "period": "Sep 2021 – Sep 2023",
       "current": false,
       "highlights": [
-        "Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception.",
-        "Curated and published an ~11,500-image (8,815 train / 2,650 validation) UAV detection dataset for open-source use."
+        "Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception and published an ~11,500-image UAV detection dataset for open-source use."
       ]
     }
   ],
