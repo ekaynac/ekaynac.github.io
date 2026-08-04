@@ -71,8 +71,8 @@ poems — voice recordings and live stages I both organize and read at. Making t
 life outside work matters to me, and I bring the same care for structure and rhythm to
 both sides.
 
-**Languages.** Turkish (native), English ([TODO: level + any score]), [TODO: German from
-Hagenberg?]
+**Languages.** Turkish (native); English (C1) — fully comfortable working, presenting,
+and debating in an English-only workplace.
 
 **Practical facts recruiters ask.** → `private.profile.md` (never in a public file).
 
