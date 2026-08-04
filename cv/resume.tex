@@ -15,16 +15,16 @@
 \addtolength{\oddsidemargin}{-0.6in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1.19in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
+\addtolength{\topmargin}{-.75in}
+\addtolength{\textheight}{1.55in}
 \urlstyle{same}
 \raggedbottom
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-\titleformat{\section}{\vspace{-4pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+\titleformat{\section}{\vspace{-6pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-2pt}}}}
+\newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-3pt}}}}
 \newcommand{\resumeSubheading}[4]{\vspace{-2pt}\item
   \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & \textbf{\small #2} \\
@@ -57,7 +57,7 @@
 \resumeSubHeadingListStart
 \resumeSubheading{Mega Bilgisayar}{May 2026 -- Present}{AI / Software Engineer}{Ankara, Türkiye}
 \resumeItemListStart
-\resumeItem{Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP \& n8n based portal agents for internal workflows.}
+\resumeItem{Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.}
 \resumeItem{Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.}
 \resumeItem{R\&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.}
 \resumeItemListEnd
@@ -73,8 +73,7 @@
 \resumeItemListEnd
 \resumeSubheading{Meturone (Fixed-wing UAV Team)}{Sep 2021 -- Sep 2023}{Computer Vision Team Member}{Ankara, Türkiye}
 \resumeItemListStart
-\resumeItem{Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception.}
-\resumeItem{Curated and published an \textasciitilde{}11,500-image (8,815 train / 2,650 validation) UAV detection dataset for open-source use.}
+\resumeItem{Teknofest International UAV Competition finalist (2021 and 2022); deployed FP16-quantized YOLOv5 on Jetson Xavier for real-time aerial perception and published an \textasciitilde{}11,500-image UAV detection dataset for open-source use.}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 \vspace{-7pt}
@@ -86,12 +85,17 @@
 \resumeItem{10-microservice inventory platform with an MCP-powered AI assistant (graduation project).}
 \resumeItem{10 microservices across 4 languages with per-service databases and a Redis event bus.}
 \resumeItemListEnd
-\resumeProjectHeading{\textbf{LLMDAP — LLM Directory-bound Access Protection} $|$ \emph{TypeScript, Node.js, Casbin, LDAP/Active Directory}}{\href{https://github.com/ekaynac/LLMDAP}{\underline{Code}}}
+\resumeProjectHeading{\textbf{LLMDAP — LLM Directory-bound Access Protection} $|$ \emph{TypeScript, Node.js, Casbin, LDAP/Active Directory}}{}
 \resumeItemListStart
 \resumeItem{Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.}
 \resumeItem{On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.}
 \resumeItemListEnd
-\resumeProjectHeading{\textbf{Etch-A-Chat} $|$ \emph{React Native, Expo, Skia, Socket.io}}{\href{https://github.com/ekaynac/EtchaMessage}{\underline{Code}}}
+\resumeProjectHeading{\textbf{InfraMedic} $|$ \emph{Python, SQLite, Fernet encryption, pytest}}{}
+\resumeItemListStart
+\resumeItem{Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.}
+\resumeItem{Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Etch-A-Chat} $|$ \emph{React Native, Expo, Skia, Socket.io}}{}
 \resumeItemListStart
 \resumeItem{Privacy-focused real-time vector-drawing messenger.}
 \resumeItem{Live collaborative vector canvas over Socket.io.}

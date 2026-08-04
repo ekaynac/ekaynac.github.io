@@ -36,11 +36,11 @@ export const projects: Project[] = [
       "TypeScript", "Node.js", "Casbin", "LDAP/Active Directory",
       "OIDC", "AES-256-GCM", "PKCS#11", "jose",
     ],
-    links: { repo: "https://github.com/ekaynac/LLMDAP" },
+    links: {},
     start: "2026-06",
     end: "present",
     featured: true,
-    private: false,
+    private: true,
     highlights: [
       "On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.",
       "Optional adapters (HSM/PKCS#11, OIDC) loaded lazily so the lean profile stays dependency-light.",
@@ -57,11 +57,11 @@ export const projects: Project[] = [
       "React Native", "Expo", "Skia", "Socket.io", "MongoDB",
       "Redis", "RabbitMQ", "Kubernetes", "AWS EKS", "pnpm", "Turborepo",
     ],
-    links: { repo: "https://github.com/ekaynac/EtchaMessage" },
+    links: {},
     start: "2025-09",
     end: "2026-06",
     featured: true,
-    private: false,
+    private: true,
     highlights: [
       "Live collaborative vector canvas over Socket.io.",
       "5 microservices on AWS EKS with phone-OTP auth and SHA-256 contact sync.",
@@ -84,6 +84,25 @@ export const projects: Project[] = [
     highlights: [
       "Deterministic, reproducible scoring — decisions come from a rubric, not a prompt.",
       "Evidence-based: star growth, release cadence, and OSV security advisories drive ring changes.",
+    ],
+  },
+  {
+    slug: "inframedic",
+    name: "InfraMedic",
+    oneLiner:
+      "Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.",
+    description:
+      "A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar.",
+    role: "Sole creator (Mega Bilgisayar)",
+    tech: ["Python", "SQLite", "Fernet encryption", "pytest"],
+    links: {},
+    start: "2026-07",
+    end: "present",
+    featured: true,
+    private: true,
+    highlights: [
+      "Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.",
+      "Adapters report partial failures instead of raising — the pipeline enforces that nothing is dropped silently.",
     ],
   },
   {

@@ -14,9 +14,10 @@ describe("renderReadme", () => {
       expect(md).toContain(h);
     }
   });
-  it("links public projects but not the private SIMS", () => {
-    expect(md).toContain("[LLMDAP — LLM Directory-bound Access Protection](https://github.com/ekaynac/LLMDAP)");
-    expect(md).toContain("_(private)_"); // SIMS
+  it("links public projects but not private ones", () => {
+    expect(md).toContain("](https://github.com/ekaynac/onprem-ai-adoption-radar)");
+    expect(md).toContain("_(private)_"); // SIMS, LLMDAP, InfraMedic, Etch-A-Chat
+    expect(md).not.toContain("](https://github.com/ekaynac/LLMDAP)"); // repo went private
     expect(md).not.toContain("](https://github.com/sims-1/sims)");
   });
   it("includes the current role and the ICAT paper", () => {

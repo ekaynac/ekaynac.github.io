@@ -15,9 +15,11 @@ describe("renderSiteData", () => {
     expect(sims.isPrivate).toBe(true);
     expect(sims.url).toBeUndefined();
   });
-  it("gives public featured projects a url", () => {
+  it("gives public featured projects a url but not private ones", () => {
+    const radar = d.work.find((w) => w.slug === "onprem-ai-adoption-radar")!;
+    expect(radar.url).toBe("https://github.com/ekaynac/onprem-ai-adoption-radar");
     const llmdap = d.work.find((w) => w.slug === "llmdap")!;
-    expect(llmdap.url).toBe("https://github.com/ekaynac/LLMDAP");
+    expect(llmdap.url).toBeUndefined(); // repo went private
   });
   it("has at least one hero pair and flags the current role", () => {
     expect(d.heroPairs.length).toBeGreaterThan(0);

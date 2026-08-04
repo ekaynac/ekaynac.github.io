@@ -6,10 +6,10 @@ describe("projects data", () => {
   it("all entries validate", () => {
     projects.forEach((p) => expect(projectSchema.parse(p)).toBeTruthy());
   });
-  it("has exactly the four expected featured projects", () => {
+  it("has exactly the five expected featured projects", () => {
     const featured = projects.filter((p) => p.featured).map((p) => p.slug).sort();
     expect(featured).toEqual(
-      ["etch-a-chat", "llmdap", "onprem-ai-adoption-radar", "sims"]
+      ["etch-a-chat", "inframedic", "llmdap", "onprem-ai-adoption-radar", "sims"]
     );
   });
   it("slugs are unique", () => {
