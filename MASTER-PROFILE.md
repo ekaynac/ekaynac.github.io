@@ -75,7 +75,7 @@ _Tech:_ Python, MCP, GitHub Actions, OSV.dev, Static Site (GitHub Pages)
 
 ### InfraMedic ⭐
 Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.
-A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs.
+A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar.
 - Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.
 - Adapters report partial failures instead of raising — the pipeline enforces that nothing is dropped silently.
 _Tech:_ Python, SQLite, Fernet encryption, pytest

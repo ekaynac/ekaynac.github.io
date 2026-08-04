@@ -92,8 +92,8 @@ export const projects: Project[] = [
     oneLiner:
       "Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.",
     description:
-      "A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs.",
-    role: "Creator",
+      "A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar.",
+    role: "Sole creator (Mega Bilgisayar)",
     tech: ["Python", "SQLite", "Fernet encryption", "pytest"],
     links: {},
     start: "2026-07",
