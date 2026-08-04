@@ -39,18 +39,45 @@
 
 **Proof of work ethic.** [100/100 internship evaluation at Mia Teknoloji, nominated for Best Internship; returned to Mega as a full-timer after interning there — they asked me back.]
 
-## 4. The human layer — [TODO: Enes fills these in, in his own words]
+**Ownership.** [I take products, not tickets: sole creator of InfraMedic at Mega; conceived and shipped LLMDAP and the Adoption Radar end to end. Once I understand the intent behind a requirement I deliver past it — see "How I work best" in §4 for the phrasing.]
 
-> These are the blocks that make a letter feel like a person wrote it. Bullet answers are fine;
-> we'll polish the prose together.
+## 4. The human layer
 
-- **Why I do this work:** [TODO: what genuinely pulls you — the moment you got hooked on AI/CV, what you want to exist in the world]
-- **What I'm like to work with:** [TODO: 3–4 honest traits, with a tiny story each if possible — e.g., how you handle being stuck, disagreement, deadlines]
-- **What I'm looking for:** [TODO: kind of team, kind of problems, on-site/remote/hybrid, Turkey vs. international, visa/relocation willingness]
-- **Outside the terminal:** [TODO: the poet/editor/society-founder side in your own voice — plus anything else: games, music, sports]
-- **Languages:** [TODO: Turkish (native), English (level? TOEFL/IELTS?), German from Erasmus?]
-- **Practical facts recruiters ask:** [TODO: notice period, earliest start date, military service status, salary expectation policy — "share range only when asked"?]
-- **Red lines / dealbreakers:** [TODO: anything you won't do — helps me never pitch you somewhere wrong]
+> Letter-ready blocks distilled from Enes's own words (2026-08-04). Sensitive facts
+> (salary, availability, service status, strategy notes) live in `coverletter/private.profile.md`
+> — gitignored, never committed, never quoted verbatim in a letter.
+
+**Why I do this work.** I want the hours I work to produce something real. What pulls me is
+building impactful products while growing at the edge of current technology — R&D is where
+I'm happiest: taking something new and turning it into something that ships. I genuinely
+dislike wasted time, which shapes how I work more than any tool preference does.
+
+**How I work best.** I take ownership of the product, not just my tickets. Give me a goal
+worth caring about and I'll understand the intention behind the requirements and do more
+than what's written — my follow-through is a strength I'm confident in. The flip side: I do
+my best work when the direction is defined and requirements are reasonably clear. I'll
+gladly push beyond them; I just want them to exist. I can adapt to any domain and any
+technology stack.
+
+**What I'm looking for.** A relatively small team where my impact is visible, working on
+R&D-flavored problems. Hybrid is exactly my style — not fully remote, not five days at a
+desk. I want to come in to create value, not to perform presence; during hours when I'm
+not actively producing, I prefer flexibility. Based in Türkiye; also open to project-based
+collaboration with international teams.
+
+**Outside the terminal.** I'm involved in independent publishing: a published poetry book
+(*Uyandı Uyudu*, 2024), founding poetry editor at Polemik Yayınları. I perform my own
+poems — voice recordings and live stages I both organize and read at. Making time for a
+life outside work matters to me, and I bring the same care for structure and rhythm to
+both sides.
+
+**Languages.** Turkish (native), English ([TODO: level + any score]), [TODO: German from
+Hagenberg?]
+
+**Practical facts recruiters ask.** → `private.profile.md` (never in a public file).
+
+**Red lines (public-safe version).** Directionless projects with no defined goal;
+office presence as ritual rather than for collaboration; fully-remote-only setups.
 
 ## 5. Closers (pick one)
 
@@ -60,4 +87,7 @@
 
 ---
 
-*Workflow: for each application, copy this into `coverletter/letters/<company>-<role>.md` (gitignored if it contains anything private), assemble, tailor, send as PDF with the same LaTeX header style as the CV if a formal look is needed.*
+*Workflow: for each application, copy this into `coverletter/letters/<company>-<role>.md`
+(the whole `letters/` dir is gitignored), assemble, tailor, send as PDF with the same LaTeX
+header style as the CV if a formal look is needed. Salary/availability/service answers come
+from `private.profile.md` at send time — they never appear in tracked files.*

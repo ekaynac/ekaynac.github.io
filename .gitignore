@@ -29,7 +29,9 @@ cv/*.fdb_latexmk
 
 # NEVER commit sensitive personal data exports
 *-private*
+private.*
 secrets/
+coverletter/letters/
 
 # site/ app
 site/node_modules/
