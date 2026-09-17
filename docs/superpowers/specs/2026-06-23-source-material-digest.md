@@ -56,6 +56,7 @@
 - **Theatrical Poetry Moderator, METU Voicing Society** (2022–).
 - **Founding member & Poetry Editor, Polemik Yayınları** (2022–) — typesetting in InDesign/Scribus.
 - Poet: book **"Uyandı Uyudu"** (Kharon Yayınları, 2024); 2nd book **"Kara Tamu"** in progress; YouTube **"Raw Şiir"**; plays **bağlama**.
+  - _Correction (2026-09-17): "Kara Tamu" was a working title. The book was renamed **"Sarhoş"** and published by **Polemik Yayınları on 02.05.2025** (ISBN 9786259757957, 84pp). There is no separate "Kara Tamu"._
 
 ## Skills surfaced (beyond known)
 DSPy, OpenWebUI, OpenRouter, Zemberek (Turkish morphology), Supabase, Railway, Vercel, MCP, TouchDesigner, Unity, FL Studio, Adobe InDesign, Scribus.

@@ -32,7 +32,7 @@ entry below. Each item records where it came from so it can be re-verified.
 
 ## Standing idea: separate artist portfolio
 
-Owner has floated splitting the creative track — poetry (*Uyandı Uyudu*, *Kara Tamu*), Polemik
+Owner has floated splitting the creative track — poetry (*Uyandı Uyudu*, *Sarhoş*), Polemik
 Yayınları editing/typesetting, "Raw Şiir", bağlama, theatrical poetry moderation, concert
 recitation — out of the technical CV into its own **artist portfolio** surface, rather than
 compressing it into the CV's one-line "Leadership & Interests".
