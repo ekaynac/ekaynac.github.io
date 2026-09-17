@@ -38,7 +38,7 @@ export const leadership: Leadership[] = [
     end: "present",
     category: "creative",
     highlights: [
-      "Published the poetry book \"Uyandı Uyudu\" (Kharon Yayınları, 2024); second book in progress.",
+      "Published two poetry books: \"Uyandı Uyudu\" (Kharon Yayınları, 2024) and \"Sarhoş\" (Polemik Yayınları, 2025).",
     ],
   },
   {

@@ -43,5 +43,5 @@ export const cvConfig: CvConfig = {
   awardsLine:
     "2nd Place, Autonomous UAV Computer Vision — 18th METU Robotics Days (2022); Teknofest UAV Finalist (2021 & 2022).",
   leadershipLine:
-    "Founder, Bilkent Game Development & Animation Society; President, Bilkent Literature Society; founding poetry editor at Polemik Yayınları; published poet (Uyandı Uyudu, 2024).",
+    "Founder, Bilkent Game Development & Animation Society; President, Bilkent Literature Society; founding poetry editor at Polemik Yayınları; published poet (Uyandı Uyudu, 2024; Sarhoş, 2025).",
 };
