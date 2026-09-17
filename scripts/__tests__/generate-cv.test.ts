@@ -63,6 +63,24 @@ describe("renderResume", () => {
     expect(mega.highlights.length).toBe(4);
     expect(tex).not.toContain(mega.highlights[3]); // 4th highlight excluded
   });
+  it("drops the configured skill items from the CV only", () => {
+    // Only from the skills lines: Casbin still belongs in LLMDAP's tech list, and
+    // YOLOv5 in the Meturone bullet — the keywords stay on the page.
+    const skillLines = tex.split("\n").filter((l) => /\\textbf\{[^}]+:\}/.test(l));
+    expect(skillLines).toHaveLength(cvConfig.skills.length);
+    for (const dropped of cvConfig.skillExclusions) {
+      expect(skillLines.some((l) => l.includes(dropped))).toBe(false);
+    }
+    expect(skillLines.join("\n")).toContain("Kubernetes (EKS)");
+    // The dataset keeps them for the README, site and LinkedIn pack.
+    const infra = profileData.skills.find((g) => g.category === "Infrastructure & Tools")!;
+    expect(infra.items).toContain("GitHub Actions");
+    expect(infra.items).toContain("Vercel");
+  });
+  it("rejects a skill exclusion that matches nothing (config drift)", () => {
+    const bad = { ...cvConfig, skillExclusions: [...cvConfig.skillExclusions, "Fortran"] };
+    expect(() => renderResume(profileData, bad)).toThrow(/match no skill item: Fortran/);
+  });
   it("keeps the phone out of the public build", () => {
     // public/cv.pdf ships in a public repo and on the live site.
     expect(tex).not.toMatch(/\+90/);

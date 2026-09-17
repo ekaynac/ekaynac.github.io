@@ -10,6 +10,8 @@ export interface CvConfig {
   projects: string[];
   maxProjectHighlights: number;
   skills: string[];
+  /** Skill items dropped from the CV only; the dataset keeps them for README/site/LinkedIn. */
+  skillExclusions: string[];
   education: string[];
   certificationsLine: string;
   awardsLine: string;
@@ -28,6 +30,9 @@ export const cvConfig: CvConfig = {
   projects: ["sims", "llmdap", "inframedic", "etch-a-chat"],
   maxProjectHighlights: 1,
   skills: ["Languages", "AI & ML", "Web & Mobile", "Infrastructure & Tools"],
+  // Trimmed so every skills line fits on one row. YOLOv5 and Casbin still appear in
+  // the experience bullets and project tech lists, so the keywords are not lost.
+  skillExclusions: ["YOLOv5", "TensorFlow", "GitHub Actions", "Casbin", "Vercel"],
   education: [
     "Bilkent University",
     "FH Upper Austria, Hagenberg Campus",

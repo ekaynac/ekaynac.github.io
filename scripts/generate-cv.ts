@@ -140,10 +140,23 @@ function sectionProjects(data: ProfileData, config: CvConfig): string {
 }
 
 function sectionSkills(data: ProfileData, config: CvConfig): string {
+  const dropped = new Set(config.skillExclusions.map((x) => x.toLowerCase()));
+  const kept = new Set<string>();
   const out = [`\\section{Technical Skills}`, `\\begin{itemize}[leftmargin=0in, label={}, itemsep=0pt]`];
   for (const cat of config.skills) {
     const s = findSkill(data, cat);
-    out.push(`\\small{\\item{\\textbf{${esc(s.category)}:} ${esc(s.items.join(", "))}}}`);
+    const items = s.items.filter((i) => {
+      if (!dropped.has(i.toLowerCase())) return true;
+      kept.add(i.toLowerCase());
+      return false;
+    });
+    if (!items.length) throw new Error(`cv.config: skillExclusions emptied the "${cat}" group`);
+    out.push(`\\small{\\item{\\textbf{${esc(s.category)}:} ${esc(items.join(", "))}}}`);
+  }
+  // A stale exclusion would silently do nothing, so surface it as config drift.
+  const unmatched = config.skillExclusions.filter((x) => !kept.has(x.toLowerCase()));
+  if (unmatched.length) {
+    throw new Error(`cv.config: skillExclusions match no skill item: ${unmatched.join(", ")}`);
   }
   out.push(`\\end{itemize}`, `\\vspace{-8pt}`);
   return out.join("\n");
