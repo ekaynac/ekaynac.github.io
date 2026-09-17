@@ -145,7 +145,7 @@ _Tech:_ Kotlin, Android, Firebase, Firestore
 
 ### Author — Independent (Poetry) (creative)
 2024-01 – Present
-- Published the poetry book "Uyandı Uyudu" (Kharon Yayınları, 2024); second book in progress.
+- Published two poetry books: "Uyandı Uyudu" (Kharon Yayınları, 2024) and "Sarhoş" (Polemik Yayınları, 2025).
 
 ### Theatrical Poetry Moderator — METU Voicing Society (creative)
 2022-09 – Present
