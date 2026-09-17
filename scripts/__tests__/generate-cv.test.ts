@@ -63,6 +63,17 @@ describe("renderResume", () => {
     expect(mega.highlights.length).toBe(4);
     expect(tex).not.toContain(mega.highlights[3]); // 4th highlight excluded
   });
+  it("keeps the phone out of the public build", () => {
+    // public/cv.pdf ships in a public repo and on the live site.
+    expect(tex).not.toMatch(/\+90/);
+    expect(tex).not.toMatch(/\b5\d{2}[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}\b/);
+  });
+  it("injects the phone into the header only for the private build", () => {
+    const priv = renderResume(profileData, cvConfig, { phone: "+90 500 000 00 00" });
+    expect(priv).toContain("+90 500 000 00 00");
+    const contactLine = priv.split("\n").find((l) => l.includes("mailto:"))!;
+    expect(contactLine).toContain("+90 500 000 00 00");
+  });
   it("throws when a config selection does not resolve", () => {
     const bad = { ...cvConfig, projects: ["does-not-exist"] };
     expect(() => renderResume(profileData, bad)).toThrow(/project not found/);

@@ -1,5 +1,5 @@
 import { writeFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { dirname, resolve } from "node:path";
 import type { ProfileData, Experience, Project } from "../content/schema";
 import { profileData } from "../content/index";
@@ -70,16 +70,34 @@ function findEducation(data: ProfileData, org: string) {
   return ed;
 }
 
-function header(data: ProfileData): string {
+export interface RenderOptions {
+  /** Contact phone for the private build only; omitted from the public CV. */
+  phone?: string;
+}
+
+function header(data: ProfileData, opts: RenderOptions): string {
   const p = data.profile;
+  // The phone is never in the dataset: it would land in the public repo and on the
+  // live site. It is injected only for the private build.
+  const sep = " ~\\textbar~ ";
+  const reach = [esc(p.location), opts.phone ? esc(opts.phone) : "", `\\href{mailto:${p.email}}{\\underline{${esc(p.email)}}}`]
+    .filter(Boolean)
+    .join(sep);
+  const links = [
+    `\\href{${p.links.linkedin}}{\\underline{linkedin.com/in/enes-kaynakci}}`,
+    `\\href{${p.links.github}}{\\underline{github.com/ekaynac}}`,
+    `\\href{${p.links.website}}{\\underline{ekaynac.github.io}}`,
+  ].join(sep);
+  // Adding the phone overflows a single centred contact line, so the private build
+  // splits reach-me-here from find-me-here instead of letting it wrap raggedly.
+  const contact = opts.phone
+    ? [`    \\small ${reach} \\\\ \\vspace{2pt}`, `    \\small ${links}`]
+    : [`    \\small ${reach}${sep}${links}`];
   return [
     `\\begin{center}`,
     `    {\\Huge \\scshape ${esc(p.name)}} \\\\ \\vspace{3pt}`,
     `    {\\large ${esc(p.title)}} \\\\ \\vspace{3pt}`,
-    `    \\small ${esc(p.location)} ~\\textbar~ \\href{mailto:${p.email}}{\\underline{${esc(p.email)}}} ~\\textbar~`,
-    `    \\href{${p.links.linkedin}}{\\underline{linkedin.com/in/enes-kaynakci}} ~\\textbar~`,
-    `    \\href{${p.links.github}}{\\underline{github.com/ekaynac}} ~\\textbar~`,
-    `    \\href{${p.links.website}}{\\underline{ekaynac.github.io}}`,
+    ...contact,
     `\\end{center}`,
   ].join("\n");
 }
@@ -151,9 +169,9 @@ function sectionLine(title: string, body: string): string {
   return [`\\section{${esc(title)}}`, `\\small{${esc(body)}}`, `\\vspace{-6pt}`].join("\n");
 }
 
-export function renderResume(data: ProfileData, config: CvConfig): string {
+export function renderResume(data: ProfileData, config: CvConfig, opts: RenderOptions = {}): string {
   const body = [
-    header(data),
+    header(data, opts),
     sectionSummary(config),
     sectionExperience(data, config),
     sectionProjects(data, config),
@@ -166,9 +184,32 @@ export function renderResume(data: ProfileData, config: CvConfig): string {
   return `${PREAMBLE}\n\\begin{document}\n\n${body}\n\n\\end{document}\n`;
 }
 
+/**
+ * The private build's phone number comes from CV_PHONE, or from the gitignored
+ * `cv/private.contact.ts`. It is deliberately not importable from tracked source.
+ */
+async function loadPrivatePhone(root: string): Promise<string> {
+  if (process.env.CV_PHONE) return process.env.CV_PHONE;
+  const path = resolve(root, "cv", "private.contact.ts");
+  try {
+    const mod = (await import(pathToFileURL(path).href)) as { phone?: unknown };
+    if (typeof mod.phone === "string" && mod.phone.trim()) return mod.phone.trim();
+    throw new Error(`${path} does not export a non-empty "phone" string`);
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
+    throw new Error(
+      `private build needs a phone number. Set CV_PHONE, or create cv/private.contact.ts ` +
+        `(gitignored) exporting \`export const phone = "+90 ..."\`. ${detail}`,
+    );
+  }
+}
+
 const isMain = process.argv[1] === fileURLToPath(import.meta.url);
 if (isMain) {
-  const out = resolve(dirname(fileURLToPath(import.meta.url)), "..", "cv", "resume.tex");
-  writeFileSync(out, renderResume(profileData, cvConfig), "utf8");
-  console.log(`Wrote ${out}`);
+  const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+  const isPrivate = process.argv.includes("--private");
+  const opts: RenderOptions = isPrivate ? { phone: await loadPrivatePhone(root) } : {};
+  const out = resolve(root, "cv", isPrivate ? "private.resume.tex" : "resume.tex");
+  writeFileSync(out, renderResume(profileData, cvConfig, opts), "utf8");
+  console.log(`Wrote ${out}${isPrivate ? " (private: includes phone)" : ""}`);
 }

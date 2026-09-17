@@ -59,6 +59,8 @@ export interface AtsExpectations {
   requiredSections: string[];
   /** Employers whose entry must keep its date range on the same extracted line. */
   datedOrgs: string[];
+  /** The private build carries a phone on purpose; the public one must never. */
+  allowPhone?: boolean;
 }
 
 const MIN_EXTRACTED_WORDS = 150;
@@ -172,7 +174,7 @@ function checkIdentity(report: AtsReport, expect: AtsExpectations): Finding[] {
     out.push({ severity: "error", code: "contact-email", message: `email ${expect.email} not found in extracted text` });
   }
   const phone = report.text.raw.match(PHONE_LIKE);
-  if (phone) {
+  if (phone && !expect.allowPhone) {
     out.push({ severity: "error", code: "no-pii", message: `phone-shaped number in a public PDF: ${phone[0]}` });
   }
   return out;
@@ -257,8 +259,13 @@ export function atsLint(report: AtsReport, expect: AtsExpectations): Finding[] {
 }
 
 /** Expectations derived from the source of truth, so the lint follows the data. */
-export function expectationsFrom(data = profileData, config = cvConfig): AtsExpectations {
+export function expectationsFrom(
+  data = profileData,
+  config = cvConfig,
+  opts: { allowPhone?: boolean } = {},
+): AtsExpectations {
   return {
+    allowPhone: opts.allowPhone ?? false,
     name: data.profile.name,
     email: data.profile.email,
     requiredSections: ["Summary", "Experience", "Projects", "Technical Skills", "Education", "Certifications", "Awards"],
@@ -322,11 +329,15 @@ export function collectReport(pdfPath: string): AtsReport {
 
 const isMain = process.argv[1] === fileURLToPath(import.meta.url);
 if (isMain) {
-  const arg = process.argv[2];
+  const isPrivate = process.argv.includes("--private");
+  const arg = process.argv.slice(2).find((a) => !a.startsWith("--"));
+  const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
   const pdf = arg
     ? resolve(arg)
-    : resolve(dirname(fileURLToPath(import.meta.url)), "..", "public", "cv.pdf");
-  const findings = atsLint(collectReport(pdf), expectationsFrom());
+    : isPrivate
+      ? resolve(root, "private.cv.pdf")
+      : resolve(root, "public", "cv.pdf");
+  const findings = atsLint(collectReport(pdf), expectationsFrom(undefined, undefined, { allowPhone: isPrivate }));
   const errors = findings.filter((f) => f.severity === "error");
 
   for (const f of findings) {

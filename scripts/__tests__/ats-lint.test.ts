@@ -106,6 +106,11 @@ describe("atsLint", () => {
     expect(c).toContain("no-pii");
   });
 
+  it("allows the phone in the private build only", () => {
+    const text = GOOD_TEXT.replace("ada@example.com", "ada@example.com | +90 532 111 22 33");
+    expect(codes(report({}, text))).toContain("no-pii");
+    expect(codes(report({}, text), { ...expectations, allowPhone: true })).not.toContain("no-pii");
+  });
   it("flags ligature glyphs that replace plain letters", () => {
     expect(codes(report({}, GOOD_TEXT.replace("first", "ﬁrst")))).toContain("no-ligature-mangling");
   });
