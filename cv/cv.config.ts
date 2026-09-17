@@ -11,6 +11,7 @@ export interface CvConfig {
   maxProjectHighlights: number;
   skills: string[];
   education: string[];
+  certificationsLine: string;
   awardsLine: string;
   leadershipLine: string;
 }
@@ -32,8 +33,10 @@ export const cvConfig: CvConfig = {
     "FH Upper Austria, Hagenberg Campus",
     "Middle East Technical University (METU)",
   ],
+  certificationsLine:
+    "Deep Learning Specialization (DeepLearning.AI, 2020); Machine Learning, Stanford University (2023).",
   awardsLine:
-    "Deep Learning Specialization (DeepLearning.AI), Stanford Machine Learning; 2nd Place — 18th METU Robotics Days (Autonomous UAV CV, 2022); Teknofest UAV Finalist (2021 & 2022).",
+    "2nd Place, Autonomous UAV Computer Vision — 18th METU Robotics Days (2022); Teknofest UAV Finalist (2021 & 2022).",
   leadershipLine:
     "Founder, Bilkent Game Development & Animation Society; President, Bilkent Literature Society; founding poetry editor at Polemik Yayınları; published poet (Uyandı Uyudu, 2024).",
 };

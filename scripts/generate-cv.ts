@@ -31,7 +31,7 @@ const PREAMBLE = String.raw`\documentclass[letterpaper,10pt]{article}
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-\titleformat{\section}{\vspace{-6pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titleformat{\section}{\vspace{-9pt}\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
 \newcommand{\resumeItem}[1]{\item\small{{#1 \vspace{-3pt}}}}
 \newcommand{\resumeSubheading}[4]{\vspace{-2pt}\item
@@ -45,7 +45,7 @@ const PREAMBLE = String.raw`\documentclass[letterpaper,10pt]{article}
   \end{tabular*}\vspace{-6pt}}
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, label={\textbullet}]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{1pt}}
 `;
 
@@ -74,7 +74,8 @@ function header(data: ProfileData): string {
   const p = data.profile;
   return [
     `\\begin{center}`,
-    `    {\\Huge \\scshape ${esc(p.name)}}\\;{\\large\\textbar}\\;{\\large ${esc(p.title)}} \\\\ \\vspace{4pt}`,
+    `    {\\Huge \\scshape ${esc(p.name)}} \\\\ \\vspace{3pt}`,
+    `    {\\large ${esc(p.title)}} \\\\ \\vspace{3pt}`,
     `    \\small ${esc(p.location)} ~\\textbar~ \\href{mailto:${p.email}}{\\underline{${esc(p.email)}}} ~\\textbar~`,
     `    \\href{${p.links.linkedin}}{\\underline{linkedin.com/in/enes-kaynakci}} ~\\textbar~`,
     `    \\href{${p.links.github}}{\\underline{github.com/ekaynac}} ~\\textbar~`,
@@ -84,7 +85,7 @@ function header(data: ProfileData): string {
 }
 
 function sectionSummary(config: CvConfig): string {
-  return [`\\vspace{2pt}`, `\\small{${esc(config.summary)}}`, `\\vspace{-6pt}`].join("\n");
+  return [`\\section{Summary}`, `\\small{${esc(config.summary)}}`, `\\vspace{-4pt}`].join("\n");
 }
 
 function sectionExperience(data: ProfileData, config: CvConfig): string {
@@ -131,19 +132,23 @@ function sectionSkills(data: ProfileData, config: CvConfig): string {
 }
 
 function sectionEducation(data: ProfileData, config: CvConfig): string {
-  const out = [`\\section{Education}`, `\\resumeSubHeadingListStart`];
+  const out = [`\\section{Education}`, `\\begin{itemize}[leftmargin=0in, label={}, itemsep=1pt]`];
   for (const org of config.education) {
     const ed = findEducation(data, org);
-    out.push(
-      `\\resumeSubheading{${esc(ed.org)}}{${esc(formatDate(ed.start))} -- ${esc(formatDate(ed.end))}}{${esc(ed.credential)}}{${esc(ed.location)}}`,
-    );
+    const line = [
+      `\\textbf{${esc(ed.org)}}`,
+      `${esc(ed.credential)}`,
+      `${esc(ed.location)}`,
+      `${esc(formatDate(ed.start))} -- ${esc(formatDate(ed.end))}`,
+    ].join(", ");
+    out.push(`\\small{\\item{${line}}}`);
   }
-  out.push(`\\resumeSubHeadingListEnd`, `\\vspace{-7pt}`);
+  out.push(`\\end{itemize}`, `\\vspace{-8pt}`);
   return out.join("\n");
 }
 
 function sectionLine(title: string, body: string): string {
-  return [`\\section{${esc(title)}}`, `\\small{${esc(body)}}`, `\\vspace{-3pt}`].join("\n");
+  return [`\\section{${esc(title)}}`, `\\small{${esc(body)}}`, `\\vspace{-6pt}`].join("\n");
 }
 
 export function renderResume(data: ProfileData, config: CvConfig): string {
@@ -154,8 +159,9 @@ export function renderResume(data: ProfileData, config: CvConfig): string {
     sectionProjects(data, config),
     sectionSkills(data, config),
     sectionEducation(data, config),
-    sectionLine("Certifications & Awards", config.awardsLine),
-    sectionLine("Leadership & Interests", config.leadershipLine),
+    sectionLine("Certifications", config.certificationsLine),
+    sectionLine("Awards", config.awardsLine),
+    sectionLine("Leadership & Activities", config.leadershipLine),
   ].join("\n\n");
   return `${PREAMBLE}\n\\begin{document}\n\n${body}\n\n\\end{document}\n`;
 }

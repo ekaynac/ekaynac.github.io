@@ -33,7 +33,29 @@ describe("renderResume", () => {
   it("renders skills and the leadership/awards lines", () => {
     expect(tex).toContain("Technical Skills");
     expect(tex).toContain("Uyandı Uyudu");
-    expect(tex).toContain("Stanford Machine Learning");
+    expect(tex).toContain("Stanford University");
+  });
+  it("puts the name alone on the first header line, title beneath it", () => {
+    // A parser that reads line 1 as the candidate name must not get the title too.
+    const nameLine = tex.split("\n").find((l) => l.includes("\\Huge"))!;
+    expect(nameLine).toContain("Enes Kaynakcı");
+    expect(nameLine).not.toContain("\\textbar");
+    expect(nameLine).not.toContain(profileData.profile.title);
+  });
+  it("uses ATS-standard section headings, not combined ones", () => {
+    for (const s of ["Summary", "Experience", "Projects", "Technical Skills", "Education", "Certifications", "Awards"]) {
+      expect(tex).toContain(`\\section{${s}}`);
+    }
+    expect(tex).not.toContain("Certifications \\& Awards");
+  });
+  it("labels bullets with a real bullet glyph", () => {
+    expect(tex).toContain("label={\\textbullet}");
+  });
+  it("keeps each education entry and its dates on one line", () => {
+    // A right-aligned date column gets lifted into its own block by reading-order
+    // extractors, which orphans every degree from its dates.
+    expect(tex).toContain("Bilkent University}, B.Sc. in Information Systems and Technologies");
+    expect(tex).toMatch(/Bilkent University\}.*Aug 2022 -- Jun 2026/);
   });
   it("caps experience highlights per the config", () => {
     // Mega current is configured maxHighlights: 3; it has 4 in the dataset.

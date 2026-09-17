@@ -26,12 +26,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build CV
         run: npm run build:cv
-      - name: Verify single page
-        run: |
-          sudo apt-get update && sudo apt-get install -y poppler-utils
-          pages=$(pdfinfo public/cv.pdf | awk '/Pages/ {print $2}')
-          echo "pages=$pages"
-          test "$pages" = "1"
+      - name: Install poppler-utils
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: ATS lint (page count, text layer, headings, date attachment)
+        run: npm run lint:ats
       - uses: actions/upload-artifact@v4
         with:
           name: cv-pdf
