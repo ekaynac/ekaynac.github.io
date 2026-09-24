@@ -109,19 +109,19 @@ export const projects: Project[] = [
     slug: "auto-dev-cycle",
     name: "Auto Dev Cycle",
     oneLiner:
-      "A self-driving software development loop run by a supervised network of low-cost and open-weight models.",
+      "A self-driving development loop that routes work to cheap hosted and local models, with frontier models only for planning, review, and audit.",
     description:
-      "A continuous development framework that takes roadmap tasks through ten stages (preflight, plan, build, test gate, review, edge check, merge, deploy, ledger, learning) without a human in the loop for routine work. Low-cost open-weight models such as GLM and Kimi do the building, a frontier model supervises, and an independent GPT reviewer is reserved for structural seam reviews, so most tokens go to cheap models that can run around the clock. Every model call, token count, gate result, and review finding is recorded to a ledger and surfaced on a live dashboard; each review finding is reproduced as a failing test before its fix lands, and proposed process improvements are logged but never auto-applied. It currently develops InfraMedic, delivering 25 ledgered PRs in its first two and a half weeks. Designed and built solo at Mega Bilgisayar.",
+      "A continuous development framework that takes roadmap tasks end to end: plan, build, test gate, review, merge, deploy, and ledger. Frontier models (Claude Opus via Claude Code, a GPT phase auditor via Codex CLI) plan, review, and audit on flat-rate subscriptions; the code itself is written by GLM-5.3-flash through OpenRouter, routed to the cheapest provider under a price ceiling; a blind verifier re-checks the work; and the sweeper and question-answerer run on a local Qwen3.8-27B (NVFP4) served by vLLM on an NVIDIA DGX Spark. Every model call, token count, gate result, and review finding is written to a ledger and shown on a live dashboard; proposed process improvements are logged but never auto-applied. It currently develops InfraMedic: 24 product tasks delivered end to end (59 merged PRs) in its first 19 days, at a median builder cost of about $2 per task, roughly 17x less than the same token volume at Claude API pricing. Designed and built solo at Mega Bilgisayar.",
     role: "Sole creator (Mega Bilgisayar)",
-    tech: ["Python", "LLM Agents", "GLM", "Kimi", "OpenRouter", "Ollama Cloud", "React", "GitHub Actions"],
+    tech: ["Python", "vLLM", "OpenRouter", "DGX Spark", "GLM", "Qwen", "Claude Code", "Codex CLI"],
     links: {},
     start: "2026-09",
     end: "present",
     featured: true,
     private: true,
     highlights: [
-      "Ten-stage plan-build-gate-review-merge-deploy loop on low-cost models, with a frontier model only for supervision and seam review; shipped 25 ledgered InfraMedic PRs in 2.5 weeks.",
-      "Every review finding reproduced as a failing test before its fix; every model call and token ledgered, and unmeasured work is reported as unmeasured, never as clean.",
+      "Delivered 24 InfraMedic tasks end to end (59 merged PRs) in 19 days at a median ~$2 builder cost per task, ~17x under the same tokens at Claude API pricing.",
+      "Cheap hosted builder (GLM-flash), local Qwen on a DGX Spark via vLLM for sweeping, frontier models only on subscriptions; every call and token ledgered.",
     ],
   },
   {

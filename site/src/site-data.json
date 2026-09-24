@@ -48,16 +48,16 @@
     {
       "slug": "auto-dev-cycle",
       "name": "Auto Dev Cycle",
-      "oneLiner": "A self-driving software development loop run by a supervised network of low-cost and open-weight models.",
+      "oneLiner": "A self-driving development loop that routes work to cheap hosted and local models, with frontier models only for planning, review, and audit.",
       "tech": [
         "Python",
-        "LLM Agents",
-        "GLM",
-        "Kimi",
+        "vLLM",
         "OpenRouter",
-        "Ollama Cloud",
-        "React",
-        "GitHub Actions"
+        "DGX Spark",
+        "GLM",
+        "Qwen",
+        "Claude Code",
+        "Codex CLI"
       ],
       "isPrivate": true,
       "trueName": "the Sleepless Apprentice",
@@ -229,7 +229,7 @@
         "Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.",
         "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
         "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.",
-        "Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on a supervised network of low-cost open-weight models, with every model call ledgered."
+        "Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on cheap hosted and local models (vLLM on DGX Spark), delivering 24 tasks in 19 days at ~$2 builder cost per task."
       ]
     },
     {
