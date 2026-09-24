@@ -48,7 +48,7 @@
     {
       "slug": "auto-dev-cycle",
       "name": "Auto Dev Cycle",
-      "oneLiner": "A self-driving development loop that routes work to cheap hosted and local models, with frontier models only for planning, review, and audit.",
+      "oneLiner": "Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.",
       "tech": [
         "Python",
         "vLLM",

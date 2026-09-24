@@ -83,9 +83,9 @@ A Python platform that diagnoses managed infrastructure through a typed pipeline
 _Tech:_ Python, Ollama, SQLite, vCenter, Zabbix, Proxmox, pytest
 
 ### Auto Dev Cycle ⭐
-A self-driving development loop that routes work to cheap hosted and local models, with frontier models only for planning, review, and audit.
+Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.
 A continuous development framework that takes roadmap tasks end to end: plan, build, test gate, review, merge, deploy, and ledger. Frontier models (Claude Opus via Claude Code, a GPT phase auditor via Codex CLI) plan, review, and audit on flat-rate subscriptions; the code itself is written by GLM-5.3-flash through OpenRouter, routed to the cheapest provider under a price ceiling; a blind verifier re-checks the work; and the sweeper and question-answerer run on a local Qwen3.8-27B (NVFP4) served by vLLM on an NVIDIA DGX Spark. Every model call, token count, gate result, and review finding is written to a ledger and shown on a live dashboard; proposed process improvements are logged but never auto-applied. It currently develops InfraMedic: 24 product tasks delivered end to end (59 merged PRs) in its first 19 days, at a median builder cost of about $2 per task, roughly 17x less than the same token volume at Claude API pricing. Designed and built solo at Mega Bilgisayar.
-- Delivered 24 InfraMedic tasks end to end (59 merged PRs) in 19 days at a median ~$2 builder cost per task, ~17x under the same tokens at Claude API pricing.
+- Shipped 24 InfraMedic tasks (59 PRs) in 19 days at ~$2 builder cost each, ~17x below the same tokens at Claude API rates.
 - Cheap hosted builder (GLM-flash), local Qwen on a DGX Spark via vLLM for sweeping, frontier models only on subscriptions; every call and token ledgered.
 _Tech:_ Python, vLLM, OpenRouter, DGX Spark, GLM, Qwen, Claude Code, Codex CLI
 

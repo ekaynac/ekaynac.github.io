@@ -7,7 +7,7 @@ AI-leaning full-stack engineer. I build LLM and agent pipelines, computer-vision
 ## What I'm working on
 
 - **InfraMedic** _(private)_ — Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.
-- **Auto Dev Cycle** _(private)_ — A self-driving development loop that routes work to cheap hosted and local models, with frontier models only for planning, review, and audit.
+- **Auto Dev Cycle** _(private)_ — Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.
 - **LLMDAP — LLM Directory-bound Access Protection** _(private)_ — Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.
 - **[On-Prem Intelligence Desk](https://github.com/ekaynac/onprem-ai-adoption-radar)** — A self-hosted, fully cited answer to "what should I run on-prem?": capacity fit, benchmarks, license gate, and adoption ring.
 - **Homelab — Proxmox Platform** _(private)_ — Infrastructure-as-documentation home server with GPU containers and zero open ports.
