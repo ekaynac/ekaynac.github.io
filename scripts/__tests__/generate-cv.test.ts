@@ -31,6 +31,7 @@ describe("renderResume", () => {
     expect(tex).toContain("LLMDAP");
     expect(tex).toContain("SIMS");
     expect(tex).toContain("Homelab");
+    expect(tex).toContain("Auto Dev Cycle");
     expect(tex).not.toContain("Etch-A-Chat");
   });
   it("renders skills and the leadership/awards lines", () => {
@@ -61,9 +62,9 @@ describe("renderResume", () => {
     expect(tex).toMatch(/Bilkent University\}.*Aug 2022 -- Jun 2026/);
   });
   it("caps experience highlights per the config", () => {
-    // Mega current is configured maxHighlights: 3; it has 5 in the dataset.
+    // Mega current is configured maxHighlights: 3; it has 6 in the dataset.
     const mega = profileData.experience.find((e) => e.start === "2026-05-18")!;
-    expect(mega.highlights.length).toBe(5);
+    expect(mega.highlights.length).toBe(6);
     expect(tex).not.toContain(mega.highlights[3]); // 4th and later excluded
   });
   it("drops the configured skill items from the CV only", () => {

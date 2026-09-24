@@ -25,7 +25,7 @@
     {
       "slug": "inframedic",
       "name": "InfraMedic",
-      "oneLiner": "Safety-first diagnose-and-remediate platform for heterogeneous infrastructure, with an on-prem LLM analyst.",
+      "oneLiner": "Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.",
       "tech": [
         "Python",
         "Ollama",
@@ -43,6 +43,30 @@
         "mender",
         "inframedic",
         "heal"
+      ]
+    },
+    {
+      "slug": "auto-dev-cycle",
+      "name": "Auto Dev Cycle",
+      "oneLiner": "A self-driving software development loop run by a supervised network of low-cost and open-weight models.",
+      "tech": [
+        "Python",
+        "LLM Agents",
+        "GLM",
+        "Kimi",
+        "OpenRouter",
+        "Ollama Cloud",
+        "React",
+        "GitHub Actions"
+      ],
+      "isPrivate": true,
+      "trueName": "the Sleepless Apprentice",
+      "sigil": "sentinel",
+      "floor": 8,
+      "summonWords": [
+        "sentinel",
+        "nobetci",
+        "cycle"
       ]
     },
     {
@@ -204,7 +228,8 @@
         "Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.",
         "Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.",
         "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
-        "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst."
+        "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.",
+        "Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on a supervised network of low-cost open-weight models, with every model call ledgered."
       ]
     },
     {

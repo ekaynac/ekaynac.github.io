@@ -27,7 +27,7 @@ export const cvConfig: CvConfig = {
     { org: "Mega Bilgisayar", start: "2024-06", maxHighlights: 1 },
     { org: "Meturone (Fixed-wing UAV Team)", start: "2021-09", maxHighlights: 1 },
   ],
-  projects: ["inframedic", "llmdap", "sims", "homelab"],
+  projects: ["inframedic", "auto-dev-cycle", "llmdap", "sims", "homelab"],
   maxProjectHighlights: 1,
   skills: ["Languages", "AI & ML", "Web & Mobile", "Infrastructure & Tools"],
   // Trimmed so every skills line fits on one row. YOLOv5, Casbin, Ollama and function

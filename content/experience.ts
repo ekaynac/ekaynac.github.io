@@ -15,6 +15,7 @@ export const experience: Experience[] = [
       "Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.",
       "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
       "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.",
+      "Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on a supervised network of low-cost open-weight models, with every model call ledgered.",
     ],
     tech: [
       "TypeScript", "Python", "LLMs", "vLLM", "RAG", "MCP", "Casbin",

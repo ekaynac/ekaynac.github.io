@@ -27,7 +27,7 @@ AI-leaning Full-Stack Engineer · LLMs · Computer Vision · Microservices · An
 ```
 I build AI systems end to end — from LLM and agent pipelines to the production platforms that carry them.
 
-Right now I'm an AI / Software Engineer at Mega Bilgisayar, building fully on-prem AI platforms: an MCP gateway and vLLM agent for our internal portal, and an industrial-safety vision pipeline on NVIDIA Jetson (zero-shot OWLv2, ByteTrack, face anonymization). I built InfraMedic solo, a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox and more) with an on-prem LLM analyst. I also designed LLMDAP, a sovereign identity and memory-protection layer that binds AI agents to AD/LDAP or OIDC identities, and the On-Prem Intelligence Desk, a self-hosted system that answers "what should I run on-prem?" with cited, deterministic recommendations.
+Right now I'm an AI / Software Engineer at Mega Bilgisayar, building fully on-prem AI platforms: an MCP gateway and vLLM agent for our internal portal, and an industrial-safety vision pipeline on NVIDIA Jetson (zero-shot OWLv2, ByteTrack, face anonymization). I built InfraMedic solo, a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox and more) with an on-prem LLM analyst, and the Auto Dev Cycle that now develops it: a continuous plan-build-review-deploy loop in which low-cost open-weight models (GLM, Kimi) do the building, a frontier model supervises, and every model call is ledgered, so development keeps running around the clock at low cost. I also designed LLMDAP, a sovereign identity and memory-protection layer that binds AI agents to AD/LDAP or OIDC identities, and the On-Prem Intelligence Desk, a self-hosted system that answers "what should I run on-prem?" with cited, deterministic recommendations.
 
 Before this, as an AI Intern in Mia Teknoloji's AI R&D team I engineered end-to-end LLM agent pipelines (RAG, function calling, embeddings), shipped a production SQL-generation pipeline with a 3-tier fallback, and built a Turkish translation pipeline using Zemberek morphology — earning a 100/100 internship evaluation. Earlier I worked on real-time computer vision for fixed-wing UAVs (Teknofest International UAV Competition finalist, 2021 & 2022) and curated an ~11,500-image open-source detection dataset.
 
@@ -49,6 +49,7 @@ Full-time · May 2026 – Present · Ankara, Türkiye
 ```
 • Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.
 • Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox, iLO, Linux, StoreOnce, Axis) with an on-prem LLM analyst, a deny-by-default policy gate, and audited secret leases.
+• Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on a supervised network of low-cost open-weight models, with every model call ledgered.
 • Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.
 • Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
 • Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.
@@ -113,6 +114,9 @@ SolidWorks (Basic Level) — ABKTEKNİK — 2018
 
 ```
 InfraMedic — Safety-first diagnose-and-remediate platform for heterogeneous infrastructure: seven platform adapters, an on-prem LLM analyst that pseudonymizes before any prompt, saga-based remediation behind a deny-by-default policy gate. Python. Sole creator at Mega Bilgisayar. [Private repo]
+```
+```
+Auto Dev Cycle — Self-driving development loop: roadmap tasks go through ten stages (plan, build, test gate, review, merge, deploy, ledger…) on low-cost open-weight models (GLM, Kimi), with a frontier model only for supervision and independent seam review. Every review finding is reproduced as a failing test before its fix. Currently develops InfraMedic (25 ledgered PRs in its first 2.5 weeks). Sole creator at Mega Bilgisayar. [Private]
 ```
 ```
 LLMDAP — Sovereign LLM-agent identity & memory protection bound to AD/LDAP or OIDC (Casbin authz, envelope encryption, signed audit, LLM gateway with model attestation). TypeScript, Node.js. [Private repo]

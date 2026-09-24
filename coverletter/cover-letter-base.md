@@ -19,7 +19,7 @@
 - **Current role:** AI / Software Engineer at Mega Bilgisayar (since May 2026, full-time)
 - **Education:** B.Sc. Information Systems & Technologies, Bilkent University (June 2026); Erasmus at FH Hagenberg (2024–25); METU EEE 2018–21 (transferred)
 - **Positioning:** AI-leaning full-stack engineer — LLM/agent pipelines + computer vision, delivered end-to-end on production microservices and modern web/mobile stacks
-- **Signature work:** on-prem AI portal stack (MCP gateway + vLLM agent), InfraMedic, LLMDAP, On-Prem Intelligence Desk, OHS vision platform (lead), SIMS (10-microservice graduation project), Proxmox homelab, Polemik Yayınları website, Etch-A-Chat
+- **Signature work:** on-prem AI portal stack (MCP gateway + vLLM agent), InfraMedic, Auto Dev Cycle, LLMDAP, On-Prem Intelligence Desk, OHS vision platform (lead), SIMS (10-microservice graduation project), Proxmox homelab, Polemik Yayınları website, Etch-A-Chat
 
 ## 2. Openers (pick one, then add one company-specific sentence)
 
@@ -31,7 +31,7 @@
 
 ## 3. Body blocks (pick 2–3 that match the job ad)
 
-**LLM / agents.** [Portal stack: aggregating MCP gateway, per-identity namespaced tool catalogs, vLLM agent with per-turn embedding-retrieved tools, confirmation-gated writes — all on-prem. LLMDAP: Casbin authz, envelope-encrypted agent memory, tamper-evident audit. Intelligence Desk: deterministic scoring over LLM vibes, every number cited, weekly calls scored in public. InfraMedic: on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.]
+**LLM / agents.** [Portal stack: aggregating MCP gateway, per-identity namespaced tool catalogs, vLLM agent with per-turn embedding-retrieved tools, confirmation-gated writes — all on-prem. LLMDAP: Casbin authz, envelope-encrypted agent memory, tamper-evident audit. Auto Dev Cycle: a self-driving plan-build-review-deploy loop on low-cost open-weight models (GLM, Kimi) with a frontier model only for supervision and seam review; it develops InfraMedic continuously, 25 ledgered PRs in 2.5 weeks. Intelligence Desk: deterministic scoring over LLM vibes, every number cited, weekly calls scored in public. InfraMedic: on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.]
 
 **Computer vision / edge.** [Led the OHS vision platform: zero-shot OWLv2 + ByteTrack + face anonymization on Jetson/RTX via TensorRT, signed violation webhooks; Teknofest UAV finalist ×2; FP16 TensorRT deployment; ~11,500-image open-source dataset; ICAT 2022 co-authored medical-CV paper.]
 
@@ -41,7 +41,7 @@
 
 **Proof of work ethic.** [100/100 internship evaluation at Mia Teknoloji, nominated for Best Internship; returned to Mega as a full-timer after interning there — they asked me back.]
 
-**Ownership.** [I take products, not tickets: sole creator of InfraMedic at Mega; conceived and shipped LLMDAP and the Intelligence Desk end to end; lead developer of the OHS vision platform. Once I understand the intent behind a requirement I deliver past it — see "How I work best" in §4 for the phrasing.]
+**Ownership.** [I take products, not tickets: sole creator of InfraMedic and of the Auto Dev Cycle that develops it at Mega; conceived and shipped LLMDAP and the Intelligence Desk end to end; lead developer of the OHS vision platform. Once I understand the intent behind a requirement I deliver past it — see "How I work best" in §4 for the phrasing.]
 
 ## 4. The human layer
 

@@ -90,9 +90,9 @@ export const projects: Project[] = [
     slug: "inframedic",
     name: "InfraMedic",
     oneLiner:
-      "Safety-first diagnose-and-remediate platform for heterogeneous infrastructure, with an on-prem LLM analyst.",
+      "Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.",
     description:
-      "A Python platform that diagnoses managed infrastructure through a typed pipeline of immutable models (device registry, observations, signals, findings, run manifests). Seven platform adapters (VMware vCenter, Zabbix, Proxmox, HPE iLO, Linux, HPE StoreOnce, Axis) feed deterministic detectors; an Ollama-backed LLM analyst narrates signals into findings after pseudonymization and redaction, with sensitivity-aware routing that keeps restricted devices off cloud models. Encrypted secrets use audited just-in-time leases, remediation runs as sagas behind a deny-by-default policy gate and a sandbox, and a server-rendered operator UI covers devices, runs, findings, and audit. Conformance and safety suites guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar (600+ pull requests).",
+      "A Python platform that diagnoses managed infrastructure through a typed pipeline of immutable models (device registry, observations, signals, findings, run manifests). Seven platform adapters (VMware vCenter, Zabbix, Proxmox, HPE iLO, Linux, HPE StoreOnce, Axis) feed deterministic detectors; an Ollama-backed LLM analyst narrates signals into findings after pseudonymization and redaction, with sensitivity-aware routing that keeps restricted devices off cloud models. Encrypted secrets use audited just-in-time leases, remediation runs as sagas behind a deny-by-default policy gate and a sandbox, and a server-rendered operator UI covers devices, runs, findings, and audit. Conformance and safety suites guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar (600+ pull requests); its roadmap is now developed by the Auto Dev Cycle.",
     role: "Sole creator (Mega Bilgisayar)",
     tech: ["Python", "Ollama", "SQLite", "vCenter", "Zabbix", "Proxmox", "pytest"],
     links: {},
@@ -101,8 +101,27 @@ export const projects: Project[] = [
     featured: true,
     private: true,
     highlights: [
-      "Seven platform adapters with an on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.",
       "Deny-by-default policy gate, saga-based remediation, and purpose-bound secret leases with TTL and a full audit trail.",
+      "Seven platform adapters with an on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.",
+    ],
+  },
+  {
+    slug: "auto-dev-cycle",
+    name: "Auto Dev Cycle",
+    oneLiner:
+      "A self-driving software development loop run by a supervised network of low-cost and open-weight models.",
+    description:
+      "A continuous development framework that takes roadmap tasks through ten stages (preflight, plan, build, test gate, review, edge check, merge, deploy, ledger, learning) without a human in the loop for routine work. Low-cost open-weight models such as GLM and Kimi do the building, a frontier model supervises, and an independent GPT reviewer is reserved for structural seam reviews, so most tokens go to cheap models that can run around the clock. Every model call, token count, gate result, and review finding is recorded to a ledger and surfaced on a live dashboard; each review finding is reproduced as a failing test before its fix lands, and proposed process improvements are logged but never auto-applied. It currently develops InfraMedic, delivering 25 ledgered PRs in its first two and a half weeks. Designed and built solo at Mega Bilgisayar.",
+    role: "Sole creator (Mega Bilgisayar)",
+    tech: ["Python", "LLM Agents", "GLM", "Kimi", "OpenRouter", "Ollama Cloud", "React", "GitHub Actions"],
+    links: {},
+    start: "2026-09",
+    end: "present",
+    featured: true,
+    private: true,
+    highlights: [
+      "Ten-stage plan-build-gate-review-merge-deploy loop on low-cost models, with a frontier model only for supervision and seam review; shipped 25 ledgered InfraMedic PRs in 2.5 weeks.",
+      "Every review finding reproduced as a failing test before its fix; every model call and token ledgered, and unmeasured work is reported as unmeasured, never as clean.",
     ],
   },
   {

@@ -19,6 +19,7 @@ AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and
 - Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.
 - Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
 - Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.
+- Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on a supervised network of low-cost open-weight models, with every model call ledgered.
 _Tech:_ TypeScript, Python, LLMs, vLLM, RAG, MCP, Casbin, LDAP/OIDC, OWLv2, TensorRT, Docker, GitHub Actions
 
 ### AI Intern, AI R&D — Mia Teknoloji
@@ -75,11 +76,18 @@ A self-hosted Python system (formerly the On-Prem AI Adoption Radar) that discov
 _Tech:_ Python, React, MCP, GitHub Actions, OSV.dev, Static Site (GitHub Pages)
 
 ### InfraMedic ⭐
-Safety-first diagnose-and-remediate platform for heterogeneous infrastructure, with an on-prem LLM analyst.
-A Python platform that diagnoses managed infrastructure through a typed pipeline of immutable models (device registry, observations, signals, findings, run manifests). Seven platform adapters (VMware vCenter, Zabbix, Proxmox, HPE iLO, Linux, HPE StoreOnce, Axis) feed deterministic detectors; an Ollama-backed LLM analyst narrates signals into findings after pseudonymization and redaction, with sensitivity-aware routing that keeps restricted devices off cloud models. Encrypted secrets use audited just-in-time leases, remediation runs as sagas behind a deny-by-default policy gate and a sandbox, and a server-rendered operator UI covers devices, runs, findings, and audit. Conformance and safety suites guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar (600+ pull requests).
-- Seven platform adapters with an on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.
+Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.
+A Python platform that diagnoses managed infrastructure through a typed pipeline of immutable models (device registry, observations, signals, findings, run manifests). Seven platform adapters (VMware vCenter, Zabbix, Proxmox, HPE iLO, Linux, HPE StoreOnce, Axis) feed deterministic detectors; an Ollama-backed LLM analyst narrates signals into findings after pseudonymization and redaction, with sensitivity-aware routing that keeps restricted devices off cloud models. Encrypted secrets use audited just-in-time leases, remediation runs as sagas behind a deny-by-default policy gate and a sandbox, and a server-rendered operator UI covers devices, runs, findings, and audit. Conformance and safety suites guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar (600+ pull requests); its roadmap is now developed by the Auto Dev Cycle.
 - Deny-by-default policy gate, saga-based remediation, and purpose-bound secret leases with TTL and a full audit trail.
+- Seven platform adapters with an on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.
 _Tech:_ Python, Ollama, SQLite, vCenter, Zabbix, Proxmox, pytest
+
+### Auto Dev Cycle ⭐
+A self-driving software development loop run by a supervised network of low-cost and open-weight models.
+A continuous development framework that takes roadmap tasks through ten stages (preflight, plan, build, test gate, review, edge check, merge, deploy, ledger, learning) without a human in the loop for routine work. Low-cost open-weight models such as GLM and Kimi do the building, a frontier model supervises, and an independent GPT reviewer is reserved for structural seam reviews, so most tokens go to cheap models that can run around the clock. Every model call, token count, gate result, and review finding is recorded to a ledger and surfaced on a live dashboard; each review finding is reproduced as a failing test before its fix lands, and proposed process improvements are logged but never auto-applied. It currently develops InfraMedic, delivering 25 ledgered PRs in its first two and a half weeks. Designed and built solo at Mega Bilgisayar.
+- Ten-stage plan-build-gate-review-merge-deploy loop on low-cost models, with a frontier model only for supervision and seam review; shipped 25 ledgered InfraMedic PRs in 2.5 weeks.
+- Every review finding reproduced as a failing test before its fix; every model call and token ledgered, and unmeasured work is reported as unmeasured, never as clean.
+_Tech:_ Python, LLM Agents, GLM, Kimi, OpenRouter, Ollama Cloud, React, GitHub Actions
 
 ### OHS Computer Vision Platform (private)
 Industrial PPE-violation detection on edge hardware (Mega / Advantech Smart Production Systems).

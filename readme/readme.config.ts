@@ -16,7 +16,7 @@ export interface ReadmeConfig {
 export const readmeConfig: ReadmeConfig = {
   intro:
     "AI-leaning full-stack engineer. I build LLM and agent pipelines, computer-vision systems, and full-stack products — currently building on-prem AI platforms at Mega Bilgisayar. Bilkent University Information Systems graduate (2026).",
-  projects: ["inframedic", "llmdap", "onprem-ai-adoption-radar", "homelab", "polemik-site", "sims", "etch-a-chat"],
+  projects: ["inframedic", "auto-dev-cycle", "llmdap", "onprem-ai-adoption-radar", "homelab", "polemik-site", "sims", "etch-a-chat"],
   experience: [
     { org: "Mega Bilgisayar", start: "2026-05-18", blurb: "On-prem LLM platforms, agent tooling, infrastructure diagnostics, and computer-vision systems." },
     { org: "Mia Teknoloji", start: "2025-02", blurb: "End-to-end LLM and RAG pipelines (100/100 internship evaluation)." },
