@@ -27,17 +27,17 @@ AI-leaning Full-Stack Engineer · LLMs · Computer Vision · Microservices · An
 ```
 I build AI systems end to end — from LLM and agent pipelines to the production platforms that carry them.
 
-Right now I'm an AI / Software Engineer at Mega Bilgisayar, building on-prem LLM platforms and agent tooling (customized LibreChat, MCP & n8n based portal agents), and R&D-ing computer-vision industrial-safety systems on NVIDIA Jetson edge hardware (YOLO, SAM, DepthAnything). I also designed LLMDAP — a sovereign LLM-agent identity & memory-protection library that binds agent memory and tool access to AD/LDAP or OIDC identities — and the On-Prem AI Adoption Radar, a deterministic, self-hosted system that scores which AI/agent tools to adopt, pilot, watch, or avoid.
+Right now I'm an AI / Software Engineer at Mega Bilgisayar, building fully on-prem AI platforms: an MCP gateway and vLLM agent for our internal portal, and an industrial-safety vision pipeline on NVIDIA Jetson (zero-shot OWLv2, ByteTrack, face anonymization). I built InfraMedic solo, a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox and more) with an on-prem LLM analyst. I also designed LLMDAP, a sovereign identity and memory-protection layer that binds AI agents to AD/LDAP or OIDC identities, and the On-Prem Intelligence Desk, a self-hosted system that answers "what should I run on-prem?" with cited, deterministic recommendations.
 
 Before this, as an AI Intern in Mia Teknoloji's AI R&D team I engineered end-to-end LLM agent pipelines (RAG, function calling, embeddings), shipped a production SQL-generation pipeline with a 3-tier fallback, and built a Turkish translation pipeline using Zemberek morphology — earning a 100/100 internship evaluation. Earlier I worked on real-time computer vision for fixed-wing UAVs (Teknofest International UAV Competition finalist, 2021 & 2022) and curated an ~11,500-image open-source detection dataset.
 
-My graduation project, SIMS, is a 10-microservice platform (PHP/Laravel, Node.js, Python, React) with an MCP-powered AI assistant. I'm comfortable across the stack — LLMs and computer vision, the microservices and infra behind them, and modern web/mobile front-ends.
+My graduation project, SIMS, is a 10-microservice platform (PHP/Laravel, Node.js, Python, React) with an MCP-powered AI assistant. Outside work I run a Proxmox homelab with GPU containers and zero open ports (it serves tensorenes.com), and I built the live website of Polemik Yayınları, the publishing house where I edit poetry. I'm comfortable across the stack — LLMs and computer vision, the microservices and infra behind them, and modern web/mobile front-ends.
 
 I'm a Bilkent University Information Systems graduate (2026), with an Erasmus exchange at FH Upper Austria (Hagenberg). I hold the DeepLearning.AI Deep Learning Specialization and Stanford's Machine Learning certificate.
 
 I like systems that hold their shape under load and say exactly what they mean. Always happy to talk AI engineering, agents, and computer vision.
 
-📫 tensorenes@gmail.com · github.com/ekaynac
+📫 tensorenes@gmail.com · tensorenes.com · github.com/ekaynac
 ```
 
 ---
@@ -47,10 +47,11 @@ I like systems that hold their shape under load and say exactly what they mean. 
 **AI / Software Engineer — Mega Bilgisayar**
 Full-time · May 2026 – Present · Ankara, Türkiye
 ```
-• Build on-prem LLM platforms and agent tooling, including a customized LibreChat deployment and MCP & n8n based portal agents for internal workflows.
-• Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
-• R&D'd computer-vision industrial-safety systems (PPE/vest detection) on NVIDIA Jetson edge hardware using YOLO, SAM, DepthAnything and related models.
-• Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing dashboard.
+• Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.
+• Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox, iLO, Linux, StoreOnce, Axis) with an on-prem LLM analyst, a deny-by-default policy gate, and audited secret leases.
+• Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.
+• Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
+• Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.
 ```
 
 **AI Intern, AI R&D — Mia Teknoloji**
@@ -111,16 +112,25 @@ SolidWorks (Basic Level) — ABKTEKNİK — 2018
 ## 6) Projects  *(LinkedIn "Projects" section)*
 
 ```
-LLMDAP — Sovereign LLM-agent identity & memory protection bound to AD/LDAP or OIDC (Casbin authz, envelope encryption, tamper-evident audit). TypeScript, Node.js. → github.com/ekaynac/LLMDAP
+InfraMedic — Safety-first diagnose-and-remediate platform for heterogeneous infrastructure: seven platform adapters, an on-prem LLM analyst that pseudonymizes before any prompt, saga-based remediation behind a deny-by-default policy gate. Python. Sole creator at Mega Bilgisayar. [Private repo]
 ```
 ```
-On-Prem AI Adoption Radar — A deterministic, self-hosted radar that scores AI/agent tooling (adopt / pilot / watch / avoid), with an MCP server and auto-publishing dashboard. Python. → github.com/ekaynac/onprem-ai-adoption-radar
+LLMDAP — Sovereign LLM-agent identity & memory protection bound to AD/LDAP or OIDC (Casbin authz, envelope encryption, signed audit, LLM gateway with model attestation). TypeScript, Node.js. [Private repo]
+```
+```
+On-Prem Intelligence Desk — Self-hosted system that answers "what should I run on-prem?" with a ranked, cited recommendation (capacity fit, benchmarks, license gate, adoption ring), plus publicly scored weekly calls and an MCP server. Python. → github.com/ekaynac/onprem-ai-adoption-radar
+```
+```
+Homelab — Infrastructure-as-documentation Proxmox VE platform: ZFS, tested PBS backups, GPU in unprivileged LXC, Cloudflare Tunnel ingress with zero forwarded ports, Tailscale admin access. Hosts tensorenes.com. [Private repo]
+```
+```
+Polemik Yayınları Website — Live publisher website on React + Strapi CMS with an inventory view, submission workflow, and CI deploys. → polemikyayin.com
 ```
 ```
 SIMS — Smart Inventory Management System (graduation project) — A 10-microservice platform (PHP/Laravel, Node.js, Python/FastAPI, React) with an MCP-powered AI assistant. [Private repo]
 ```
 ```
-Etch-A-Chat — Privacy-focused real-time vector-drawing messenger. React Native (Expo + Skia), microservices on Kubernetes. → github.com/ekaynac/EtchaMessage
+Etch-A-Chat — Privacy-focused real-time vector-drawing messenger. React Native (Expo + Skia), microservices on Kubernetes. [Private repo]
 ```
 
 ---
@@ -138,10 +148,10 @@ Automatic Calculation of Hallux Valgus Angle — ICAT (International Conference 
 **Suggested Top 3 (pin these):** LLM Pipelines · Computer Vision · Microservices
 
 ```
-Large Language Models (LLM), Retrieval-Augmented Generation (RAG), AI Agents, Model Context Protocol (MCP), Prompt Engineering, Computer Vision, YOLO, OpenCV, TensorRT, PyTorch, TensorFlow,
+Large Language Models (LLM), Retrieval-Augmented Generation (RAG), AI Agents, Model Context Protocol (MCP), Prompt Engineering, Computer Vision, YOLO, OWLv2, OpenCV, TensorRT, PyTorch, TensorFlow, vLLM, Ollama,
 Python, TypeScript, JavaScript, PHP, Java, C, Kotlin, Dart,
-React, Next.js, React Native, Node.js, Fastify, FastAPI, Laravel,
-Docker, Kubernetes, Redis, RabbitMQ, MySQL, MongoDB, Nginx, GitHub Actions, LDAP/OIDC, Casbin
+React, Next.js, React Native, Node.js, Fastify, FastAPI, Laravel, Strapi,
+Docker, Kubernetes, Proxmox VE, Redis, RabbitMQ, PostgreSQL, MySQL, MongoDB, Nginx, GitHub Actions, LDAP/OIDC, Casbin, Cloudflare Tunnel, Tailscale
 ```
 
 ---
@@ -158,10 +168,10 @@ Docker, Kubernetes, Redis, RabbitMQ, MySQL, MongoDB, Nginx, GitHub Actions, LDAP
 | **6. Projects** | **Add profile section → Additional → Add projects** |
 | **7. Publications** | **Add profile section → Additional → Add publications** |
 | **8. Skills** | **Add profile section → Core → Add skills** (then reorder → pin top 3) |
-| **Featured** | **Add profile section → Recommended → Add featured** → link your CV, github.com/ekaynac, the LLMDAP/Radar repos, and your site once it's live |
+| **Featured** | **Add profile section → Recommended → Add featured** → link your CV (tensorenes.com/cv.pdf), github.com/ekaynac, the Intelligence Desk repo, and tensorenes.com |
 
 **Also worth doing on LinkedIn:**
 - Set **Location** to Ankara, Türkiye; turn on **Open to work** (recruiters only) if you want inbound.
 - Add a **custom public URL** (e.g. linkedin.com/in/enes-kaynakci — you already have this).
-- Add your **site URL** to Featured + the Contact info once `ekaynac.github.io` is live.
+- Add your **site URL** (`tensorenes.com`) to Featured + the Contact info.
 - Banner image: a calm, technical/abstract image reads well; (your site's ink visual would make a great banner export later).

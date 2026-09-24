@@ -8,7 +8,7 @@
     "links": {
       "github": "https://github.com/ekaynac",
       "linkedin": "https://www.linkedin.com/in/enes-kaynakci/",
-      "website": "https://ekaynac.github.io"
+      "website": "https://tensorenes.com"
     }
   },
   "heroPairs": [
@@ -23,9 +23,32 @@
   ],
   "work": [
     {
+      "slug": "inframedic",
+      "name": "InfraMedic",
+      "oneLiner": "Safety-first diagnose-and-remediate platform for heterogeneous infrastructure, with an on-prem LLM analyst.",
+      "tech": [
+        "Python",
+        "Ollama",
+        "SQLite",
+        "vCenter",
+        "Zabbix",
+        "Proxmox",
+        "pytest"
+      ],
+      "isPrivate": true,
+      "trueName": "the Mender of Iron",
+      "sigil": "mender",
+      "floor": 5,
+      "summonWords": [
+        "mender",
+        "inframedic",
+        "heal"
+      ]
+    },
+    {
       "slug": "llmdap",
       "name": "LLMDAP — LLM Directory-bound Access Protection",
-      "oneLiner": "Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.",
+      "oneLiner": "Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.",
       "tech": [
         "TypeScript",
         "Node.js",
@@ -47,31 +70,12 @@
       ]
     },
     {
-      "slug": "inframedic",
-      "name": "InfraMedic",
-      "oneLiner": "Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.",
-      "tech": [
-        "Python",
-        "SQLite",
-        "Fernet encryption",
-        "pytest"
-      ],
-      "isPrivate": true,
-      "trueName": "the Mender of Iron",
-      "sigil": "mender",
-      "floor": 5,
-      "summonWords": [
-        "mender",
-        "inframedic",
-        "heal"
-      ]
-    },
-    {
       "slug": "onprem-ai-adoption-radar",
-      "name": "On-Prem AI Adoption Radar",
-      "oneLiner": "A deterministic, self-hosted radar that decides which AI/agent tools to adopt, pilot, watch, or avoid.",
+      "name": "On-Prem Intelligence Desk",
+      "oneLiner": "A self-hosted, fully cited answer to \"what should I run on-prem?\": capacity fit, benchmarks, license gate, and adoption ring.",
       "tech": [
         "Python",
+        "React",
         "MCP",
         "GitHub Actions",
         "OSV.dev",
@@ -86,6 +90,29 @@
         "augur",
         "radar",
         "omen"
+      ]
+    },
+    {
+      "slug": "homelab",
+      "name": "Homelab — Proxmox Platform",
+      "oneLiner": "Infrastructure-as-documentation home server with GPU containers and zero open ports.",
+      "tech": [
+        "Proxmox VE",
+        "ZFS",
+        "LXC",
+        "Cloudflare Tunnel",
+        "Tailscale",
+        "NVIDIA CUDA",
+        "Caddy"
+      ],
+      "isPrivate": true,
+      "trueName": "the Hearthkeeper",
+      "sigil": "hearth",
+      "floor": 6,
+      "summonWords": [
+        "hearth",
+        "homelab",
+        "proxmox"
       ]
     },
     {
@@ -115,6 +142,28 @@
       "summonWords": [
         "sealed",
         "sims"
+      ]
+    },
+    {
+      "slug": "polemik-site",
+      "name": "Polemik Yayınları Website",
+      "oneLiner": "Production website and catalog for an independent publishing house.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Strapi",
+        "PostgreSQL",
+        "Tailwind CSS"
+      ],
+      "demo": "https://polemikyayin.com",
+      "isPrivate": true,
+      "trueName": "the Keeper of Pages",
+      "sigil": "pages",
+      "floor": 7,
+      "summonWords": [
+        "pages",
+        "polemik"
       ]
     },
     {
@@ -152,9 +201,10 @@
       "current": true,
       "highlights": [
         "Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.",
-        "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
-        "R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.",
-        "Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard."
+        "Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.",
+        "Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.",
+        "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
+        "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst."
       ]
     },
     {
@@ -232,11 +282,14 @@
         "MCP",
         "Transformers",
         "Embeddings",
+        "vLLM",
+        "Ollama",
         "DSPy",
         "TensorFlow",
         "PyTorch",
         "OpenCV",
         "TensorRT",
+        "OWLv2",
         "YOLOv5"
       ]
     },
@@ -251,6 +304,7 @@
         "Fastify",
         "FastAPI",
         "Laravel",
+        "Strapi",
         "Socket.io",
         "Tailwind CSS",
         "Vite"
@@ -261,7 +315,9 @@
       "items": [
         "Docker",
         "Kubernetes (EKS)",
+        "Proxmox VE",
         "Nginx",
+        "PostgreSQL",
         "MySQL",
         "MongoDB",
         "Redis",
@@ -271,7 +327,9 @@
         "Supabase",
         "Vercel",
         "LDAP/OIDC",
-        "Casbin"
+        "Casbin",
+        "Cloudflare Tunnel",
+        "Tailscale"
       ]
     }
   ],

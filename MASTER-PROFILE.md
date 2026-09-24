@@ -1,6 +1,6 @@
 # Enes Kaynakcı
 **AI / Software Engineer** · Ankara, Türkiye
-tensorenes@gmail.com · https://github.com/ekaynac · https://www.linkedin.com/in/enes-kaynakci/ · https://ekaynac.github.io
+tensorenes@gmail.com · https://github.com/ekaynac · https://www.linkedin.com/in/enes-kaynakci/ · https://tensorenes.com
 
 > Generated from the content dataset. Do not edit by hand — edit `content/*.ts` and run `npm run generate:profile`.
 
@@ -15,10 +15,11 @@ AI-leaning full-stack engineer who ships end to end: LLM and agent pipelines and
 ### AI / Software Engineer — Mega Bilgisayar
 2026-05-18 – Present · Ankara, Türkiye · full-time
 - Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.
-- Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
-- R&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.
-- Created the On-Prem AI Adoption Radar: a deterministic, self-hosted system that scores and ranks AI and agent tooling for enterprise adoption, with an MCP server and an auto-publishing static dashboard.
-_Tech:_ TypeScript, Python, LLMs, vLLM, RAG, MCP, Casbin, LDAP/OIDC, YOLO, Docker, GitHub Actions
+- Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.
+- Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.
+- Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
+- Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.
+_Tech:_ TypeScript, Python, LLMs, vLLM, RAG, MCP, Casbin, LDAP/OIDC, OWLv2, TensorRT, Docker, GitHub Actions
 
 ### AI Intern, AI R&D — Mia Teknoloji
 2025-02 – 2025-07 · Ankara, Türkiye · internship
@@ -53,10 +54,10 @@ Architected a 10-microservice platform (PHP/Laravel, Node.js/Fastify, Python/Fas
 _Tech:_ PHP, Laravel, Node.js, Fastify, Python, FastAPI, React, TypeScript, MySQL, Redis, Nginx, MCP, Docker, GitHub Actions
 
 ### LLMDAP — LLM Directory-bound Access Protection ⭐
-Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.
-A TypeScript/Node library that binds LLM-agent memory, configuration, and tool access to Active Directory (LDAP) or OIDC identities. Provides fine-grained Casbin authorization, AES-256-GCM envelope-encrypted memory, key rotation, a tamper-evident hash-chained audit trail, and optional HSM/PKCS#11 — running entirely on-premise with no mandatory external service.
-- On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.
-- Optional adapters (HSM/PKCS#11, OIDC) loaded lazily so the lean profile stays dependency-light.
+Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.
+A proprietary TypeScript/Node product (v1.15) that makes every LLM-agent session run as a real corporate identity. Binds agent memory, configuration, and tool access to Active Directory (LDAP) or OIDC, with deny-by-default Casbin authorization, per-identity AES-256-GCM envelope-encrypted memory, key rotation, and a hash-chained, signed audit trail. Ships an LLM gateway with host-side model attestation, behavioural canaries (refusal, anchor, and drift probes), and identity-scoped RAG, plus optional HSM/PKCS#11 — running entirely on-premise with no mandatory external service.
+- Per-identity envelope encryption, deny-by-default Casbin, and a signed hash-chained audit trail, fully on-prem through v1.15.
+- LLM gateway with host-side model attestation and behavioural canaries that flag refusal and drift.
 _Tech:_ TypeScript, Node.js, Casbin, LDAP/Active Directory, OIDC, AES-256-GCM, PKCS#11, jose
 
 ### Etch-A-Chat ⭐
@@ -66,24 +67,25 @@ Co-developed a privacy-focused messaging app where users exchange hand-drawn vec
 - 5 microservices on AWS EKS with phone-OTP auth and SHA-256 contact sync.
 _Tech:_ React Native, Expo, Skia, Socket.io, MongoDB, Redis, RabbitMQ, Kubernetes, AWS EKS, pnpm, Turborepo
 
-### On-Prem AI Adoption Radar ⭐
-A deterministic, self-hosted radar that decides which AI/agent tools to adopt, pilot, watch, or avoid. — https://github.com/ekaynac/onprem-ai-adoption-radar
-A self-hosted Python system that collects real signals (GitHub releases, registries, vendor blogs), scores them against an on-prem adoption rubric, and produces decision cards with adopt/pilot/watch/avoid rings plus a cumulative timeline. The core scoring pipeline is fully deterministic (LLM optional and off by default), with OSV.dev security gating, license-change detection, an MCP server, and a daily GitHub Action that auto-publishes a static dashboard. 352 tests with ≥80% coverage enforced.
-- Deterministic, reproducible scoring — decisions come from a rubric, not a prompt.
-- Evidence-based: star growth, release cadence, and OSV security advisories drive ring changes.
-_Tech:_ Python, MCP, GitHub Actions, OSV.dev, Static Site (GitHub Pages)
+### On-Prem Intelligence Desk ⭐
+A self-hosted, fully cited answer to "what should I run on-prem?": capacity fit, benchmarks, license gate, and adoption ring. — https://github.com/ekaynac/onprem-ai-adoption-radar
+A self-hosted Python system (formerly the On-Prem AI Adoption Radar) that discovers and re-evaluates on-prem AI signals every two hours from 77 curated sources, scores them against a deterministic adoption rubric (adopt/pilot/watch/avoid), and republishes a static public edition. An Answer Machine turns a task plus hardware into a ranked, cited recommendation; a weekly analyst brief records Act/Evaluate/Ignore calls in a public ledger and scores them by the same rules. Adds benchmark triangulation across public leaderboards, model lineage, a hardware platform catalog, deterministic capacity planning, schema-validated LLM news classification, and an MCP server for agents. Core scoring needs no LLM; ≥80% coverage enforced.
+- Deterministic, reproducible scoring: decisions come from a rubric, not a prompt, and every number carries its source.
+- Publicly scored weekly calls, capacity planning over CLI and MCP, and benchmark triangulation that flags gaps instead of averaging them.
+_Tech:_ Python, React, MCP, GitHub Actions, OSV.dev, Static Site (GitHub Pages)
 
 ### InfraMedic ⭐
-Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.
-A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar.
-- Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.
-- Adapters report partial failures instead of raising — the pipeline enforces that nothing is dropped silently.
-_Tech:_ Python, SQLite, Fernet encryption, pytest
+Safety-first diagnose-and-remediate platform for heterogeneous infrastructure, with an on-prem LLM analyst.
+A Python platform that diagnoses managed infrastructure through a typed pipeline of immutable models (device registry, observations, signals, findings, run manifests). Seven platform adapters (VMware vCenter, Zabbix, Proxmox, HPE iLO, Linux, HPE StoreOnce, Axis) feed deterministic detectors; an Ollama-backed LLM analyst narrates signals into findings after pseudonymization and redaction, with sensitivity-aware routing that keeps restricted devices off cloud models. Encrypted secrets use audited just-in-time leases, remediation runs as sagas behind a deny-by-default policy gate and a sandbox, and a server-rendered operator UI covers devices, runs, findings, and audit. Conformance and safety suites guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar (600+ pull requests).
+- Seven platform adapters with an on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.
+- Deny-by-default policy gate, saga-based remediation, and purpose-bound secret leases with TTL and a full audit trail.
+_Tech:_ Python, Ollama, SQLite, vCenter, Zabbix, Proxmox, pytest
 
-### Vest Detection System (private)
-Industrial PPE/safety-vest detection on edge hardware (Mega / Advantech).
-A computer-vision safety system that detects personal protective equipment (safety vests) in industrial environments, deployed on Advantech edge hardware with YOLO-based detection for Mega Bilgisayar's Smart Production Systems.
-_Tech:_ Python, YOLO, OpenCV, Advantech, Edge AI
+### OHS Computer Vision Platform (private)
+Industrial PPE-violation detection on edge hardware (Mega / Advantech Smart Production Systems).
+A containerized occupational-health-and-safety vision pipeline: zero-shot OWLv2 detection, ByteTrack tracking, PPE association, a violation state machine, and YuNet face anonymization, emitting structured violation events to JSONL and signed webhooks. Every component is selected from YAML config, so the same pipeline runs on a Mac, NVIDIA Jetson Xavier NX (TensorRT), and RTX workstations, with DVC-versioned models and a looping RTSP demo camera. Built for Mega Bilgisayar's Advantech Smart Production Systems.
+- Zero-shot OWLv2 + ByteTrack pipeline with face anonymization and signed violation webhooks, config-driven across Jetson and RTX targets.
+_Tech:_ Python, OWLv2, ByteTrack, TensorRT, Jetson Xavier NX, Docker, DVC
 
 ### BukaUI (private)
 On-prem local-LLM platform (customized LibreChat) for Mega Bilgisayar.
@@ -105,6 +107,18 @@ Mobile platform for fanzine submission, review, and archiving (Erasmus project).
 A mobile app that streamlines fanzine submission and editorial review and builds a digital archive of past issues, making independent fanzines more accessible. Built with a Kotlin/Android front end on a Firebase (Firestore, Auth, Storage) backend. Developed at FH Hagenberg with Ecem Tekiner.
 _Tech:_ Kotlin, Android, Firebase, Firestore
 
+### Homelab — Proxmox Platform ⭐
+Infrastructure-as-documentation home server with GPU containers and zero open ports.
+A single-node Proxmox VE platform rebuilt entirely from its own repository: three ZFS pools, Proxmox Backup Server with nightly jobs and a tested restore, NVIDIA GPU passthrough into unprivileged LXC containers with CUDA verified, public ingress through Cloudflare Tunnel, and admin access over a Tailscale subnet router, with no router port ever forwarded. Every phase ends with an execution log of what actually happened, and live host config is snapshotted into git after each change. Hosts this site at tensorenes.com.
+- GPU-enabled unprivileged containers, tested backups, and public services over Cloudflare Tunnel with zero forwarded ports.
+_Tech:_ Proxmox VE, ZFS, LXC, Cloudflare Tunnel, Tailscale, NVIDIA CUDA, Caddy
+
+### Polemik Yayınları Website ⭐
+Production website and catalog for an independent publishing house.
+The live website of Polemik Yayınları: a React + TypeScript + Vite front end on a Strapi headless CMS with PostgreSQL. Includes a book catalog with Kitapyurdu links, an inventory view with location and stock filters, a manuscript-submission workflow, a catalog scraper, prerendered social-preview tags, a generated sitemap, a strict CSP, and privacy-friendly Umami analytics, deployed through GitHub Actions.
+- Live publisher site on a Strapi CMS with an inventory view, submission workflow, and CI deploys.
+_Tech:_ React, TypeScript, Vite, Strapi, PostgreSQL, Tailwind CSS
+
 ## Education
 
 - **B.Sc. in Information Systems and Technologies**, Bilkent University (2022-08 – 2026-06) — Graduated June 2026, CGPA 3.08/4.00; Honour standing in multiple semesters.
@@ -114,9 +128,9 @@ _Tech:_ Kotlin, Android, Firebase, Firestore
 ## Skills
 
 - **Languages:** Python, TypeScript, JavaScript, PHP, Java, C, Dart, Kotlin
-- **AI & ML:** LLM Pipelines, RAG, Function Calling, Agents, MCP, Transformers, Embeddings, DSPy, TensorFlow, PyTorch, OpenCV, TensorRT, YOLOv5
-- **Web & Mobile:** React, Next.js, React Native (Expo), Node.js, Express, Fastify, FastAPI, Laravel, Socket.io, Tailwind CSS, Vite
-- **Infrastructure & Tools:** Docker, Kubernetes (EKS), Nginx, MySQL, MongoDB, Redis, RabbitMQ, GitHub Actions, Git, Supabase, Vercel, LDAP/OIDC, Casbin
+- **AI & ML:** LLM Pipelines, RAG, Function Calling, Agents, MCP, Transformers, Embeddings, vLLM, Ollama, DSPy, TensorFlow, PyTorch, OpenCV, TensorRT, OWLv2, YOLOv5
+- **Web & Mobile:** React, Next.js, React Native (Expo), Node.js, Express, Fastify, FastAPI, Laravel, Strapi, Socket.io, Tailwind CSS, Vite
+- **Infrastructure & Tools:** Docker, Kubernetes (EKS), Proxmox VE, Nginx, PostgreSQL, MySQL, MongoDB, Redis, RabbitMQ, GitHub Actions, Git, Supabase, Vercel, LDAP/OIDC, Casbin, Cloudflare Tunnel, Tailscale
 
 ## Certifications
 

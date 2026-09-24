@@ -15,11 +15,11 @@
 
 - **Name / title:** Enes Kaynakcı — AI / Software Engineer
 - **Location:** Ankara, Türkiye
-- **Email:** tensorenes@gmail.com · **Site:** https://ekaynac.github.io · **GitHub:** ekaynac · **LinkedIn:** enes-kaynakci
+- **Email:** tensorenes@gmail.com · **Site:** https://tensorenes.com · **GitHub:** ekaynac · **LinkedIn:** enes-kaynakci
 - **Current role:** AI / Software Engineer at Mega Bilgisayar (since May 2026, full-time)
 - **Education:** B.Sc. Information Systems & Technologies, Bilkent University (June 2026); Erasmus at FH Hagenberg (2024–25); METU EEE 2018–21 (transferred)
 - **Positioning:** AI-leaning full-stack engineer — LLM/agent pipelines + computer vision, delivered end-to-end on production microservices and modern web/mobile stacks
-- **Signature work:** on-prem AI portal stack (MCP gateway + vLLM agent), LLMDAP, InfraMedic, On-Prem AI Adoption Radar, SIMS (10-microservice graduation project), Etch-A-Chat
+- **Signature work:** on-prem AI portal stack (MCP gateway + vLLM agent), InfraMedic, LLMDAP, On-Prem Intelligence Desk, OHS vision platform (lead), SIMS (10-microservice graduation project), Proxmox homelab, Polemik Yayınları website, Etch-A-Chat
 
 ## 2. Openers (pick one, then add one company-specific sentence)
 
@@ -31,15 +31,17 @@
 
 ## 3. Body blocks (pick 2–3 that match the job ad)
 
-**LLM / agents.** [Portal stack: aggregating MCP gateway, per-identity namespaced tool catalogs, vLLM agent with per-turn embedding-retrieved tools, confirmation-gated writes — all on-prem. LLMDAP: Casbin authz, envelope-encrypted agent memory, tamper-evident audit. Adoption Radar: deterministic scoring over LLM vibes.]
+**LLM / agents.** [Portal stack: aggregating MCP gateway, per-identity namespaced tool catalogs, vLLM agent with per-turn embedding-retrieved tools, confirmation-gated writes — all on-prem. LLMDAP: Casbin authz, envelope-encrypted agent memory, tamper-evident audit. Intelligence Desk: deterministic scoring over LLM vibes, every number cited, weekly calls scored in public. InfraMedic: on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.]
 
-**Computer vision / edge.** [PPE detection on Jetson with YOLO/SAM/DepthAnything; Teknofest UAV finalist ×2; FP16 TensorRT deployment; ~11,500-image open-source dataset; ICAT 2022 co-authored medical-CV paper.]
+**Computer vision / edge.** [Led the OHS vision platform: zero-shot OWLv2 + ByteTrack + face anonymization on Jetson/RTX via TensorRT, signed violation webhooks; Teknofest UAV finalist ×2; FP16 TensorRT deployment; ~11,500-image open-source dataset; ICAT 2022 co-authored medical-CV paper.]
 
-**Full-stack / product delivery.** [SIMS: 10 microservices, 4 languages, Redis event bus, MCP assistant. Etch-A-Chat: React Native + Skia collaborative canvas, 5 services on EKS. This CV/site/README pipeline itself: typed dataset → generated artifacts, tested in CI.]
+**Full-stack / product delivery.** [SIMS: 10 microservices, 4 languages, Redis event bus, MCP assistant. Etch-A-Chat: React Native + Skia collaborative canvas, 5 services on EKS. Polemik Yayınları's live site on React + Strapi. This CV/site/README pipeline itself: typed dataset → generated artifacts, tested in CI.]
+
+**Infrastructure / ops.** [InfraMedic: seven platform adapters (vCenter, Zabbix, Proxmox, iLO, Linux, StoreOnce, Axis), saga remediation behind a deny-by-default gate, audited secret leases. Homelab: Proxmox VE, ZFS, tested PBS restores, GPU in unprivileged LXC, Cloudflare Tunnel with zero forwarded ports; it serves tensorenes.com.]
 
 **Proof of work ethic.** [100/100 internship evaluation at Mia Teknoloji, nominated for Best Internship; returned to Mega as a full-timer after interning there — they asked me back.]
 
-**Ownership.** [I take products, not tickets: sole creator of InfraMedic at Mega; conceived and shipped LLMDAP and the Adoption Radar end to end. Once I understand the intent behind a requirement I deliver past it — see "How I work best" in §4 for the phrasing.]
+**Ownership.** [I take products, not tickets: sole creator of InfraMedic at Mega; conceived and shipped LLMDAP and the Intelligence Desk end to end; lead developer of the OHS vision platform. Once I understand the intent behind a requirement I deliver past it — see "How I work best" in §4 for the phrasing.]
 
 ## 4. The human layer
 
@@ -83,7 +85,7 @@ office presence as ritual rather than for collaboration; fully-remote-only setup
 
 **A — Direct.** I'd be glad to walk you through any of these systems in detail — the code I can't show publicly I can explain on a whiteboard. Thank you for your time.
 
-**B — Warm.** If it sounds like I'd fit, I'd love to talk. Everything above is real and demo-able, and the rest of my work is at ekaynac.github.io.
+**B — Warm.** If it sounds like I'd fit, I'd love to talk. Everything above is real and demo-able, and the rest of my work is at tensorenes.com.
 
 ---
 

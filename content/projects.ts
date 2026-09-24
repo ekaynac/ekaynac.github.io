@@ -28,9 +28,9 @@ export const projects: Project[] = [
     slug: "llmdap",
     name: "LLMDAP — LLM Directory-bound Access Protection",
     oneLiner:
-      "Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.",
+      "Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.",
     description:
-      "A TypeScript/Node library that binds LLM-agent memory, configuration, and tool access to Active Directory (LDAP) or OIDC identities. Provides fine-grained Casbin authorization, AES-256-GCM envelope-encrypted memory, key rotation, a tamper-evident hash-chained audit trail, and optional HSM/PKCS#11 — running entirely on-premise with no mandatory external service.",
+      "A proprietary TypeScript/Node product (v1.15) that makes every LLM-agent session run as a real corporate identity. Binds agent memory, configuration, and tool access to Active Directory (LDAP) or OIDC, with deny-by-default Casbin authorization, per-identity AES-256-GCM envelope-encrypted memory, key rotation, and a hash-chained, signed audit trail. Ships an LLM gateway with host-side model attestation, behavioural canaries (refusal, anchor, and drift probes), and identity-scoped RAG, plus optional HSM/PKCS#11 — running entirely on-premise with no mandatory external service.",
     role: "Author",
     tech: [
       "TypeScript", "Node.js", "Casbin", "LDAP/Active Directory",
@@ -42,8 +42,8 @@ export const projects: Project[] = [
     featured: true,
     private: true,
     highlights: [
-      "On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.",
-      "Optional adapters (HSM/PKCS#11, OIDC) loaded lazily so the lean profile stays dependency-light.",
+      "Per-identity envelope encryption, deny-by-default Casbin, and a signed hash-chained audit trail, fully on-prem through v1.15.",
+      "LLM gateway with host-side model attestation and behavioural canaries that flag refusal and drift.",
     ],
   },
   {
@@ -69,56 +69,58 @@ export const projects: Project[] = [
   },
   {
     slug: "onprem-ai-adoption-radar",
-    name: "On-Prem AI Adoption Radar",
+    name: "On-Prem Intelligence Desk",
     oneLiner:
-      "A deterministic, self-hosted radar that decides which AI/agent tools to adopt, pilot, watch, or avoid.",
+      "A self-hosted, fully cited answer to \"what should I run on-prem?\": capacity fit, benchmarks, license gate, and adoption ring.",
     description:
-      "A self-hosted Python system that collects real signals (GitHub releases, registries, vendor blogs), scores them against an on-prem adoption rubric, and produces decision cards with adopt/pilot/watch/avoid rings plus a cumulative timeline. The core scoring pipeline is fully deterministic (LLM optional and off by default), with OSV.dev security gating, license-change detection, an MCP server, and a daily GitHub Action that auto-publishes a static dashboard. 352 tests with ≥80% coverage enforced.",
+      "A self-hosted Python system (formerly the On-Prem AI Adoption Radar) that discovers and re-evaluates on-prem AI signals every two hours from 77 curated sources, scores them against a deterministic adoption rubric (adopt/pilot/watch/avoid), and republishes a static public edition. An Answer Machine turns a task plus hardware into a ranked, cited recommendation; a weekly analyst brief records Act/Evaluate/Ignore calls in a public ledger and scores them by the same rules. Adds benchmark triangulation across public leaderboards, model lineage, a hardware platform catalog, deterministic capacity planning, schema-validated LLM news classification, and an MCP server for agents. Core scoring needs no LLM; ≥80% coverage enforced.",
     role: "Creator",
-    tech: ["Python", "MCP", "GitHub Actions", "OSV.dev", "Static Site (GitHub Pages)"],
+    tech: ["Python", "React", "MCP", "GitHub Actions", "OSV.dev", "Static Site (GitHub Pages)"],
     links: { repo: "https://github.com/ekaynac/onprem-ai-adoption-radar" },
     start: "2026-06",
     end: "present",
     featured: true,
     private: false,
     highlights: [
-      "Deterministic, reproducible scoring — decisions come from a rubric, not a prompt.",
-      "Evidence-based: star growth, release cadence, and OSV security advisories drive ring changes.",
+      "Deterministic, reproducible scoring: decisions come from a rubric, not a prompt, and every number carries its source.",
+      "Publicly scored weekly calls, capacity planning over CLI and MCP, and benchmark triangulation that flags gaps instead of averaging them.",
     ],
   },
   {
     slug: "inframedic",
     name: "InfraMedic",
     oneLiner:
-      "Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.",
+      "Safety-first diagnose-and-remediate platform for heterogeneous infrastructure, with an on-prem LLM analyst.",
     description:
-      "A Python platform core that diagnoses managed infrastructure devices through a typed pipeline of immutable models (device registry, observations, findings, run manifests). Ships encrypted secrets with audited just-in-time leases, capability-negotiating detectors with failure isolation, and a deny-by-default policy gate, all enforced by conformance and safety test suites that guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar.",
+      "A Python platform that diagnoses managed infrastructure through a typed pipeline of immutable models (device registry, observations, signals, findings, run manifests). Seven platform adapters (VMware vCenter, Zabbix, Proxmox, HPE iLO, Linux, HPE StoreOnce, Axis) feed deterministic detectors; an Ollama-backed LLM analyst narrates signals into findings after pseudonymization and redaction, with sensitivity-aware routing that keeps restricted devices off cloud models. Encrypted secrets use audited just-in-time leases, remediation runs as sagas behind a deny-by-default policy gate and a sandbox, and a server-rendered operator UI covers devices, runs, findings, and audit. Conformance and safety suites guarantee secret values never leak into registry rows, audit records, manifests, or logs. Designed and built solo at Mega Bilgisayar (600+ pull requests).",
     role: "Sole creator (Mega Bilgisayar)",
-    tech: ["Python", "SQLite", "Fernet encryption", "pytest"],
+    tech: ["Python", "Ollama", "SQLite", "vCenter", "Zabbix", "Proxmox", "pytest"],
     links: {},
     start: "2026-07",
     end: "present",
     featured: true,
     private: true,
     highlights: [
-      "Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.",
-      "Adapters report partial failures instead of raising — the pipeline enforces that nothing is dropped silently.",
+      "Seven platform adapters with an on-prem LLM analyst that pseudonymizes before any prompt and fails closed for restricted devices.",
+      "Deny-by-default policy gate, saga-based remediation, and purpose-bound secret leases with TTL and a full audit trail.",
     ],
   },
   {
     slug: "vest-detection-system",
-    name: "Vest Detection System",
-    oneLiner: "Industrial PPE/safety-vest detection on edge hardware (Mega / Advantech).",
+    name: "OHS Computer Vision Platform",
+    oneLiner: "Industrial PPE-violation detection on edge hardware (Mega / Advantech Smart Production Systems).",
     description:
-      "A computer-vision safety system that detects personal protective equipment (safety vests) in industrial environments, deployed on Advantech edge hardware with YOLO-based detection for Mega Bilgisayar's Smart Production Systems.",
-    role: "Developer",
-    tech: ["Python", "YOLO", "OpenCV", "Advantech", "Edge AI"],
+      "A containerized occupational-health-and-safety vision pipeline: zero-shot OWLv2 detection, ByteTrack tracking, PPE association, a violation state machine, and YuNet face anonymization, emitting structured violation events to JSONL and signed webhooks. Every component is selected from YAML config, so the same pipeline runs on a Mac, NVIDIA Jetson Xavier NX (TensorRT), and RTX workstations, with DVC-versioned models and a looping RTSP demo camera. Built for Mega Bilgisayar's Advantech Smart Production Systems.",
+    role: "Lead developer (Mega Bilgisayar)",
+    tech: ["Python", "OWLv2", "ByteTrack", "TensorRT", "Jetson Xavier NX", "Docker", "DVC"],
     links: {},
     start: "2026",
     end: "present",
     featured: false,
     private: true,
-    highlights: [],
+    highlights: [
+      "Zero-shot OWLv2 + ByteTrack pipeline with face anonymization and signed violation webhooks, config-driven across Jetson and RTX targets.",
+    ],
   },
   {
     slug: "bukaui",
@@ -179,5 +181,39 @@ export const projects: Project[] = [
     featured: false,
     private: true,
     highlights: [],
+  },
+  {
+    slug: "homelab",
+    name: "Homelab — Proxmox Platform",
+    oneLiner: "Infrastructure-as-documentation home server with GPU containers and zero open ports.",
+    description:
+      "A single-node Proxmox VE platform rebuilt entirely from its own repository: three ZFS pools, Proxmox Backup Server with nightly jobs and a tested restore, NVIDIA GPU passthrough into unprivileged LXC containers with CUDA verified, public ingress through Cloudflare Tunnel, and admin access over a Tailscale subnet router, with no router port ever forwarded. Every phase ends with an execution log of what actually happened, and live host config is snapshotted into git after each change. Hosts this site at tensorenes.com.",
+    role: "Creator",
+    tech: ["Proxmox VE", "ZFS", "LXC", "Cloudflare Tunnel", "Tailscale", "NVIDIA CUDA", "Caddy"],
+    links: {},
+    start: "2026-09",
+    end: "present",
+    featured: true,
+    private: true,
+    highlights: [
+      "GPU-enabled unprivileged containers, tested backups, and public services over Cloudflare Tunnel with zero forwarded ports.",
+    ],
+  },
+  {
+    slug: "polemik-site",
+    name: "Polemik Yayınları Website",
+    oneLiner: "Production website and catalog for an independent publishing house.",
+    description:
+      "The live website of Polemik Yayınları: a React + TypeScript + Vite front end on a Strapi headless CMS with PostgreSQL. Includes a book catalog with Kitapyurdu links, an inventory view with location and stock filters, a manuscript-submission workflow, a catalog scraper, prerendered social-preview tags, a generated sitemap, a strict CSP, and privacy-friendly Umami analytics, deployed through GitHub Actions.",
+    role: "Developer",
+    tech: ["React", "TypeScript", "Vite", "Strapi", "PostgreSQL", "Tailwind CSS"],
+    links: { demo: "https://polemikyayin.com" },
+    start: "2026-02",
+    end: "present",
+    featured: true,
+    private: true,
+    highlights: [
+      "Live publisher site on a Strapi CMS with an inventory view, submission workflow, and CI deploys.",
+    ],
   },
 ];

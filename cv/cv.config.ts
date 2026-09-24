@@ -27,12 +27,17 @@ export const cvConfig: CvConfig = {
     { org: "Mega Bilgisayar", start: "2024-06", maxHighlights: 1 },
     { org: "Meturone (Fixed-wing UAV Team)", start: "2021-09", maxHighlights: 1 },
   ],
-  projects: ["sims", "llmdap", "inframedic", "etch-a-chat"],
+  projects: ["inframedic", "llmdap", "sims", "homelab"],
   maxProjectHighlights: 1,
   skills: ["Languages", "AI & ML", "Web & Mobile", "Infrastructure & Tools"],
-  // Trimmed so every skills line fits on one row. YOLOv5 and Casbin still appear in
-  // the experience bullets and project tech lists, so the keywords are not lost.
-  skillExclusions: ["YOLOv5", "TensorFlow", "GitHub Actions", "Casbin", "Vercel"],
+  // Trimmed so every skills line fits on one row. YOLOv5, Casbin, Ollama and function
+  // calling still appear in the experience bullets and project tech lists, so the
+  // keywords are not lost. Kubernetes, MongoDB and RabbitMQ came from Etch-A-Chat, which
+  // is off the CV.
+  skillExclusions: [
+    "YOLOv5", "TensorFlow", "GitHub Actions", "Casbin", "Vercel",
+    "DSPy", "Ollama", "Function Calling", "Supabase", "RabbitMQ", "Git", "MongoDB", "Kubernetes (EKS)",
+  ],
   education: [
     "Bilkent University",
     "FH Upper Austria, Hagenberg Campus",
