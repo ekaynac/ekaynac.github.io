@@ -21,6 +21,13 @@ describe("renderSiteData", () => {
     const llmdap = d.work.find((w) => w.slug === "llmdap")!;
     expect(llmdap.url).toBeUndefined(); // repo went private
   });
+  it("gives a private project with a live site a demo link but no repo link", () => {
+    const polemik = d.work.find((w) => w.slug === "polemik-site")!;
+    expect(polemik.url).toBeUndefined();
+    expect(polemik.demo).toBe("https://polemikyayin.com");
+    const sims = d.work.find((w) => w.slug === "sims")!;
+    expect(sims.demo).toBeUndefined();
+  });
   it("has at least one hero pair and flags the current role", () => {
     expect(d.heroPairs.length).toBeGreaterThan(0);
     expect(d.experience.some((e) => e.current)).toBe(true);

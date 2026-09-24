@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = {
     { engineer: "I build systems.", poet: "I write lines." },
     { engineer: "Pipelines, models, services.", poet: "Images, rhythm, voice." },
   ],
-  projects: ["llmdap", "inframedic", "onprem-ai-adoption-radar", "sims", "etch-a-chat"],
+  projects: ["inframedic", "auto-dev-cycle", "llmdap", "onprem-ai-adoption-radar", "homelab", "sims", "polemik-site", "etch-a-chat"],
   experience: [
     { org: "Mega Bilgisayar", start: "2026-05-18" },
     { org: "Mia Teknoloji", start: "2025-02" },
@@ -48,6 +48,9 @@ export const siteConfig: SiteConfig = {
     inframedic: { trueName: "the Mender of Iron", sigil: "mender", floor: 5, summonWords: ["mender", "inframedic", "heal"] },
     "onprem-ai-adoption-radar": { trueName: "the Augur", sigil: "augur", floor: 2, summonWords: ["augur", "radar", "omen"] },
     sims: { trueName: "the Sealed One", sigil: "sealed", floor: 3, summonWords: ["sealed", "sims"] },
+    "auto-dev-cycle": { trueName: "the Sleepless Apprentice", sigil: "sentinel", floor: 8, summonWords: ["sentinel", "nobetci", "cycle"] },
+    homelab: { trueName: "the Hearthkeeper", sigil: "hearth", floor: 6, summonWords: ["hearth", "homelab", "proxmox"] },
+    "polemik-site": { trueName: "the Keeper of Pages", sigil: "pages", floor: 7, summonWords: ["pages", "polemik"] },
     "etch-a-chat": { trueName: "the Scribe of Vanishing Marks", sigil: "scribe", floor: 4, summonWords: ["scribe", "etch"] },
   },
 };

@@ -44,7 +44,7 @@
 \begin{center}
     {\Huge \scshape Enes Kaynakcı} \\ \vspace{3pt}
     {\large AI / Software Engineer} \\ \vspace{3pt}
-    \small Ankara, Türkiye ~\textbar~ \href{mailto:tensorenes@gmail.com}{\underline{tensorenes@gmail.com}} ~\textbar~ \href{https://www.linkedin.com/in/enes-kaynakci/}{\underline{linkedin.com/in/enes-kaynakci}} ~\textbar~ \href{https://github.com/ekaynac}{\underline{github.com/ekaynac}} ~\textbar~ \href{https://ekaynac.github.io}{\underline{ekaynac.github.io}}
+    \small Ankara, Türkiye ~\textbar~ \href{mailto:tensorenes@gmail.com}{\underline{tensorenes@gmail.com}} ~\textbar~ \href{https://www.linkedin.com/in/enes-kaynakci/}{\underline{linkedin.com/in/enes-kaynakci}} ~\textbar~ \href{https://github.com/ekaynac}{\underline{github.com/ekaynac}} ~\textbar~ \href{https://tensorenes.com}{\underline{tensorenes.com}}
 \end{center}
 
 \section{Summary}
@@ -56,8 +56,8 @@
 \resumeSubheading{Mega Bilgisayar}{May 2026 -- Present}{AI / Software Engineer}{Ankara, Türkiye}
 \resumeItemListStart
 \resumeItem{Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.}
-\resumeItem{Designed LLMDAP, a sovereign LLM-agent identity and memory-protection library binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.}
-\resumeItem{R\&D'd computer-vision industrial-safety systems (PPE/vest detection) on Nvidia Jetson edge hardware using YOLO, SAM, DepthAnything etc. models.}
+\resumeItem{Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.}
+\resumeItem{Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.}
 \resumeItemListEnd
 \resumeSubheading{Mia Teknoloji}{Feb 2025 -- Jul 2025}{AI Intern, AI R\&D}{Ankara, Türkiye}
 \resumeItemListStart
@@ -78,25 +78,30 @@
 
 \section{Projects}
 \resumeSubHeadingListStart
+\resumeProjectHeading{\textbf{InfraMedic} $|$ \emph{Python, Ollama, SQLite, vCenter}}{}
+\resumeItemListStart
+\resumeItem{Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.}
+\resumeItem{Deny-by-default policy gate, saga-based remediation, and purpose-bound secret leases with TTL and a full audit trail.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{Auto Dev Cycle} $|$ \emph{Python, vLLM, OpenRouter, DGX Spark}}{}
+\resumeItemListStart
+\resumeItem{Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.}
+\resumeItem{Shipped 24 InfraMedic tasks (59 PRs) in 19 days at \textasciitilde{}\$2 builder cost each, \textasciitilde{}17x below the same tokens at Claude API rates.}
+\resumeItemListEnd
+\resumeProjectHeading{\textbf{LLMDAP — LLM Directory-bound Access Protection} $|$ \emph{TypeScript, Node.js, Casbin, LDAP/Active Directory}}{}
+\resumeItemListStart
+\resumeItem{Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.}
+\resumeItem{Per-identity envelope encryption, deny-by-default Casbin, and a signed hash-chained audit trail, fully on-prem through v1.15.}
+\resumeItemListEnd
 \resumeProjectHeading{\textbf{SIMS — Smart Inventory Management System} $|$ \emph{PHP, Laravel, Node.js, Fastify}}{}
 \resumeItemListStart
 \resumeItem{10-microservice inventory platform with an MCP-powered AI assistant (graduation project).}
 \resumeItem{10 microservices across 4 languages with per-service databases and a Redis event bus.}
 \resumeItemListEnd
-\resumeProjectHeading{\textbf{LLMDAP — LLM Directory-bound Access Protection} $|$ \emph{TypeScript, Node.js, Casbin, LDAP/Active Directory}}{}
+\resumeProjectHeading{\textbf{Homelab — Proxmox Platform} $|$ \emph{Proxmox VE, ZFS, LXC, Cloudflare Tunnel}}{}
 \resumeItemListStart
-\resumeItem{Sovereign LLM-agent identity and memory protection bound to AD/LDAP or OIDC.}
-\resumeItem{On-prem by default: LDAP identity, embedded Casbin, local encrypted storage, hash-chained audit.}
-\resumeItemListEnd
-\resumeProjectHeading{\textbf{InfraMedic} $|$ \emph{Python, SQLite, Fernet encryption, pytest}}{}
-\resumeItemListStart
-\resumeItem{Safety-first diagnose-and-remediate core for heterogeneous infrastructure platforms.}
-\resumeItem{Deny-by-default policy gate; secret leases are purpose-bound with TTL and a full audit trail.}
-\resumeItemListEnd
-\resumeProjectHeading{\textbf{Etch-A-Chat} $|$ \emph{React Native, Expo, Skia, Socket.io}}{}
-\resumeItemListStart
-\resumeItem{Privacy-focused real-time vector-drawing messenger.}
-\resumeItem{Live collaborative vector canvas over Socket.io.}
+\resumeItem{Infrastructure-as-documentation home server with GPU containers and zero open ports.}
+\resumeItem{GPU-enabled unprivileged containers, tested backups, and public services over Cloudflare Tunnel with zero forwarded ports.}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 \vspace{-7pt}
@@ -104,9 +109,9 @@
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0in, label={}, itemsep=0pt]
 \small{\item{\textbf{Languages:} Python, TypeScript, JavaScript, PHP, Java, C, Dart, Kotlin}}
-\small{\item{\textbf{AI \& ML:} LLM Pipelines, RAG, Function Calling, Agents, MCP, Transformers, Embeddings, DSPy, PyTorch, OpenCV, TensorRT}}
-\small{\item{\textbf{Web \& Mobile:} React, Next.js, React Native (Expo), Node.js, Express, Fastify, FastAPI, Laravel, Socket.io, Tailwind CSS, Vite}}
-\small{\item{\textbf{Infrastructure \& Tools:} Docker, Kubernetes (EKS), Nginx, MySQL, MongoDB, Redis, RabbitMQ, Git, Supabase, LDAP/OIDC}}
+\small{\item{\textbf{AI \& ML:} LLM Pipelines, RAG, Agents, MCP, Transformers, Embeddings, vLLM, PyTorch, OpenCV, TensorRT, OWLv2}}
+\small{\item{\textbf{Web \& Mobile:} React, Next.js, React Native (Expo), Node.js, Express, Fastify, FastAPI, Laravel, Strapi, Socket.io, Tailwind CSS, Vite}}
+\small{\item{\textbf{Infrastructure \& Tools:} Docker, Proxmox VE, Nginx, PostgreSQL, MySQL, Redis, LDAP/OIDC, Cloudflare Tunnel, Tailscale}}
 \end{itemize}
 \vspace{-8pt}
 

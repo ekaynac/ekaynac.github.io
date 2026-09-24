@@ -11,7 +11,7 @@ export interface SiteData {
              links: { github: string; linkedin: string; website: string } };
   heroPairs: { engineer: string; poet: string }[];
   work: {
-    slug: string; name: string; oneLiner: string; tech: string[]; url?: string; isPrivate: boolean;
+    slug: string; name: string; oneLiner: string; tech: string[]; url?: string; demo?: string; isPrivate: boolean;
     trueName: string; sigil: string; floor: number; summonWords: string[];
   }[];
   experience: { org: string; role: string; period: string; current: boolean; highlights: string[] }[];
@@ -32,6 +32,7 @@ export function renderSiteData(data: ProfileData, config: SiteConfig): SiteData 
     return {
       slug: p.slug, name: p.name, oneLiner: p.oneLiner, tech: p.tech,
       url: !p.private && p.links.repo ? p.links.repo : undefined,
+      demo: p.links.demo,
       isPrivate: p.private,
       trueName: djinn.trueName,
       sigil: djinn.sigil,

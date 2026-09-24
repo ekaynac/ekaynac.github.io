@@ -8,7 +8,7 @@ There are two builds of the same CV. They share one source of truth (`content/`,
 | Build | `npm run build:cv` | `npm run build:cv:private` |
 | Output | `public/cv.pdf` (**committed**) | `private.cv.pdf` (**gitignored**) |
 | Phone | no | yes |
-| Where it goes | GitHub + <https://ekaynac.github.io/cv.pdf> | job applications / ATS uploads only |
+| Where it goes | GitHub + <https://tensorenes.com/cv.pdf> (also <https://ekaynac.github.io/cv.pdf>) | job applications / ATS uploads only |
 | ATS lint | `npm run lint:ats` | `npm run lint:ats:private` |
 
 The phone is deliberately **not** in `content/`: that dataset feeds the public repo,

@@ -86,7 +86,7 @@ function header(data: ProfileData, opts: RenderOptions): string {
   const links = [
     `\\href{${p.links.linkedin}}{\\underline{linkedin.com/in/enes-kaynakci}}`,
     `\\href{${p.links.github}}{\\underline{github.com/ekaynac}}`,
-    `\\href{${p.links.website}}{\\underline{ekaynac.github.io}}`,
+    `\\href{${p.links.website}}{\\underline{${p.links.website.replace(/^https?:\/\//, "")}}}`,
   ].join(sep);
   // Adding the phone overflows a single centred contact line, so the private build
   // splits reach-me-here from find-me-here instead of letting it wrap raggedly.

@@ -12,7 +12,7 @@ describe("profile + education data", () => {
   });
   it("links point to the right accounts", () => {
     expect(profile.links.github).toBe("https://github.com/ekaynac");
-    expect(profile.links.website).toBe("https://ekaynac.github.io");
+    expect(profile.links.website).toBe("https://tensorenes.com");
   });
   it("education entries all validate and include Bilkent", () => {
     education.forEach((e) => expect(educationSchema.parse(e)).toBeTruthy());

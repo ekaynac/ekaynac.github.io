@@ -20,12 +20,15 @@ describe("renderReadme", () => {
     expect(md).not.toContain("](https://github.com/ekaynac/LLMDAP)"); // repo went private
     expect(md).not.toContain("](https://github.com/sims-1/sims)");
   });
+  it("links a private project's live site, never its repo", () => {
+    expect(md).toContain("[Polemik Yayınları Website](https://polemikyayin.com)");
+  });
   it("includes the current role and the ICAT paper", () => {
     expect(md).toContain("Mega Bilgisayar");
     expect(md).toContain("Hallux Valgus");
   });
   it("connect line has the live website, LinkedIn, and Email", () => {
-    expect(md).toContain("https://ekaynac.github.io");
+    expect(md).toContain("https://tensorenes.com");
     expect(md).toContain("https://www.linkedin.com/in/enes-kaynakci/");
     expect(md).toContain("mailto:tensorenes@gmail.com");
   });

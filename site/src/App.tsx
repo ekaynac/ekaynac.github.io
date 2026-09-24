@@ -48,7 +48,9 @@ export default function App() {
                   </h3>
                   {w.url
                     ? <a className="card__link" href={w.url} target="_blank" rel="noopener">repo ↗</a>
-                    : <span className="card__priv">private</span>}
+                    : w.demo
+                      ? <a className="card__link" href={w.demo} target="_blank" rel="noopener">live ↗</a>
+                      : <span className="card__priv">private</span>}
                 </div>
                 <p className="card__d">{w.oneLiner}</p>
                 <ul className="card__tech">
