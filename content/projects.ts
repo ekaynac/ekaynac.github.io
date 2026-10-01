@@ -206,10 +206,10 @@ export const projects: Project[] = [
     name: "Homelab — Proxmox Platform",
     oneLiner: "Infrastructure-as-documentation home server with GPU containers and zero open ports.",
     description:
-      "A single-node Proxmox VE platform rebuilt entirely from its own repository: three ZFS pools, Proxmox Backup Server with nightly jobs and a tested restore, NVIDIA GPU passthrough into unprivileged LXC containers with CUDA verified, public ingress through Cloudflare Tunnel, and admin access over a Tailscale subnet router, with no router port ever forwarded. Every phase ends with an execution log of what actually happened, and live host config is snapshotted into git after each change. Hosts this site at tensorenes.com.",
+      "A single-node Proxmox VE platform rebuilt entirely from its own repository: three ZFS pools, Proxmox Backup Server with nightly jobs and a tested restore, NVIDIA GPU passthrough into unprivileged LXC containers with CUDA verified, public ingress through Cloudflare Tunnel, and admin access over a Tailscale subnet router, with no router port ever forwarded. Every phase ends with an execution log of what actually happened, and live host config is snapshotted into git after each change. Hosts this site at tensorenes.com, and explains itself at lab.tensorenes.com: a live, bilingual engineering drawing of why the lab exists and how it is built, fed by coarse, leak-checked metrics.",
     role: "Creator",
     tech: ["Proxmox VE", "ZFS", "LXC", "Cloudflare Tunnel", "Tailscale", "NVIDIA CUDA", "Caddy"],
-    links: {},
+    links: { demo: "https://lab.tensorenes.com" },
     start: "2026-09",
     end: "present",
     featured: true,

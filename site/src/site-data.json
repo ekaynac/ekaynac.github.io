@@ -129,6 +129,7 @@
         "NVIDIA CUDA",
         "Caddy"
       ],
+      "demo": "https://lab.tensorenes.com",
       "isPrivate": true,
       "trueName": "the Hearthkeeper",
       "sigil": "hearth",
