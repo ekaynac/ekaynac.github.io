@@ -6,11 +6,13 @@ AI-leaning full-stack engineer. I build LLM and agent pipelines, computer-vision
 
 ## What I'm working on
 
-- **InfraMedic** _(private)_ — Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.
-- **Auto Dev Cycle** _(private)_ — Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.
+- **InfraMedic** _(private)_ — Safety-first diagnose-and-remediate appliance for heterogeneous infrastructure, with an on-prem LLM analyst.
+- **[Kütüphane](https://github.com/ekaynac/kutuphane)** — A governed knowledge catalog and memory layer that people, agents, and applications read from the same copy.
+- **[Unattended Coding Agents — Auto Dev Cycle → nöbetçi-mcp](https://github.com/ekaynac/auto-dev-cycle)** — Three generations of an unattended coding loop, each measured honestly: build, gate, independent review, merge.
 - **LLMDAP — LLM Directory-bound Access Protection** _(private)_ — Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.
-- **[On-Prem Intelligence Desk](https://github.com/ekaynac/onprem-ai-adoption-radar)** — A self-hosted, fully cited answer to "what should I run on-prem?": capacity fit, benchmarks, license gate, and adoption ring.
+- **[AI Radar Pulse](https://github.com/ekaynac/onprem-ai-adoption-radar)** — New AI models, papers, repositories, and news, collected, triaged, and ranked every two hours, fully unattended.
 - **[Homelab — Proxmox Platform](https://lab.tensorenes.com)** _(private)_ — Infrastructure-as-documentation home server with GPU containers and zero open ports.
+- **[Küre Dizgi — Sphere Poetry Typesetting](https://github.com/ekaynac/kure-dizgi)** — Offline editor that lays a poem out on a sphere and projects it onto printed book pages.
 - **[Polemik Yayınları Website](https://polemikyayin.com)** _(private)_ — Production website and catalog for an independent publishing house.
 - **SIMS — Smart Inventory Management System** _(private)_ — 10-microservice inventory platform with an MCP-powered AI assistant (graduation project).
 - **Etch-A-Chat** _(private)_ — Privacy-focused real-time vector-drawing messenger.

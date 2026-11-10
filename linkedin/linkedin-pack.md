@@ -27,11 +27,11 @@ AI-leaning Full-Stack Engineer · LLMs · Computer Vision · Microservices · An
 ```
 I build AI systems end to end — from LLM and agent pipelines to the production platforms that carry them.
 
-Right now I'm an AI / Software Engineer at Mega Bilgisayar, building fully on-prem AI platforms: an MCP gateway and vLLM agent for our internal portal, and an industrial-safety vision pipeline on NVIDIA Jetson (zero-shot OWLv2, ByteTrack, face anonymization). I built InfraMedic solo, a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox and more) with an on-prem LLM analyst, and the Auto Dev Cycle that now develops it: a continuous plan-build-review-deploy loop where a cheap hosted model (GLM-flash) writes the code, a local Qwen on a DGX Spark handles sweeping, and frontier models only plan, review, and audit. In its first 19 days it delivered 24 tasks at about $2 of builder cost each. I also designed LLMDAP, a sovereign identity and memory-protection layer that binds AI agents to AD/LDAP or OIDC identities, and the On-Prem Intelligence Desk, a self-hosted system that answers "what should I run on-prem?" with cited, deterministic recommendations.
+Right now I'm an AI / Software Engineer at Mega Bilgisayar, building fully on-prem AI platforms: an MCP gateway and vLLM agent for our internal portal, and an industrial-safety vision pipeline on NVIDIA Jetson (zero-shot OWLv2, ByteTrack, face anonymization). I built InfraMedic solo (~1,000 merged PRs), a diagnose-and-remediate appliance for heterogeneous infrastructure (vCenter, Zabbix, Proxmox and more) with an on-prem LLM analyst. Around it sit two more products I designed: LLMDAP, a sovereign identity and memory-protection layer that binds AI agents to AD/LDAP or OIDC identities and governs every model call, and Kütüphane, an open-source governed knowledge catalog and agent memory where agents propose and only a person accepts. I also build and measure unattended coding agents: the first Auto Dev Cycle shipped 24 InfraMedic tasks in 19 days at ~$2 builder cost each; when measurement showed its Go rewrite was 14x slower than plain agent loops, I stopped it and published the post-mortem.
 
 Before this, as an AI Intern in Mia Teknoloji's AI R&D team I engineered end-to-end LLM agent pipelines (RAG, function calling, embeddings), shipped a production SQL-generation pipeline with a 3-tier fallback, and built a Turkish translation pipeline using Zemberek morphology — earning a 100/100 internship evaluation. Earlier I worked on real-time computer vision for fixed-wing UAVs (Teknofest International UAV Competition finalist, 2021 & 2022) and curated an ~11,500-image open-source detection dataset.
 
-My graduation project, SIMS, is a 10-microservice platform (PHP/Laravel, Node.js, Python, React) with an MCP-powered AI assistant. Outside work I run a Proxmox homelab with GPU containers and zero open ports (it serves tensorenes.com), and I built the live website of Polemik Yayınları, the publishing house where I edit poetry. I'm comfortable across the stack — LLMs and computer vision, the microservices and infra behind them, and modern web/mobile front-ends.
+My graduation project, SIMS, is a 10-microservice platform (PHP/Laravel, Node.js, Python, React) with an MCP-powered AI assistant. Outside work I run a Proxmox homelab with GPU containers and zero open ports (it serves tensorenes.com), and I built the live website of Polemik Yayınları, the publishing house where I edit poetry, plus Küre Dizgi, an open-source tool that typesets a poem on a sphere. I'm comfortable across the stack — LLMs and computer vision, the microservices and infra behind them, and modern web/mobile front-ends.
 
 I'm a Bilkent University Information Systems graduate (2026), with an Erasmus exchange at FH Upper Austria (Hagenberg). I hold the DeepLearning.AI Deep Learning Specialization and Stanford's Machine Learning certificate.
 
@@ -48,11 +48,11 @@ I like systems that hold their shape under load and say exactly what they mean. 
 Full-time · May 2026 – Present · Ankara, Türkiye
 ```
 • Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.
-• Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms (vCenter, Zabbix, Proxmox, iLO, Linux, StoreOnce, Axis) with an on-prem LLM analyst, a deny-by-default policy gate, and audited secret leases.
-• Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on cheap hosted and local models (vLLM on DGX Spark), delivering 24 tasks (59 merged PRs) in 19 days at ~$2 builder cost per task.
+• Built InfraMedic solo (~1,000 merged PRs): a diagnose-and-remediate appliance for heterogeneous infrastructure (vCenter, Zabbix, Proxmox, iLO, Linux, StoreOnce, Axis) with an on-prem LLM analyst, a deny-by-default policy gate, audited secret leases, and an operator console.
+• Built Kütüphane, an open-source governed knowledge catalog and agent memory layer: every item carries its write-path provenance and model-use rights, agents propose over MCP, and only a person accepts, by passkey.
+• Built and measured three generations of unattended coding agents (Auto Dev Cycle, its Go rewrite, nöbetçi-mcp): 24 InfraMedic tasks (59 merged PRs) in 19 days at ~$2 builder cost each, and a hidden-test referee that drove the decision to retire the rewrite.
 • Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.
 • Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.
-• Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.
 ```
 
 **AI Intern, AI R&D — Mia Teknoloji**
@@ -113,23 +113,28 @@ SolidWorks (Basic Level) — ABKTEKNİK — 2018
 ## 6) Projects  *(LinkedIn "Projects" section)*
 
 ```
-InfraMedic — Safety-first diagnose-and-remediate platform for heterogeneous infrastructure: seven platform adapters, an on-prem LLM analyst that pseudonymizes before any prompt, saga-based remediation behind a deny-by-default policy gate. Python. Sole creator at Mega Bilgisayar. [Private repo]
+InfraMedic — Safety-first diagnose-and-remediate appliance for heterogeneous infrastructure: platform adapters, an on-prem LLM analyst that pseudonymizes before any prompt, saga-based remediation behind a deny-by-default policy gate, an operator console. ~1,000 merged PRs. Python. Sole creator at Mega Bilgisayar. [Private repo]
 ```
 ```
-Auto Dev Cycle — Self-driving development loop (plan → build → test gate → review → merge → deploy → ledger). GLM-5.3-flash via OpenRouter writes the code; a local Qwen3.8-27B on an NVIDIA DGX Spark (vLLM) sweeps; Claude Opus and a GPT auditor plan, review, and audit on subscriptions. Develops InfraMedic: 24 tasks / 59 merged PRs in 19 days, median ~$2 builder cost per task, ~17x under the same tokens at Claude API pricing. Sole creator at Mega Bilgisayar. [Private]
+Kütüphane — Governed knowledge catalog and memory layer for AI agents: provenance from the write path, person-only acceptance by passkey, rights checked before every embedding and answer, MCP + HTTP, on-prem. Python, PostgreSQL. Sole creator at Mega Bilgisayar. → github.com/ekaynac/kutuphane
 ```
 ```
-LLMDAP — Sovereign LLM-agent identity & memory protection bound to AD/LDAP or OIDC (Casbin authz, envelope encryption, signed audit, LLM gateway with model attestation). TypeScript, Node.js. [Private repo]
+Unattended Coding Agents (Auto Dev Cycle → nöbetçi-mcp) — Three generations of an unattended build/gate/review loop. v1: GLM-5.3-flash via OpenRouter wrote the code, a local Qwen3.8-27B on an NVIDIA DGX Spark (vLLM) swept, frontier models planned and reviewed; 24 InfraMedic tasks / 59 merged PRs in 19 days at a median ~$2 builder cost per task. v2 (Go, open source): capacity scheduler, model gateway, and a hidden-test referee; stopped with a public post-mortem when plain agent loops matched it 14x faster. Now: nöbetçi-mcp, a build → checks → independent review delegation server that never merges. Sole creator at Mega Bilgisayar. → github.com/ekaynac/auto-dev-cycle
 ```
 ```
-On-Prem Intelligence Desk — Self-hosted system that answers "what should I run on-prem?" with a ranked, cited recommendation (capacity fit, benchmarks, license gate, adoption ring), plus publicly scored weekly calls and an MCP server. Python. → github.com/ekaynac/onprem-ai-adoption-radar
+LLMDAP — Sovereign LLM-agent identity & memory protection bound to AD/LDAP or OIDC (Casbin authz, envelope encryption, signed audit, governed model bridge with attestation and credential leases), v2.0. TypeScript, Node.js. [Private repo]
 ```
 ```
-Homelab — Infrastructure-as-documentation Proxmox VE platform: ZFS, tested PBS backups, GPU in unprivileged LXC, Cloudflare Tunnel ingress with zero forwarded ports, Tailscale admin access. Hosts tensorenes.com. [Private repo]
+AI Radar Pulse — New AI models, papers, repositories, and news, collected, triaged, and ranked every two hours, fully unattended; rules over classifier-answered facts with visible reasons, RSS, a daily Telegram digest, and a watchdog. Python. → ekaynac.github.io/onprem-ai-adoption-radar
+```
+```
+Homelab — Infrastructure-as-documentation Proxmox VE platform: ZFS, tested PBS backups, GPU in unprivileged LXC, Cloudflare Tunnel ingress with zero forwarded ports, Tailscale admin access. Hosts tensorenes.com, the LLMDAP demo, and CI runners. [Private repo]
 ```
 ```
 Polemik Yayınları Website — Live publisher website on React + Strapi CMS with an inventory view, submission workflow, and CI deploys. → polemikyayin.com
 ```
+```
+Küre Dizgi — Offline editor that lays a poem out on a sphere and projects it onto printed book pages without hiding a point-size cut; SVG/PDF/IDML output. JavaScript, Python. MIT. → ekaynac.github.io/kure-dizgi
 ```
 SIMS — Smart Inventory Management System (graduation project) — A 10-microservice platform (PHP/Laravel, Node.js, Python/FastAPI, React) with an MCP-powered AI assistant. [Private repo]
 ```
@@ -155,7 +160,7 @@ Automatic Calculation of Hallux Valgus Angle — ICAT (International Conference 
 Large Language Models (LLM), Retrieval-Augmented Generation (RAG), AI Agents, Model Context Protocol (MCP), Prompt Engineering, AI-Assisted Development, Computer Vision, YOLO, OWLv2, OpenCV, TensorRT, PyTorch, TensorFlow, vLLM, Ollama,
 Python, TypeScript, JavaScript, PHP, Java, C, Kotlin, Dart,
 React, Next.js, React Native, Node.js, Fastify, FastAPI, Laravel, Strapi,
-Docker, Kubernetes, Proxmox VE, Redis, RabbitMQ, PostgreSQL, MySQL, MongoDB, Nginx, GitHub Actions, LDAP/OIDC, Casbin, Cloudflare Tunnel, Tailscale
+Docker, Podman, Kubernetes, Proxmox VE, Redis, RabbitMQ, PostgreSQL, MySQL, MongoDB, Nginx, GitHub Actions, LDAP/OIDC, Casbin, Cloudflare Tunnel, Tailscale
 ```
 
 ---
@@ -172,7 +177,7 @@ Docker, Kubernetes, Proxmox VE, Redis, RabbitMQ, PostgreSQL, MySQL, MongoDB, Ngi
 | **6. Projects** | **Add profile section → Additional → Add projects** |
 | **7. Publications** | **Add profile section → Additional → Add publications** |
 | **8. Skills** | **Add profile section → Core → Add skills** (then reorder → pin top 3) |
-| **Featured** | **Add profile section → Recommended → Add featured** → link your CV (tensorenes.com/cv.pdf), github.com/ekaynac, the Intelligence Desk repo, and tensorenes.com |
+| **Featured** | **Add profile section → Recommended → Add featured** → link your CV (tensorenes.com/cv.pdf), github.com/ekaynac, the Kütüphane repo, and tensorenes.com |
 
 **Also worth doing on LinkedIn:**
 - Set **Location** to Ankara, Türkiye; turn on **Open to work** (recruiters only) if you want inbound.

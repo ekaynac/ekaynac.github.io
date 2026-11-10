@@ -40,3 +40,22 @@ compressing it into the CV's one-line "Leadership & Interests".
 Not scoped, not scheduled. Relevant because the master's direction under consideration is
 **audio-visual interactive systems / creative tech**, where the artist track is an asset, not a
 digression — so this decision is best made together with the master's-target decision.
+
+---
+
+## Technical / publishing (parked 2026-11-10)
+
+Seen in the 2026-11 GitHub sync; owner chose to add only Küre Dizgi for now. All three repos are private.
+
+- **polemik-dizgi-standardi** — Polemik Yayınları prose and fanzine (MDF) typesetting standard as a
+  Claude Code skill + scripts: extraction, InDesign/Scribus typesetting, audit, print PDF. A local
+  Qwen3.8-27B picks the credits block (künye) by JSON-schema choice over candidates; live measurement:
+  **137 files, 0 wrong**. Strongest candidate if a publishing-automation entry is wanted.
+- **turkce-ocr** — local Turkish handwriting/print transcription with llama.cpp VLMs (Qwen3-VL-8B,
+  PaddleOCR-VL-1.5, Qwen3.6-27B tried), CER/WER eval that keeps Turkish characters. README itself says
+  no measured winner was declared — do not claim accuracy numbers.
+- **wotne (W.O.T.N.E)** — e-ink belt buckle prototype: portless, wireless charging, shows a
+  procedurally generated sigil; parametric build123d CAD. Status P0. Fits the artist-portfolio idea.
+
+Not worth a surface: `dtcfz3` (school library catalog, Supabase + Vercel), `cognec` (Cognex camera
+feasibility report), the homelab game server.

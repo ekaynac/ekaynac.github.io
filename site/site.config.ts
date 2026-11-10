@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = {
     { engineer: "I build systems.", poet: "I write lines." },
     { engineer: "Pipelines, models, services.", poet: "Images, rhythm, voice." },
   ],
-  projects: ["inframedic", "auto-dev-cycle", "llmdap", "onprem-ai-adoption-radar", "homelab", "sims", "polemik-site", "etch-a-chat"],
+  projects: ["inframedic", "kutuphane", "auto-dev-cycle", "llmdap", "onprem-ai-adoption-radar", "homelab", "kure-dizgi", "polemik-site", "sims", "etch-a-chat"],
   experience: [
     { org: "Mega Bilgisayar", start: "2026-05-18" },
     { org: "Mia Teknoloji", start: "2025-02" },
@@ -51,6 +51,8 @@ export const siteConfig: SiteConfig = {
     "auto-dev-cycle": { trueName: "the Sleepless Apprentice", sigil: "sentinel", floor: 8, summonWords: ["sentinel", "nobetci", "cycle"] },
     homelab: { trueName: "the Hearthkeeper", sigil: "hearth", floor: 6, summonWords: ["hearth", "homelab", "proxmox"] },
     "polemik-site": { trueName: "the Keeper of Pages", sigil: "pages", floor: 7, summonWords: ["pages", "polemik"] },
+    kutuphane: { trueName: "the Archivist", sigil: "archivist", floor: 9, summonWords: ["archivist", "kutuphane", "library"] },
+    "kure-dizgi": { trueName: "the Weaver of the Sphere", sigil: "sphere", floor: 10, summonWords: ["sphere", "kure", "weave"] },
     "etch-a-chat": { trueName: "the Scribe of Vanishing Marks", sigil: "scribe", floor: 4, summonWords: ["scribe", "etch"] },
   },
 };

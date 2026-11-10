@@ -12,14 +12,14 @@ export const experience: Experience[] = [
     highlights: [
       "Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.",
       "Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.",
-      "Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.",
+      "Built Kütüphane, an open-source governed knowledge catalog and agent memory layer: every item carries its write-path provenance and model-use rights, agents propose over MCP, and only a person accepts, by passkey.",
       "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
-      "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.",
-      "Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on cheap hosted and local models (vLLM on DGX Spark), delivering 24 tasks in 19 days at ~$2 builder cost per task.",
+      "Built InfraMedic solo (~1,000 merged PRs): a diagnose-and-remediate appliance for heterogeneous infrastructure with an on-prem LLM analyst, a policy-gated remediation path, and an operator console.",
+      "Built and measured three generations of unattended coding agents (Auto Dev Cycle, its Go rewrite, nöbetçi-mcp): 24 InfraMedic tasks in 19 days at ~$2 builder cost each, and a hidden-test referee that drove the decision to retire the rewrite.",
     ],
     tech: [
       "TypeScript", "Python", "LLMs", "vLLM", "RAG", "MCP", "Casbin",
-      "LDAP/OIDC", "OWLv2", "TensorRT", "Docker", "GitHub Actions",
+      "LDAP/OIDC", "PostgreSQL", "OWLv2", "TensorRT", "Docker", "GitHub Actions",
     ],
   },
   {

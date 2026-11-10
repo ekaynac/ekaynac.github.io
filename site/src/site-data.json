@@ -25,10 +25,11 @@
     {
       "slug": "inframedic",
       "name": "InfraMedic",
-      "oneLiner": "Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.",
+      "oneLiner": "Safety-first diagnose-and-remediate appliance for heterogeneous infrastructure, with an on-prem LLM analyst.",
       "tech": [
         "Python",
-        "Ollama",
+        "LLMDAP",
+        "DSPy",
         "SQLite",
         "vCenter",
         "Zabbix",
@@ -46,20 +47,46 @@
       ]
     },
     {
-      "slug": "auto-dev-cycle",
-      "name": "Auto Dev Cycle",
-      "oneLiner": "Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.",
+      "slug": "kutuphane",
+      "name": "Kütüphane",
+      "oneLiner": "A governed knowledge catalog and memory layer that people, agents, and applications read from the same copy.",
       "tech": [
         "Python",
+        "PostgreSQL",
+        "MCP",
+        "OIDC",
+        "WebAuthn",
+        "LLMDAP",
+        "Docker"
+      ],
+      "url": "https://github.com/ekaynac/kutuphane",
+      "isPrivate": false,
+      "trueName": "the Archivist",
+      "sigil": "archivist",
+      "floor": 9,
+      "summonWords": [
+        "archivist",
+        "kutuphane",
+        "library"
+      ]
+    },
+    {
+      "slug": "auto-dev-cycle",
+      "name": "Unattended Coding Agents — Auto Dev Cycle → nöbetçi-mcp",
+      "oneLiner": "Three generations of an unattended coding loop, each measured honestly: build, gate, independent review, merge.",
+      "tech": [
+        "Python",
+        "Go",
+        "MCP",
         "vLLM",
         "OpenRouter",
         "DGX Spark",
-        "GLM",
-        "Qwen",
+        "Podman",
         "Claude Code",
         "Codex CLI"
       ],
-      "isPrivate": true,
+      "url": "https://github.com/ekaynac/auto-dev-cycle",
+      "isPrivate": false,
       "trueName": "the Sleepless Apprentice",
       "sigil": "sentinel",
       "floor": 8,
@@ -95,17 +122,18 @@
     },
     {
       "slug": "onprem-ai-adoption-radar",
-      "name": "On-Prem Intelligence Desk",
-      "oneLiner": "A self-hosted, fully cited answer to \"what should I run on-prem?\": capacity fit, benchmarks, license gate, and adoption ring.",
+      "name": "AI Radar Pulse",
+      "oneLiner": "New AI models, papers, repositories, and news, collected, triaged, and ranked every two hours, fully unattended.",
       "tech": [
         "Python",
         "React",
-        "MCP",
+        "Hugging Face API",
         "GitHub Actions",
-        "OSV.dev",
-        "Static Site (GitHub Pages)"
+        "Telegram Bot API",
+        "Playwright"
       ],
       "url": "https://github.com/ekaynac/onprem-ai-adoption-radar",
+      "demo": "https://ekaynac.github.io/onprem-ai-adoption-radar/",
       "isPrivate": false,
       "trueName": "the Augur",
       "sigil": "augur",
@@ -141,6 +169,52 @@
       ]
     },
     {
+      "slug": "kure-dizgi",
+      "name": "Küre Dizgi — Sphere Poetry Typesetting",
+      "oneLiner": "Offline editor that lays a poem out on a sphere and projects it onto printed book pages.",
+      "tech": [
+        "JavaScript",
+        "SVG",
+        "Quill",
+        "Python",
+        "PyMuPDF",
+        "InDesign scripting"
+      ],
+      "url": "https://github.com/ekaynac/kure-dizgi",
+      "demo": "https://ekaynac.github.io/kure-dizgi/",
+      "isPrivate": false,
+      "trueName": "the Weaver of the Sphere",
+      "sigil": "sphere",
+      "floor": 10,
+      "summonWords": [
+        "sphere",
+        "kure",
+        "weave"
+      ]
+    },
+    {
+      "slug": "polemik-site",
+      "name": "Polemik Yayınları Website",
+      "oneLiner": "Production website and catalog for an independent publishing house.",
+      "tech": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Strapi",
+        "PostgreSQL",
+        "Tailwind CSS"
+      ],
+      "demo": "https://polemikyayin.com",
+      "isPrivate": true,
+      "trueName": "the Keeper of Pages",
+      "sigil": "pages",
+      "floor": 7,
+      "summonWords": [
+        "pages",
+        "polemik"
+      ]
+    },
+    {
       "slug": "sims",
       "name": "SIMS — Smart Inventory Management System",
       "oneLiner": "10-microservice inventory platform with an MCP-powered AI assistant (graduation project).",
@@ -167,28 +241,6 @@
       "summonWords": [
         "sealed",
         "sims"
-      ]
-    },
-    {
-      "slug": "polemik-site",
-      "name": "Polemik Yayınları Website",
-      "oneLiner": "Production website and catalog for an independent publishing house.",
-      "tech": [
-        "React",
-        "TypeScript",
-        "Vite",
-        "Strapi",
-        "PostgreSQL",
-        "Tailwind CSS"
-      ],
-      "demo": "https://polemikyayin.com",
-      "isPrivate": true,
-      "trueName": "the Keeper of Pages",
-      "sigil": "pages",
-      "floor": 7,
-      "summonWords": [
-        "pages",
-        "polemik"
       ]
     },
     {
@@ -227,10 +279,10 @@
       "highlights": [
         "Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.",
         "Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.",
-        "Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.",
+        "Built Kütüphane, an open-source governed knowledge catalog and agent memory layer: every item carries its write-path provenance and model-use rights, agents propose over MCP, and only a person accepts, by passkey.",
         "Designed LLMDAP, a sovereign LLM-agent identity and memory-protection product binding agent memory and tool access to AD/LDAP or OIDC identities with Casbin authorization, envelope encryption, and a tamper-evident audit trail.",
-        "Built InfraMedic solo: a diagnose-and-remediate platform across seven infrastructure platforms with an on-prem LLM analyst.",
-        "Built the Auto Dev Cycle: a continuous plan-build-review-deploy loop that develops InfraMedic on cheap hosted and local models (vLLM on DGX Spark), delivering 24 tasks in 19 days at ~$2 builder cost per task."
+        "Built InfraMedic solo (~1,000 merged PRs): a diagnose-and-remediate appliance for heterogeneous infrastructure with an on-prem LLM analyst, a policy-gated remediation path, and an operator console.",
+        "Built and measured three generations of unattended coding agents (Auto Dev Cycle, its Go rewrite, nöbetçi-mcp): 24 InfraMedic tasks in 19 days at ~$2 builder cost each, and a hidden-test referee that drove the decision to retire the rewrite."
       ]
     },
     {
