@@ -57,7 +57,7 @@
 \resumeItemListStart
 \resumeItem{Built a fully on-prem AI portal stack: an aggregating MCP gateway with per-identity tool catalogs (Nextcloud, TrueConf, SIMS) and a vLLM agent that retrieves an embedding-selected tool subset per turn, with confirmation-gated writes.}
 \resumeItem{Led an industrial-safety vision platform: zero-shot OWLv2 detection, ByteTrack tracking, and face anonymization emitting signed violation events, deployed on NVIDIA Jetson and RTX via TensorRT.}
-\resumeItem{Created the On-Prem Intelligence Desk: a deterministic, self-hosted system that ranks AI models and agent tooling for on-prem adoption with cited evidence, publicly scored weekly calls, and an MCP server.}
+\resumeItem{Built Kütüphane, an open-source governed knowledge catalog and agent memory layer: every item carries its write-path provenance and model-use rights, agents propose over MCP, and only a person accepts, by passkey.}
 \resumeItemListEnd
 \resumeSubheading{Mia Teknoloji}{Feb 2025 -- Jul 2025}{AI Intern, AI R\&D}{Ankara, Türkiye}
 \resumeItemListStart
@@ -78,20 +78,20 @@
 
 \section{Projects}
 \resumeSubHeadingListStart
-\resumeProjectHeading{\textbf{InfraMedic} $|$ \emph{Python, Ollama, SQLite, vCenter}}{}
+\resumeProjectHeading{\textbf{InfraMedic} $|$ \emph{Python, LLMDAP, DSPy, SQLite}}{}
 \resumeItemListStart
-\resumeItem{Safety-first diagnose-and-remediate platform across seven infrastructure platforms, with an on-prem LLM analyst.}
+\resumeItem{Safety-first diagnose-and-remediate appliance for heterogeneous infrastructure, with an on-prem LLM analyst.}
 \resumeItem{Deny-by-default policy gate, saga-based remediation, and purpose-bound secret leases with TTL and a full audit trail.}
 \resumeItemListEnd
-\resumeProjectHeading{\textbf{Auto Dev Cycle} $|$ \emph{Python, vLLM, OpenRouter, DGX Spark}}{}
+\resumeProjectHeading{\textbf{Unattended Coding Agents — Auto Dev Cycle → nöbetçi-mcp} $|$ \emph{Python, Go, MCP, vLLM}}{\href{https://github.com/ekaynac/auto-dev-cycle}{\underline{Code}}}
 \resumeItemListStart
-\resumeItem{Self-driving dev loop: cheap hosted and local models build; frontier models only plan, review, and audit.}
-\resumeItem{Shipped 24 InfraMedic tasks (59 PRs) in 19 days at \textasciitilde{}\$2 builder cost each, \textasciitilde{}17x below the same tokens at Claude API rates.}
+\resumeItem{Three generations of an unattended coding loop, each measured honestly: build, gate, independent review, merge.}
+\resumeItem{Shipped 24 InfraMedic tasks (59 PRs) in 19 days at \textasciitilde{}\$2 builder cost each; stopped the Go rewrite when measurement showed plain agent loops did as well 14x faster.}
 \resumeItemListEnd
 \resumeProjectHeading{\textbf{LLMDAP — LLM Directory-bound Access Protection} $|$ \emph{TypeScript, Node.js, Casbin, LDAP/Active Directory}}{}
 \resumeItemListStart
 \resumeItem{Sovereign LLM-agent identity, memory protection, and audited gateway bound to AD/LDAP or OIDC.}
-\resumeItem{Per-identity envelope encryption, deny-by-default Casbin, and a signed hash-chained audit trail, fully on-prem through v1.15.}
+\resumeItem{Per-identity envelope encryption, deny-by-default Casbin, and a signed hash-chained audit trail, fully on-prem through v2.0.}
 \resumeItemListEnd
 \resumeProjectHeading{\textbf{SIMS — Smart Inventory Management System} $|$ \emph{PHP, Laravel, Node.js, Fastify}}{}
 \resumeItemListStart

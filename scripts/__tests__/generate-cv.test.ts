@@ -32,6 +32,7 @@ describe("renderResume", () => {
     expect(tex).toContain("SIMS");
     expect(tex).toContain("Homelab");
     expect(tex).toContain("Auto Dev Cycle");
+    expect(tex).not.toContain("Intelligence Desk");
     expect(tex).not.toContain("Etch-A-Chat");
   });
   it("renders skills and the leadership/awards lines", () => {
