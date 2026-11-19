@@ -39,7 +39,7 @@ Refresh Enes's professional presence across **four channels** — CV, LinkedIn, 
 A single repo (`ekaynac.github.io`) holds a typed content dataset that is the **single source of truth**. The website renders it; the CV, README, and LinkedIn copy are generated/kept in sync from the same data. This directly fixes the drift problem: future updates mean editing one place, not four.
 
 ```
-ekaynac.github.io/                 (local: /Users/eneskaynakci/Github/CV)
+ekaynac.github.io/                 (the local checkout)
 ├── content/                       # SINGLE SOURCE OF TRUTH (typed data)
 │   ├── profile.ts                 # name, headline, contact, links, summary
 │   ├── experience.ts              # roles (Mega, Mia, Meturone, ...)
@@ -130,7 +130,7 @@ Delivery is phased; **Phase 0 first** (user-confirmed). Each later phase consume
 - **CV compile:** Tectonic via GitHub Action (local machine has no `pdflatex`/`tectonic`/`pandoc`). Keeps PDF reproducible without local TeX install.
 - **Website build:** Next.js `output: export`; deploy with `actions/deploy-pages`.
 - **GitHub writes:** `gh` CLI + GitHub MCP (authenticated as `ekaynac`, `repo` scope — private repos visible).
-- **Repo:** local `/Users/eneskaynakci/Github/CV` → new remote `ekaynac.github.io` (user Pages site). Profile README stays in its own `ekaynac` repo.
+- **Repo:** the local checkout → new remote `ekaynac.github.io` (user Pages site). Profile README stays in its own `ekaynac` repo.
 
 ## 5. Privacy Handling
 

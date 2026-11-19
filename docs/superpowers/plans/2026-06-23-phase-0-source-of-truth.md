@@ -18,7 +18,7 @@
 - Exactly **1** experience entry with `current: true` (Mega Bilgisayar, AI / Software Engineer, started `2026-05-18`).
 - Dates are strings: `YYYY-MM`, `YYYY-MM-DD`, or the literal `present`.
 - Conventional commits (`feat:`, `test:`, `chore:`). Commit after every task. Local git identity is already set (Enes); repo already initialized.
-- All work happens in `/Users/eneskaynakci/Github/CV`.
+- All work happens in the local checkout.
 
 ---
 
