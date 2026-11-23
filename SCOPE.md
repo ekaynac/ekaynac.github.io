@@ -29,8 +29,8 @@
 - **K7** Keeping the hand-maintained packs (C1) consistent with `content/`; `[TODO]` sections are Enes's own words,
   never filled by the agent.
 - **K8** *(maintenance)* CI definitions and dependencies — never cited for new behavior; always B.
-- **K9** *(maintenance)* Canonical documents listed in "Kanon" (and `docs/superpowers/`): edits only on Enes's explicit
-  decision; always B2; never cited for new behavior or content claims.
+- **K9** *(maintenance)* This SCOPE.md and the canonical documents listed in "Kanon" (and `docs/superpowers/`): edits only
+  on Enes's explicit decision; always B2; never cited for new behavior or content claims.
 
 ## Kapsam dışı
 - **D1** Changing the projects the site describes → that project's repo (PORTFOLIO §1).
