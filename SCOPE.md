@@ -29,6 +29,8 @@
 - **K7** Keeping the hand-maintained packs (C1) consistent with `content/`; `[TODO]` sections are Enes's own words,
   never filled by the agent.
 - **K8** *(maintenance)* CI definitions and dependencies — never cited for new behavior; always B.
+- **K9** *(maintenance)* Canonical documents listed in "Kanon" (and `docs/superpowers/`): edits only on Enes's explicit
+  decision; always B2; never cited for new behavior or content claims.
 
 ## Kapsam dışı
 - **D1** Changing the projects the site describes → that project's repo (PORTFOLIO §1).
@@ -65,3 +67,4 @@ Historical (not used as justification): the spec's Next.js/Tailwind stack and `e
 
 ## Değişiklik kaydı
 - 2026-11-18 · v1 · Enes approval · #3
+- 2026-11-23 · v1.1 · K9 added (canonical document maintenance) · Enes approval · #9
