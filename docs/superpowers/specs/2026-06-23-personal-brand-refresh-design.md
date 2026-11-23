@@ -14,7 +14,7 @@ Refresh Enes's professional presence across **four channels** — CV, LinkedIn, 
 
 **Core problem:** The existing assets have **drifted out of sync** and are stale:
 - `cv.md` (LaTeX résumé, March 2026) lists Mega Bilgisayar as *past* (2024), but Enes is **currently there**.
-- 2025–2026 work is missing everywhere: the current Mega body of work (VestDetectionSystem/Advantech, BukaUI, the BukaForces portal suite, LLMDAP, onprem-ai-adoption-radar), client sites (Polemik, tolga.com, MDF/fanzine), etc.
+- 2025–2026 work is missing everywhere: the current Mega body of work (VestDetectionSystem/Advantech, BukaUI, the on-prem AI portal stack, LLMDAP, onprem-ai-adoption-radar), client sites (Polemik, tolga.com, MDF/fanzine), etc.
 - The GitHub profile README (`ekaynac/ekaynac`) is decent but equally stale.
 
 **Strategic decisions (confirmed with user):**
@@ -134,7 +134,7 @@ Delivery is phased; **Phase 0 first** (user-confirmed). Each later phase consume
 
 ## 5. Privacy Handling
 
-User chose "name everything freely." Projects and clients (Mega, BukaForces, Polemik, tolga.com, MDF) may be named publicly. **Still:** never expose secrets, credentials, internal URLs, or confidential implementation details from private repos. Describe *what was built and its impact*, not proprietary internals.
+User chose "name everything freely." Projects and clients (Mega, Polemik, tolga.com, MDF) may be named publicly. **Still:** never expose secrets, credentials, internal URLs, or confidential implementation details from private repos. Describe *what was built and its impact*, not proprietary internals.
 
 ## 6. Non-Goals (this round)
 

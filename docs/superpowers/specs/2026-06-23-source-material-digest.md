@@ -48,7 +48,7 @@
 - **[NEW] FanzinApp** (Hagenberg, w/ Ecem Tekiner) — fanzine submission/review + digital archive; **Firebase** backend; native layer Kotlin **or** Flutter (CONFLICT — confirm).
 - **HalluxValgus** — YOLOv5 + classical CV angle measurement (the ICAT paper).
 - **[NEW] Lyrics Bot** (2021) — Spotify + Genius API on-screen lyrics.
-- 2025–26 repos to triage as featured: LLMDAP, VestDetectionSystem (Advantech), BukaUI, BukaForces portal suite, onprem-ai-adoption-radar, PolemikSite, MDF-site, tolga.com.
+- 2025–26 repos to triage as featured: LLMDAP, VestDetectionSystem (Advantech), BukaUI, the on-prem AI portal stack, onprem-ai-adoption-radar, PolemikSite, MDF-site, tolga.com.
 
 ## Leadership & Creative (for "Beyond code")
 - **Founder, Bilkent Game Dev & Animation Society** (2023–) — ran first Bilkent Game Jam (50+).
