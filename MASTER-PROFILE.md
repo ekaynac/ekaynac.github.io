@@ -183,4 +183,4 @@ _Tech:_ JavaScript, SVG, Quill, Python, PyMuPDF, InDesign scripting
 - Published two poetry books: "Uyandı Uyudu" (Kharon Yayınları, 2024) and "Sarhoş" (Polemik Yayınları, 2025).
 
 ### Theatrical Poetry Moderator — METU Voicing Society (creative)
-2022-09 – Present
+2020 – 2022

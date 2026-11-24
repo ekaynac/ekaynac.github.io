@@ -44,8 +44,8 @@ export const leadership: Leadership[] = [
   {
     org: "METU Voicing Society",
     role: "Theatrical Poetry Moderator",
-    start: "2022-09",
-    end: "present",
+    start: "2020",
+    end: "2022",
     category: "creative",
     highlights: [],
   },
