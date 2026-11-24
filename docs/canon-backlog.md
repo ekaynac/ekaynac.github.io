@@ -28,6 +28,12 @@ entry below. Each item records where it came from so it can be re-verified.
   METU Voicing Society (theatrical poetry moderator), Polemik Yayınları and the poetry books;
   it is the same thread: **poetry performed aloud, on a stage, for an audience.**
 
+### Raw Şiir — poetry recitation channel (YouTube)
+
+- **What:** YouTube channel of poetry recitation: <https://www.youtube.com/@rawsiir>.
+- **Source:** owner, 2026-11-24 (reported via the Buka site profile request, #11).
+- **Status:** **parked** with the artist-portfolio track below; not on the CV (owner decision 2026-11-24).
+
 ---
 
 ## Standing idea: separate artist portfolio
